@@ -1,6 +1,7 @@
 version: "3"
 services:
     app:
+      container_name: debby-django
       restart: always
       build: . #包含Dockerfile的路徑
       command: "python3 manage.py runserver 0.0.0.0:8000"
