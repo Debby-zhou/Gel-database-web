@@ -1,0 +1,10 @@
+.
+├── development
+│   └── mariadb
+│       ├── db
+│       ├── logs
+│       └── my.cnf.d
+├── docker-compose.yml
+└── structure.txt
+
+217 directories, 2189 files
