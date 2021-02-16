@@ -2,4 +2,4 @@
 python manage.py collectstatic --noinput&&
 python manage.py makemigrations&&
 python manage.py migrate&&
-gunicorn gel_database.wsgi:application -c gunicorn.conf 
+uwsgi --ini /var/www/html/gel_database/uwsgi.ini

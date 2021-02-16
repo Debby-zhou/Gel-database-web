@@ -1,14 +1,7 @@
-FROM python:3
-
-# 設置環境變量
-ENV PYTHONUNBUFFERED 1
-
-RUN mkdir /gel_database 
-
-WORKDIR /gel_database
-
-ADD . /gel_database/
-
-RUN pip3 install -r requirements.txt
-
-
+FROM python:3.7
+RUN mkdir -p /var/www/html/gel_database
+WORKDIR /var/www/html/gel_database
+ADD . /var/www/html/gel_database
+RUN pip install -r requirements.txt
+RUN chmod +x ./start.sh
+RUN ./start.sh

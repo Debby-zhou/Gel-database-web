@@ -1,57 +1,9 @@
 version: '3'
 services:
-  redis:
-    image: "redis:3" 
-    container_name: "debby-redis"
-    command: redis-server
-    volumes:
-      - ./development/redis/:/data
-    ports:
-      - "6379:6379"
-    restart: always 
-  mariadb:
-    image: "mariadb:latest"
-    container_name: "debby-mariadb"
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: qaz123456789
-    volumes:
-      - /home/debby/gel_database/development/mariadb/db:/var/lib/mysql
-      - /home/debby/gel_database/development/mariadb/my.cnf.d:/etc/my.cnf.d
-      - /home/debby/gel_database/development/mariadb/logs:/var/log/mariadb
-    restart: always
   web:
-    build: .
-    container_name: "debby-web"
-    expose:
-      - "8000"
+    image: "django_geldb"
+    container_name: "geldb-web"
     volumes:
-      - .:/gel_database
-      - /tmp/logs:/tmp
-    command: bash start.sh
-    links:
-      - mariadb
-      - redis
-    depends_on:
-      - mariadb
-      - redis
-    restart: always
-  nginx:
-    build: development/nginx
-    container_name: "debby-nginx"
+      - ./gel_database:/var/www/html/gel_database
     ports:
-      - "80:80"
-      - "443:443"
-    expose: 
-      - "8000"
-    volumes:
-      - ./collect_static:/usr/share/nginx/html/static
-      - ./media:/usr/share/nginx/html/media
-      - ./development/nginx/ssl:/usr/share/nginx/ssl
-    links:
-      - web
-    depends_on:
-      - web
-    restart: always
-
+      - 8000:8000 
