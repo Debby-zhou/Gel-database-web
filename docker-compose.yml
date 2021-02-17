@@ -1,9 +1,65 @@
 version: '3'
 services:
+  redis:
+    container_name: "geldb_redis"
+    image: redis:5
+    command: redis-server /etc/redis/redis.conf
+    volumes:
+      - ./config/redis:/data
+      - ./config/redis/redis.conf:/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    restart: always
+
+  db:
+    container_name: "geldb_mariadb"
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=qaz123456789
+    volumes:
+      - ./config/mariadb/db:/var/lib/mysql
+      - ./config/mariadb/my.cnf:/etc/mysql/my.cnf
+      - ./config/mariadb/logs:/var/log/mariadb
+    ports:
+      - "3306:3306"
+    restart: always
+
   web:
-    image: "django_geldb"
+    build: ./gel_database
+    expose: 
+      - "8000" 
     container_name: "geldb-web"
     volumes:
       - ./gel_database:/var/www/html/gel_database
+      - ./gel_database/media:/var/www/html/gel_database/media
+      - ./config/uwsgi:/tmp
+    links:
+      - db
+      - redis
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DEBUG=False
+    restart: always
+    tty: true
+    stdin_open: true
+  
+  nginx:
+    build: ./config/nginx
+    container_name: "geldb_nginx"
     ports:
-      - 8000:8000 
+       - "80:80"
+       - "443:443"
+    expose:
+       - "80"
+    volumes:
+       - ./gel_database/static:/usr/share/nginx/html/static
+       - ./config/nginx/ssl:/usr/share/nginx/ssl
+       - ./config/nginx/log:/var/log/nginx 
+       - ./gel_database/media:/usr/share/nginx/html/media
+    links:
+       - web
+    depends_on:
+       - web
+    restart: always
