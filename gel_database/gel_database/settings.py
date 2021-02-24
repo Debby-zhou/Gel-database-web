@@ -25,7 +25,7 @@ SECRET_KEY = 'f$o3mhfl(fm6d#vjxkg5tiag#!#g&0o=j#b3%xw533@v_(d00%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['203.145.222.147','geldb_web','smagel.nchc.org.tw']
+ALLOWED_HOSTS = ['203.145.222.147','geldb_web','smagel.nchc.org.tw','db']
 
 
 # Application definition
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'gel_database.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'experiment',
+        'USER': 'root',
+        'PASSWORD': 'qaz123456789',
+        'HOST': 'db',
+        #'PORT': '3306',
         
     }
 }

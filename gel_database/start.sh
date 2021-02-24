@@ -2,4 +2,4 @@
 python manage.py collectstatic --noinput&&
 python manage.py makemigrations&&
 python manage.py migrate&&
-uwsgi --ini /var/www/html/gel_database/uwsgi.ini
+uwsgi --ini uwsgi.ini
