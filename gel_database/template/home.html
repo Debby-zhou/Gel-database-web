@@ -36,10 +36,19 @@
                     Menu
                     <i class="fas fa-bars ml-1"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse dropdown" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dashboard">DASHBOARD</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#data">DATA</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dashboard">DASHBOARD</a></li>                        
+                        <li class="nav-item">                                
+                            <div class="dropdown">
+                                <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" href=#>DATA</a>                    
+                                    <ul class="dropdown-menu" style="background-color: #343741;">
+                                        <li class="dropdown-item"><a href="experiment">experiment</a></li>
+                                        <li class="dropdown-item" ><a href="simulation">simulation</a></li>
+                                        <li class="dropdown-item"><a href="analysis">analysis</a></li>
+                                    </ul>                                        
+                            </div>                                       
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -47,8 +56,7 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <a class="btn btn-outline-primary btn-l text-uppercase js-scroll-trigger" href="">upload</a>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="">download</a>
+                <h5>This is the test version of web. <br>The formal one is coming soon. <br>Thanks for your patience!</h5>
             </div>
         </header>
 
@@ -56,37 +64,42 @@
         <section class="page-section" id="dashboard">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Home</h2>
-                    <h3 class="section-subheading text-muted">What can this database do?</h3>
+                    <h2 class="section-heading text-uppercase">dashboard</h2>
+                    We seperate the data into 3 parts.
+                    <h2><br></h2>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
+                <div class="row text-center">                    
+                    <div class="col-md-4" style="background-color:linen; padding-top: 3em; padding-bottom: 3em; border-right: #ffffff solid 3px;">
+                        <a href="experiment">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Data Storage</h4>
-                        <p class="text-muted">We use mariaDB to manage data. It can store lots kinds of file formats like
-                            csv, png etc. Users can upload local files into the database or download data from the databse.
-                        </p>
+                        </a>
+                        <h4 class="my-3">EXPERIMENT</h4>
+                        <p class="text-muted"></p>
+                        
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="background-color:linen; padding-top: 3em; padding-bottom: 3em; ">
+                        <a href="simulation">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">The web design is highly user-friendly including lots of responsive actions.
-                            Hope that we can provide the best web browsing experiences for our users.</p>
+                        </a>
+                        <h4 class="my-3">SIMULATION</h4>
+                        <p class="text-muted"></p>
+                        
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="background-color:linen; padding-top: 3em; padding-bottom: 3em; border-left: #ffffff solid 3px; ">
+                        <a href="analysis">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Users must register and log in an account to use the database. Before logging,
-                            a user's email has to be verified to make sure its existence.</p>
+                        </a>
+                        <h4 class="my-3">ANALYSIS</h4>
+                        <p class="text-muted"></p>
                     </div>
                 </div>
             </div>
@@ -94,36 +107,7 @@
         <!-- Data -->
         <section class="page-section" id="data">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">LOG IN</h2>
-                </div>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                    <div style="margin:0px auto; width:30%">
-                        <div>
-                            <div>
-                                <input class="form-control" id="account" type="email" placeholder="Your Email *"
-                                    required="required"
-                                    data-validation-required-message="Please enter your email address." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <input class="form-control" id="password" type="tel" placeholder="Your Password *"
-                                    required="required" data-validation-required-message="Please enter your password." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <a href=register>
-                            New to this databse?
-                        </a>
-                    </div><br>
-                    <div class="text-center">
-                        <div id="success"></div>
-                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit"
-                            onclick="javascript:location.href='../contents'">Enter</button>
-                    </div>
-                </form>
+                
             </div>
         </section>
         <!-- Footer-->

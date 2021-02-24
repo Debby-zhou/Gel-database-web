@@ -80,8 +80,23 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'qaz123456789',
         'HOST': 'db',
-        #'PORT': '3306',
-        
+        'PORT': '3306',        
+    },
+    'simulationdb': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'simulation',
+        'USER': 'root',
+        'PASSWORD': 'qaz123456789',
+        'HOST': 'db',
+        'PORT': '3306',        
+    },
+    'analysisdb': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'analysis',
+        'USER': 'root',
+        'PASSWORD': 'qaz123456789',
+        'HOST': 'db',
+        'PORT': '3306',        
     }
 }
 CACHES = {

@@ -19,7 +19,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('',views.showtemplate1),
-    url(r'^register/$',views.showtemplate2, name="register"),
-    url(r'^success/$',views.showtemplate3, name="success"),
+    path('',views.showindex),
+    url(r'^register/$',views.showregister, name="register"),
+    url(r'^success/$',views.showregistersuccess, name="success"),
 ]
