@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="/static/css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -69,7 +70,7 @@
                                 <form>
                                     <input type="radio" name="group" value="simulation"> simulation
                                     <input type="radio" name="group" value="expirement"> experiment
-                                    <input type="radio" name="group" value="training"> training
+                                    <input type="radio" name="group" value="analysis"> analysis
                                 </form>
                             </div>
                         </div>                        
@@ -78,10 +79,10 @@
                     
                     <div class="text-center">
                         <div id="success"></div>
-                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Submit</button>
+                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit" onclick="location.href='../success'">Submit</button>
                     </div><br>
                     <div class="text-center">
-                        <a href="index.html">
+                        <a href="../">
                             ← Back to log in
                         </a>
                     </div>
@@ -111,9 +112,9 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
+        <script src="{%static 'assets/mail/jqBootstrapValidation.js'%}"></script>
+        <script src="{%static 'assets/mail/contact_me.js'%}"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{%static 'js/scripts.js'%}"></script>
     </body>
 </html>

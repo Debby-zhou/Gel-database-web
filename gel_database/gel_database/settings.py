@@ -25,7 +25,7 @@ SECRET_KEY = 'f$o3mhfl(fm6d#vjxkg5tiag#!#g&0o=j#b3%xw533@v_(d00%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['203.145.222.147','geldb_web']
+ALLOWED_HOSTS = ['203.145.222.147','geldb_web','smagel.nchc.org.tw']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'gel_database.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': os.path.join(BASE_DIR, 'templates'),
+        'DIRS': ["./template"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

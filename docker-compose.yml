@@ -49,7 +49,7 @@ services:
     build: ./config/nginx
     container_name: "geldb_nginx"
     ports:
-       - "80:80"
+       - "81:80"
        - "443:443"
     expose:
        - "80"
