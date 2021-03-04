@@ -28,11 +28,12 @@ services:
     build: ./gel_database
     expose: 
       - "8000" 
-    container_name: "geldb-web"
+    container_name: "geldb_web"
     volumes:
       - ./gel_database:/var/www/html/gel_database
       - ./gel_database/media:/var/www/html/gel_database/media
       - ./config/uwsgi:/tmp
+    # command: sh -c "start.sh"
     links:
       - db
       - redis

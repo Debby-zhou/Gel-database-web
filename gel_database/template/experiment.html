@@ -1,4 +1,7 @@
 {% load static %}
+{% load render_table from django_table2 %}
+{% load querystring from django_table2 %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +11,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>仿生水膠資料庫</title>
-    <link rel="icon" type="image/x-icon" href="/static/assets/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/static/assets/img/favicon.ico"/>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -27,7 +30,7 @@
             <!--
                     <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="" /></a>
                     -->
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <a class="navbar-brand js-scroll-trigger" href="../">
                 <font face="serif"><strong>BIOMIMICRY GEL DATABASE</strong></font>
             </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -37,7 +40,7 @@
                 <i class="fas fa-bars ml-1"></i>
             </button>
             <div class="collapse navbar-collapse dropdown" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
+                <ul class="navbar-nav text-uppercase ml-auto">                    
                     <li class="nav-item">
                         <div class="dropdown">
                             <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" href=#>DATA</a>
@@ -48,6 +51,7 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#type">DATA TYPES</a></li>
                 </ul>
             </div>
         </div>
@@ -59,10 +63,94 @@
         </div>
     </header>
 
-    <!-- Data -->
-    <section class="page-section" id="data">
+    <!-- Type -->
+    <section class="page-section" id="type">
         <div class="container">
-
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase"><u>data types</u></h2>
+            </div> 
+                    
+            <div class="row text-center" style="padding-top: 1em;">
+                <div class="col-md-4"
+                    style="background-color: lightgoldenrodyellow; padding-bottom: 3em; border-right: #ffffff solid 3px;">
+                    <h4 class="my-3" style="color:dimgrey;">Time<hr></h4>
+                    <div class="container text-muted" style="width: 35%;">
+                        <form class="text-left">
+                            <input type="checkbox" name="selecteddata" value="2020/03/17"><tt> 2020/03/17</tt><br>
+                            <input type="checkbox" name="selecteddata" value="2020/03/17"><tt> 2020/10/16</tt><br>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4" style="background-color: lightyellow;  padding-bottom: 3em; ">
+                    <h4 class="my-3" style="color:dimgrey;">Types<hr></h4>
+                    <div class="container text-muted" style="width: 55%;">
+                        <form class="text-left">
+                            <input type="checkbox" name="selecteddata" value="Material parameter"><tt> Material parameter</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Score"><tt> Score</tt><br>
+                            <input type="checkbox" name="selecteddata" value="CT value"><tt> CT value</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Fold change"><tt> Fold change</tt><br>
+                        </form>
+                    </div>            
+                </div>
+                <div class="col-md-4"
+                    style="background-color:beige; padding-bottom: 3em; border-left: #ffffff solid 3px; ">
+                    <h4 class="my-3" style="color:dimgrey;">Tissues<hr></h4>
+                    <div class="container text-muted" style="width: 40%;">
+                        <form class="text-left">
+                            <input type="checkbox" name="selecteddata" value="Controls"><tt> Controls</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Ectoderm"><tt> Ectoderm</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Endoderm"><tt> Endoderm</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Mesoderm"><tt> Mesoderm</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Mesendoderm</tt><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="padding-top: 1em;">
+                <a href=#result><button class="btn btn-primary btn-l text-uppercase">Show</button></a>
+                
+            </div>
+            <!--
+            <div class="text-center" style="padding-top: 3em;">
+                <h4 class="section-subheading">Time<hr></h4>
+                <div>   
+                    <button class="btn btn-outline-secondary" type="checkbox">2020/03/17</button>
+                    <button class="btn btn-outline-secondary" type="checkbox">2020/10/16</button>    
+                </div>
+            </div>
+            <div class="text-center" style="padding-top: 3em;">
+                <h4 class="section-subheading">Types
+                    <hr>
+                </h4>
+                <div>
+                    <button class="btn btn-outline-secondary">Material parameter</button>
+                    <button class="btn btn-outline-secondary">Score</button>
+                    <button class="btn btn-outline-secondary">CT value</button>
+                    <button class="btn btn-outline-secondary">Fold change</button>
+                </div>
+            </div>
+            <div class="text-center" style="padding-top: 3em;">
+                <h4 class="section-subheading">Tissues
+                    <hr>
+                </h4>
+                <div>
+                    <button class="btn btn-outline-secondary">Controls</button>
+                    <button class="btn btn-outline-secondary">Ectoderm</button>
+                    <button class="btn btn-outline-secondary">Endoderm</button>
+                    <button class="btn btn-outline-secondary">Mesoderm</button>
+                    <button class="btn btn-outline-secondary">Mesendoderm</button>
+                </div>
+            </div>
+            
+            -->
+        </div>
+    </section>
+    <!-- Result-->
+    <section class="page-section" id="result">
+        <div class="container" style="background-color: rgb(240, 237, 232);">
+            <div class="text-center">
+                Hello! I am results!
+            </div>
         </div>
     </section>
     <!-- Footer-->

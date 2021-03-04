@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^experiment/$',views.showexperiment, name="experiment"),
     url(r'^simulation/$',views.showsimulation, name="simulation"),
     url(r'^analysis/$',views.showanalysis, name="analysis"),
+    url(r'^template/$',views.showtemplate),
 ]
 
