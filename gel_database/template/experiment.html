@@ -1,6 +1,4 @@
 {% load static %}
-{% load render_table from django_table2 %}
-{% load querystring from django_table2 %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +43,7 @@
                         <div class="dropdown">
                             <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" href=#>DATA</a>
                             <ul class="dropdown-menu" style="background-color: #343741;">
-                                <li class="dropdown-item"><a href="../experiment/" onclick="">experiment</a></li>
+                                <li class="dropdown-item"><a href="../experiment/">experiment</a></li>
                                 <li class="dropdown-item"><a href="../simulation/">simulation</a></li>
                                 <li class="dropdown-item"><a href="../analysis/">analysis</a></li>
                             </ul>
@@ -59,7 +57,7 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <h5>This is the test version of web. <br>The formal one is coming soon. <br>Thanks for your patience!</h5>
+            <h5>Please use google chrome to view this website.</h5>
         </div>
     </header>
 
@@ -70,9 +68,9 @@
                 <h2 class="section-heading text-uppercase"><u>data types</u></h2>
             </div> 
                     
-            <div class="row text-center" style="padding-top: 1em;">
+            <div class="row text-center" style="padding-top: 2em;">
                 <div class="col-md-4"
-                    style="background-color: lightgoldenrodyellow; padding-bottom: 3em; border-right: #ffffff solid 3px;">
+                    style="background-color: lightgoldenrodyellow; padding-bottom: 2em; border-right: #ffffff solid 3px;">
                     <h4 class="my-3" style="color:dimgrey;">Time<hr></h4>
                     <div class="container text-muted" style="width: 35%;">
                         <form class="text-left">
@@ -81,7 +79,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-4" style="background-color: lightyellow;  padding-bottom: 3em; ">
+                <div class="col-md-4" style="background-color: lightyellow;  padding-bottom: 2em; ">
                     <h4 class="my-3" style="color:dimgrey;">Types<hr></h4>
                     <div class="container text-muted" style="width: 55%;">
                         <form class="text-left">
@@ -93,7 +91,7 @@
                     </div>            
                 </div>
                 <div class="col-md-4"
-                    style="background-color:beige; padding-bottom: 3em; border-left: #ffffff solid 3px; ">
+                    style="background-color:beige; padding-bottom: 2em; border-left: #ffffff solid 3px; ">
                     <h4 class="my-3" style="color:dimgrey;">Tissues<hr></h4>
                     <div class="container text-muted" style="width: 40%;">
                         <form class="text-left">
@@ -102,12 +100,14 @@
                             <input type="checkbox" name="selecteddata" value="Endoderm"><tt> Endoderm</tt><br>
                             <input type="checkbox" name="selecteddata" value="Mesoderm"><tt> Mesoderm</tt><br>
                             <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Mesendoderm</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Other</tt><br>
+                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Selfrenewal</tt><br>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="text-center" style="padding-top: 1em;">
-                <a href=#result><button class="btn btn-primary btn-l text-uppercase">Show</button></a>
+                <a href=#result><button class="btn btn-secondary btn-l text-uppercase">Show</button></a>
                 
             </div>
             <!--
@@ -146,10 +146,10 @@
         </div>
     </section>
     <!-- Result-->
-    <section class="page-section" id="result">
+    <section class="page-section unsee" id="result">
         <div class="container" style="background-color: rgb(240, 237, 232);">
             <div class="text-center">
-                Hello! I am results!
+                Hello! This is result!
             </div>
         </div>
     </section>

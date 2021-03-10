@@ -24,7 +24,7 @@ SECRET_KEY = 'f$o3mhfl(fm6d#vjxkg5tiag#!#g&0o=j#b3%xw533@v_(d00%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 ALLOWED_HOSTS = ['203.145.222.147','geldb_web','smagel.nchc.org.tw','db']
 
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'contents',
+    'welcome',
 ]
 
 MIDDLEWARE = [

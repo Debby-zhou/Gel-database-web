@@ -10494,12 +10494,14 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-section#result {
-    display: none;
-    position: relative;   
-}
 
-section#result:target{
+.unsee {
+  display: none;
+  position: relative;
+}
+.unsee:focus{
   display: block;
 }
-
+.unsee:target {
+  display: block;
+}
