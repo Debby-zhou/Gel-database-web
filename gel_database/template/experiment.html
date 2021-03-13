@@ -1,8 +1,6 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -66,92 +64,244 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase"><u>data types</u></h2>
-            </div> 
-                    
-            <div class="row text-center" style="padding-top: 2em;">
-                <div class="col-md-4"
-                    style="background-color: lightgoldenrodyellow; padding-bottom: 2em; border-right: #ffffff solid 3px;">
-                    <h4 class="my-3" style="color:dimgrey;">Time<hr></h4>
-                    <div class="container text-muted" style="width: 35%;">
-                        <form class="text-left">
-                            <input type="checkbox" name="selecteddata" value="2020/03/17"><tt> 2020/03/17</tt><br>
-                            <input type="checkbox" name="selecteddata" value="2020/03/17"><tt> 2020/10/16</tt><br>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-4" style="background-color: lightyellow;  padding-bottom: 2em; ">
-                    <h4 class="my-3" style="color:dimgrey;">Types<hr></h4>
-                    <div class="container text-muted" style="width: 55%;">
-                        <form class="text-left">
-                            <input type="checkbox" name="selecteddata" value="Material parameter"><tt> Material parameter</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Score"><tt> Score</tt><br>
-                            <input type="checkbox" name="selecteddata" value="CT value"><tt> CT value</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Fold change"><tt> Fold change</tt><br>
-                        </form>
-                    </div>            
-                </div>
-                <div class="col-md-4"
-                    style="background-color:beige; padding-bottom: 2em; border-left: #ffffff solid 3px; ">
-                    <h4 class="my-3" style="color:dimgrey;">Tissues<hr></h4>
-                    <div class="container text-muted" style="width: 40%;">
-                        <form class="text-left">
-                            <input type="checkbox" name="selecteddata" value="Controls"><tt> Controls</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Ectoderm"><tt> Ectoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Endoderm"><tt> Endoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesoderm"><tt> Mesoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Mesendoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Other</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Selfrenewal</tt><br>
-                        </form>
-                    </div>
-                </div>
             </div>
-            <div class="text-center" style="padding-top: 1em;">
-                <a href=#result><button class="btn btn-secondary btn-l text-uppercase">Show</button></a>
-                
-            </div>
-            <!--
-            <div class="text-center" style="padding-top: 3em;">
-                <h4 class="section-subheading">Time<hr></h4>
-                <div>   
-                    <button class="btn btn-outline-secondary" type="checkbox">2020/03/17</button>
-                    <button class="btn btn-outline-secondary" type="checkbox">2020/10/16</button>    
-                </div>
-            </div>
-            <div class="text-center" style="padding-top: 3em;">
-                <h4 class="section-subheading">Types
-                    <hr>
-                </h4>
-                <div>
-                    <button class="btn btn-outline-secondary">Material parameter</button>
-                    <button class="btn btn-outline-secondary">Score</button>
-                    <button class="btn btn-outline-secondary">CT value</button>
-                    <button class="btn btn-outline-secondary">Fold change</button>
-                </div>
-            </div>
-            <div class="text-center" style="padding-top: 3em;">
-                <h4 class="section-subheading">Tissues
-                    <hr>
-                </h4>
-                <div>
-                    <button class="btn btn-outline-secondary">Controls</button>
-                    <button class="btn btn-outline-secondary">Ectoderm</button>
-                    <button class="btn btn-outline-secondary">Endoderm</button>
-                    <button class="btn btn-outline-secondary">Mesoderm</button>
-                    <button class="btn btn-outline-secondary">Mesendoderm</button>
-                </div>
-            </div>
+            <form action="score200317/#result" method="POST">                
+                    {% csrf_token %}
+                    {{ form }}
+                    <input class="btn btn-primary" type="submit" value="Show" href="#result">
+            </form>
             
-            -->
-        </div>
+        </div>     
     </section>
     <!-- Result-->
-    <section class="page-section unsee" id="result">
-        <div class="container" style="background-color: rgb(240, 237, 232);">
+    <section class="page-section bg-light unsee" id="result">
+        <div class="container">
             <div class="text-center">
-                Hello! This is result!
+                <h2 class="section-heading text-uppercase"><u>result table</u></h2>                
+                <div>
+                {% if score200317 %}    
+                    <div class="text-left" style="padding-left: 2em; padding-top: 1em; padding-bottom: 0.5em;background-color:#c8cbcf;">
+                        <h5 class="section-subheading">2020/03/17 > Score</h5>
+                    </div>
+                    <table class="table table-light table-bordered table-striped table-hover">  
+                        <thread>
+                            <tr style="background-color:lemonchiffon;">
+                                <th>UUID</th>
+                                <th>Sample Name</th>
+                                <th>Self Renewal</th>
+                                <th>Ectoderm</th>
+                                <th>Mesoderm</th>
+                                <th>Endoderm</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            {% for v in score200317 %}
+                            <tr>
+                                <td><strong>{{ v.uuid }}</strong></td>
+                                <td>{{ v.sample_name }}</td>
+                                <td>{{ v.self_renewal }}</td>
+                                <td>{{ v.ectoderm }}</td>
+                                <td>{{ v.mesoderm }}</td>
+                                <td>{{ v.endoderm }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="text-dark" colspan="6" style="background-color: #c8cbcf">--總共有{{ score200317 | length}}筆資料--</td>
+                            </tr>    
+                        </tfoot>
+                    </table>
+                {% endif %}
+                {% if score201016 %}
+                    <div class="text-left" style="padding-left: 2em; padding-top: 1em; padding-bottom: 0.5em;background-color:#c8cbcf;">
+                        <h5 class="section-subheading">2020/10/16 > Score</h5>
+                    </div>
+                    <table class="table table-light table-bordered table-striped table-hover" style="display: block; overflow-x: auto; white-space: nowrap;">
+                        <thread>
+                            <tr style="background-color:lemonchiffon;">
+                                <th>UUID</th>
+                                <th>Self Renewal</th>
+                                <th>Ectoderm</th>
+                                <th>Mesoderm</th>
+                                <th>Endoderm</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            {% for v in score201016 %}
+                            <tr>
+                                <td><strong>{{ v.uuid }}</strong></td>
+                                <td>{{ v.self_renewal }}</td>
+                                <td>{{ v.ectoderm }}</td>
+                                <td>{{ v.mesoderm }}</td>
+                                <td>{{ v.endoderm }}</td>                     
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="text-dark" colspan="6" style="background-color: #c8cbcf">--總共有{{ score201016 | length}}筆資料--</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                {% endif %}
+                {% if ctvalues200317 %}
+                    <div class="text-left" style="padding-left: 2em; padding-top: 1em; padding-bottom: 0.5em;background-color:#c8cbcf;">
+                        <h5 class="section-subheading">2020/03/17 > CT values</h5>
+                    </div>
+                    <table class="table table-light table-bordered table-striped table-hover" style="display: block; overflow-x: auto; white-space: nowrap;">
+                        <thread>
+                            
+                        </thread>
+                        <tbody>
+                            {% for v in ctvalues200317 %}                            
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="text-dark" colspan="6" style="background-color: #c8cbcf">--總共有{{ ctvalues200317 | length}}筆資料--</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                {% endif %}
+                {% if foldchanges200317 %}
+                    <div class="text-left" style="padding-left: 2em; padding-top: 1em; padding-bottom: 0.5em;background-color:#c8cbcf;">
+                        <h5 class="section-subheading">2020/03/17 > Fold changes</h5>
+                    </div>
+                    <table class="table table-light table-bordered table-striped table-hover"style="display: block; overflow-x: auto; white-space: nowrap;">
+                        <thread>
+                    
+                        </thread>
+                        <tbody>
+                            {% for v in foldchanges200317 %}
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="text-dark" colspan="6" style="background-color: #c8cbcf">--總共有{{ foldchanges200317 | length}}筆資料--
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                {% endif %}
+                {% if parameter200317 %}
+                    <div class="text-left" style="padding-left: 2em; padding-top: 1em; padding-bottom: 0.5em;background-color:#c8cbcf;">
+                        <h5 class="section-subheading">2020/03/17 > Material parameters</h5>
+                    </div>
+                    <table class="table table-light table-bordered table-striped table-hover"style="display: block; overflow-x: auto; white-space: nowrap;">
+                        <thread>
+                            <tr style="background-color:lemonchiffon;">
+                                <th>UUID</th>
+                                <th>GelMA Concerntration</th>
+                                <th>Cure Adhesive</th>
+                                <th>Adhesive concentration</th>
+                                <th>Light Cure Time</th>
+                                <th>Print Speed(mm/min)</th>
+                                <th>Size of tip(g)</th>
+                                <th>Thickness(mm)</th>
+                                <th>Average Tensile Strength</th>
+                                <th>STD Tensile Strength</th>
+                                <th>Average Young's Modulus</th>
+                                <th>STD Young's Modulus</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            {% for v in parameter200317 %}
+                            <tr>
+                                <td><strong>{{ v.uuid }}</strong></td>
+                                <td>{{ v.gelma_concentration }}</td>
+                                <td>{{ v.cure_adhesive }}</td>
+                                <td>{{ v.adhesive_concentration }}</td>
+                                <td>{{ v.light_cure_time }}</td>
+                                <td>{{ v.print_speed_mm_min_field }}</td>
+                                <td>{{ v.size_of_tip_g_field }}</td>
+                                <td>{{ v.thickness_mm_field }}</td>
+                                <td>{{ v.average_tensile_strength }}</td>
+                                <td>{{ v.std_tensile_strength }}</td>
+                                <td>{{ v.average_young_s_modulus }}</td>
+                                <td>{{ v.std_young_s_modulus }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <td class="text-dark" colspan="12" style="background-color: #c8cbcf">--總共有{{ parameter200317 | length}}筆資料--</td>
+                                
+                            </tr>
+                        </tfoot>
+                    </table>
+                {% endif %}
+                {% if parameter201016 %}
+                    <div class="text-left" style="padding-left: 2em; padding-top: 1em; padding-bottom: 0.5em;background-color:#c8cbcf;">
+                        <h5 class="section-subheading">2020/10/16 > Material parameters</h5>
+                    </div>
+                    <table class="table table-light table-bordered table-striped table-hover" style="display: block; overflow-x: auto; white-space: nowrap;">
+                        <thread>
+                            <tr style="background-color:lemonchiffon;">
+                                <th>UUID</th>
+                                <th>GelMA Concerntration</th>
+                                <th>Cure Adhesive</th>
+                                <th>Adhesive concentration</th>
+                                <th>Light Cure Time</th>
+                                <th>Print Speed(mm/min)</th>
+                                <th>Size of tip(g)</th>
+                                <th>Thickness(mm)</th>
+                                <th>Average Tensile Strength</th>
+                                <th>STD Tensile Strength</th>
+                                <th>Average Young's Modulus</th>
+                                <th>STD Young's Modulus</th>
+                                <th>Self Renewal(discrete)</th>
+                                <th>Ectoderm(discrete)</th>
+                                <th>Mesoderm(discrete)</th>
+                                <th>Endoderm(discrete)</th>
+                                <th>Self Renewal</th>
+                                <th>Ectoderm</th>
+                                <th>Mesoderm</th>
+                                <th>Endoderm</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            {% for v in parameter201016 %}
+                            <tr>
+                                <td><strong>{{ v.uuid }}</strong></td>
+                                <td>{{ v.gelma_concentration }}</td>
+                                <td>{{ v.cure_adhesive }}</td>
+                                <td>{{ v.adhesive_concentration }}</td>
+                                <td>{{ v.light_cure_time }}</td>
+                                <td>{{ v.print_speed_mm_min_field }}</td>
+                                <td>{{ v.size_of_tip_g_field }}</td>
+                                <td>{{ v.thickness_mm_field }}</td>
+                                <td>{{ v.average_tensile_strength }}</td>
+                                <td>{{ v.std_tensile_strength }}</td>
+                                <td>{{ v.average_young_s_modulus }}</td>
+                                <td>{{ v.std_young_s_modulus }}</td>
+                                <td>{{ v.self_renewal_discrete_field }}</td>
+                                <td>{{ v.ectoderm_discrete_field }}</td>
+                                <td>{{ v.mesoderm_discrete_field }}</td>
+                                <td>{{ v.endoderm_discrete_field }}</td>
+                                <td>{{ v.self_renewal }}</td>
+                                <td>{{ v.ectoderm }}</td>
+                                <td>{{ v.mesoderm }}</td>
+                                <td>{{ v.endoderm }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-dark" colspan="20" style="background-color: #c8cbcf">--總共有{{ parameter201016 | length}}筆資料--
+                            </td>
+                
+                        </tr>
+                    </tfoot>
+                </table>
+                {% endif %}
+                </div>
+            </div>
+            <div class="text-right">
+                <a href=#type>Back to Top</a>
             </div>
         </div>
+        
     </section>
     <!-- Footer-->
     <footer class="footer py-4" style="background-color: #343741">

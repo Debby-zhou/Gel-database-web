@@ -9,6 +9,7 @@ from django.db import models
 
 
 class E200317CtValues(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
     target_name = models.CharField(max_length=30, blank=True, null=True)
     category = models.CharField(max_length=20, blank=True, null=True)
     number_10g_0_25l_30s = models.FloatField(db_column='10G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
@@ -51,6 +52,7 @@ class E200317CtValues(models.Model):
 
 
 class E200317FoldChange(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
     target_name = models.CharField(max_length=30, blank=True, null=True)
     category = models.CharField(max_length=20, blank=True, null=True)
     number_10g_0_25l_30s = models.FloatField(db_column='10G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.

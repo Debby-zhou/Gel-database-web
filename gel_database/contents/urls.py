@@ -24,6 +24,14 @@ urlpatterns = [
     url(r'^analysis/$',views.showanalysis, name="analysis"),
     url(r'^analysis/ACTB$',views.showiframe, name="ACTB"),
     url(r'^template/$',views.showtemplate),
-    url(r'^experiment/$',views.showexperiment, name="experiment"),
+    #url(r'^experiment/$',views.showexperiment, name="experiment"),
+    url(r'^experiment/$',views.select_data, name="experiment"),
+    url(r'^experiment/score200317/', views.score200317),
+    url(r'^experiment/score201016/', views.score201016),
+    url(r'^experiment/ctvalues200317/', views.ctvalues200317),
+    url(r'^experiment/foldchanges200317/', views.foldchanges200317),
+    url(r'^experiment/parameter200317/', views.parameter200317),
+    url(r'^experiment/parameter201016/', views.parameter201016),
+    
 ]
 

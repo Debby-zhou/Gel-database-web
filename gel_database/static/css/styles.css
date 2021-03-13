@@ -432,6 +432,10 @@ small,
   font-weight: 400;
 }
 
+iframe {
+  display: block;
+  margin: auto;
+}
 mark,
 .mark {
   padding: 0.2em;
@@ -10505,3 +10509,4 @@ section#contact form#contactForm :-ms-input-placeholder {
 .unsee:target {
   display: block;
 }
+
