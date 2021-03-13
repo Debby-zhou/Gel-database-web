@@ -167,7 +167,6 @@ class E201016Score(models.Model):
         managed = False
         db_table = '201016 score'
 
-
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 

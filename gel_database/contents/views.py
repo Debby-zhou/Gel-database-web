@@ -5,8 +5,6 @@ from contents.forms import SelectDataForm
 # Create your views here.
 def showhome(request):
     return render(request, 'home.html')
-def showexperiment(request):
-    return render(request, 'experiment.html')
 def showsimulation(request):
     return render(request, 'simulation.html')
 def showanalysis(request):
@@ -59,7 +57,7 @@ def foldchanges200317(request):
         errormessage = "讀取錯誤！"    
     return render(request, 'experiment.html', locals())
 
-def select_data(request):
+def showexperiment(request):
     if request.method == 'POST':
         form = SelectDataForm(request.POST)
         if form.is_valid():

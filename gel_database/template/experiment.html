@@ -65,7 +65,7 @@
             <div class="text-center">
                 <h2 class="section-heading text-uppercase"><u>data types</u></h2>
             </div>
-            <form action="score200317/#result" method="POST">                
+            <form action="{% url 'score201016' %}" method="POST">                
                     {% csrf_token %}
                     {{ form }}
                     <input class="btn btn-primary" type="submit" value="Show" href="#result">
@@ -74,7 +74,7 @@
         </div>     
     </section>
     <!-- Result-->
-    <section class="page-section bg-light unsee" id="result">
+    <section class="page-section bg-light" id="result">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase"><u>result table</u></h2>                
@@ -117,7 +117,7 @@
                     <div class="text-left" style="padding-left: 2em; padding-top: 1em; padding-bottom: 0.5em;background-color:#c8cbcf;">
                         <h5 class="section-subheading">2020/10/16 > Score</h5>
                     </div>
-                    <table class="table table-light table-bordered table-striped table-hover" style="display: block; overflow-x: auto; white-space: nowrap;">
+                    <table class="table table-light table-bordered table-striped table-hover">
                         <thread>
                             <tr style="background-color:lemonchiffon;">
                                 <th>UUID</th>
