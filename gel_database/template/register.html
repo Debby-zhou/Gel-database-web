@@ -49,6 +49,13 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Register</h2>
                 </div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {{ error }}
+                        <input type="submit" class="btn btn-primary" value="REGISTER">
+                    </form>
+                <!--
                 <form id="contactForm" name="sentMessage" novalidate="novalidate">
                     <div style="margin:0px auto; width:30%">
                         <div>
@@ -74,11 +81,7 @@
                             <input type="radio" name="group" value="expirement"> experiment<br>
                             <input type="radio" name="group" value="analysis"> analysis<br>
                         </form>
-                    </div>
-                                               
-                    <br>
-
-                    
+                    </div>                    
                     <div class="text-center">
                         <div id="success"></div>
                         <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit" onclick="location.href='../success'">Submit</button>
@@ -89,6 +92,7 @@
                         </a>
                     </div>
                 </form>
+                -->
             </div>
         </section>
         <!-- Footer-->

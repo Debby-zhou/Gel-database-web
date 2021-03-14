@@ -11483,3 +11483,186 @@ Not Found: /
 {address space usage: 84201472 bytes/80MB} {rss usage: 33656832 bytes/32MB} [pid: 1252|app: 0|req: 6/9] 180.197.229.40 () {32 vars in 456 bytes} [Sat Mar 13 13:16:01 2021] GET / => generated 2148 bytes in 10 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
 Not Found: /
 {address space usage: 84201472 bytes/80MB} {rss usage: 33656832 bytes/32MB} [pid: 1252|app: 0|req: 7/10] 87.241.165.79 () {32 vars in 456 bytes} [Sat Mar 13 14:00:44 2021] GET / => generated 2148 bytes in 9 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.19 (64bit) on [Sat Mar 13 14:40:33 2021] ***
+compiled with version: 8.3.0 on 17 February 2021 01:05:58
+os: Linux-3.10.0-1062.9.1.el7.x86_64 #1 SMP Fri Dec 6 15:49:49 UTC 2019
+nodename: 09b3b3ba3803
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /var/www/html/gel_database
+writing pidfile to /tmp/gel_database-master.pid
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /var/www/html/gel_database
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+setgid() to 33
+setuid() to 33
+Python version: 3.7.9 (default, Jan 12 2021, 17:26:22)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5653c49e97a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 403077 bytes (393 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5653c49e97a0 pid: 1295 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1295)
+spawned uWSGI worker 1 (pid: 1296, cores: 1)
+spawned uWSGI worker 2 (pid: 1297, cores: 1)
+
+{address space usage: 85491712 bytes/81MB} {rss usage: 34115584 bytes/32MB} [pid: 1297|app: 0|req: 1/1] 218.164.170.21 () {52 vars in 1209 bytes} [Sat Mar 13 14:40:44 2021] POST /contents/experiment/score201016/ => generated 31010 bytes in 103 msecs (HTTP/1.1 200) 7 headers in 356 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.19 (64bit) on [Sat Mar 13 15:44:21 2021] ***
+compiled with version: 8.3.0 on 17 February 2021 01:05:58
+os: Linux-3.10.0-1062.9.1.el7.x86_64 #1 SMP Fri Dec 6 15:49:49 UTC 2019
+nodename: 09b3b3ba3803
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /var/www/html/gel_database
+writing pidfile to /tmp/gel_database-master.pid
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /var/www/html/gel_database
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+setgid() to 33
+setuid() to 33
+Python version: 3.7.9 (default, Jan 12 2021, 17:26:22)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x560846c9c880
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 403077 bytes (393 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x560846c9c880 pid: 1316 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1316)
+spawned uWSGI worker 1 (pid: 1317, cores: 1)
+spawned uWSGI worker 2 (pid: 1318, cores: 1)
+
+{address space usage: 84799488 bytes/80MB} {rss usage: 32923648 bytes/31MB} [pid: 1317|app: 0|req: 1/1] 218.164.170.21 () {42 vars in 937 bytes} [Sat Mar 13 15:44:41 2021] GET /contents/experiment/ => generated 6774 bytes in 71 msecs (HTTP/1.1 200) 7 headers in 355 bytes (1 switches on core 0)
+
+{address space usage: 86196224 bytes/82MB} {rss usage: 34836480 bytes/33MB} [pid: 1318|app: 0|req: 1/2] 218.164.170.21 () {44 vars in 933 bytes} [Sat Mar 13 15:44:46 2021] GET /admin/ => generated 6914 bytes in 101 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+{address space usage: 86302720 bytes/82MB} {rss usage: 34926592 bytes/33MB} [pid: 1317|app: 0|req: 2/3] 218.164.170.21 () {42 vars in 909 bytes} [Sat Mar 13 15:44:48 2021] GET /admin/ => generated 6914 bytes in 43 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+{address space usage: 86196224 bytes/82MB} {rss usage: 34836480 bytes/33MB} [pid: 1318|app: 0|req: 2/4] 218.164.170.21 () {44 vars in 995 bytes} [Sat Mar 13 15:44:59 2021] GET /admin/auth/user/2/change/ => generated 0 bytes in 9 msecs (HTTP/1.1 302) 10 headers in 541 bytes (1 switches on core 0)
+{address space usage: 86196224 bytes/82MB} {rss usage: 35033088 bytes/33MB} [pid: 1318|app: 0|req: 3/5] 218.164.170.21 () {44 vars in 1135 bytes} [Sat Mar 13 15:44:59 2021] GET /admin/ => generated 7081 bytes in 18 msecs (HTTP/1.1 200) 9 headers in 397 bytes (1 switches on core 0)
+{address space usage: 86564864 bytes/82MB} {rss usage: 35323904 bytes/33MB} [pid: 1317|app: 0|req: 3/6] 218.164.170.21 () {44 vars in 977 bytes} [Sat Mar 13 15:45:07 2021] GET /admin/auth/user/ => generated 10051 bytes in 45 msecs (HTTP/1.1 200) 9 headers in 468 bytes (1 switches on core 0)
+{address space usage: 86196224 bytes/82MB} {rss usage: 35033088 bytes/33MB} [pid: 1318|app: 0|req: 4/7] 218.164.170.21 () {42 vars in 814 bytes} [Sat Mar 13 15:45:07 2021] GET /admin/jsi18n/ => generated 3187 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 195 bytes (1 switches on core 0)
+{address space usage: 86458368 bytes/82MB} {rss usage: 35188736 bytes/33MB} [pid: 1318|app: 0|req: 5/8] 218.164.170.21 () {44 vars in 989 bytes} [Sat Mar 13 15:46:44 2021] GET /admin/auth/group/ => generated 6951 bytes in 32 msecs (HTTP/1.1 200) 9 headers in 467 bytes (1 switches on core 0)
+{address space usage: 86458368 bytes/82MB} {rss usage: 35188736 bytes/33MB} [pid: 1318|app: 0|req: 6/9] 218.164.170.21 () {42 vars in 815 bytes} [Sat Mar 13 15:46:44 2021] GET /admin/jsi18n/ => generated 3187 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 195 bytes (1 switches on core 0)
+{address space usage: 86827008 bytes/82MB} {rss usage: 35323904 bytes/33MB} [pid: 1317|app: 0|req: 4/10] 218.164.170.21 () {44 vars in 988 bytes} [Sat Mar 13 15:46:46 2021] GET /admin/auth/user/ => generated 10051 bytes in 39 msecs (HTTP/1.1 200) 9 headers in 468 bytes (1 switches on core 0)
+{address space usage: 86827008 bytes/82MB} {rss usage: 35323904 bytes/33MB} [pid: 1317|app: 0|req: 5/11] 218.164.170.21 () {42 vars in 814 bytes} [Sat Mar 13 15:46:46 2021] GET /admin/jsi18n/ => generated 3187 bytes in 12 msecs (HTTP/1.1 200) 6 headers in 195 bytes (1 switches on core 0)
+{address space usage: 87130112 bytes/83MB} {rss usage: 35987456 bytes/34MB} [pid: 1318|app: 0|req: 7/12] 218.164.170.21 () {44 vars in 1017 bytes} [Sat Mar 13 15:46:50 2021] GET /admin/contents/e200317ctvalues/ => generated 30680 bytes in 160 msecs (HTTP/1.1 200) 9 headers in 468 bytes (1 switches on core 0)
+{address space usage: 87130112 bytes/83MB} {rss usage: 35987456 bytes/34MB} [pid: 1318|app: 0|req: 8/13] 218.164.170.21 () {42 vars in 829 bytes} [Sat Mar 13 15:46:50 2021] GET /admin/jsi18n/ => generated 3187 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 195 bytes (1 switches on core 0)
+{address space usage: 86827008 bytes/82MB} {rss usage: 35323904 bytes/33MB} [pid: 1317|app: 0|req: 6/14] 218.164.170.21 () {44 vars in 1000 bytes} [Sat Mar 13 15:46:53 2021] GET /admin/contents/ => generated 5146 bytes in 22 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.19 (64bit) on [Sat Mar 13 15:49:09 2021] ***
+compiled with version: 8.3.0 on 17 February 2021 01:05:58
+os: Linux-3.10.0-1062.9.1.el7.x86_64 #1 SMP Fri Dec 6 15:49:49 UTC 2019
+nodename: 09b3b3ba3803
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /var/www/html/gel_database
+writing pidfile to /tmp/gel_database-master.pid
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /var/www/html/gel_database
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+setgid() to 33
+setuid() to 33
+Python version: 3.7.9 (default, Jan 12 2021, 17:26:22)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x564f1c34b880
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 403077 bytes (393 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x564f1c34b880 pid: 1326 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1326)
+spawned uWSGI worker 1 (pid: 1327, cores: 1)
+spawned uWSGI worker 2 (pid: 1328, cores: 1)
+
+{address space usage: 85938176 bytes/81MB} {rss usage: 34684928 bytes/33MB} [pid: 1327|app: 0|req: 1/1] 218.164.170.21 () {46 vars in 1031 bytes} [Sat Mar 13 15:49:22 2021] GET /admin/contents/ => generated 5146 bytes in 92 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+{address space usage: 86200320 bytes/82MB} {rss usage: 34877440 bytes/33MB} [pid: 1327|app: 0|req: 2/2] 218.164.170.21 () {46 vars in 1031 bytes} [Sat Mar 13 15:49:23 2021] GET /admin/contents/ => generated 5146 bytes in 21 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+
+{address space usage: 85938176 bytes/81MB} {rss usage: 34684928 bytes/33MB} [pid: 1328|app: 0|req: 1/3] 218.164.170.21 () {46 vars in 1031 bytes} [Sat Mar 13 15:49:24 2021] GET /admin/contents/ => generated 5146 bytes in 94 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+{address space usage: 86200320 bytes/82MB} {rss usage: 34934784 bytes/33MB} [pid: 1328|app: 0|req: 2/4] 218.164.170.21 () {42 vars in 909 bytes} [Sat Mar 13 15:49:35 2021] GET /admin/ => generated 6914 bytes in 25 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+{address space usage: 86200320 bytes/82MB} {rss usage: 35024896 bytes/33MB} [pid: 1327|app: 0|req: 3/5] 218.164.170.21 () {44 vars in 940 bytes} [Sat Mar 13 15:53:00 2021] GET /admin/ => generated 6914 bytes in 27 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+{address space usage: 86200320 bytes/82MB} {rss usage: 34934784 bytes/33MB} [pid: 1328|app: 0|req: 3/6] 218.164.170.21 () {44 vars in 940 bytes} [Sat Mar 13 15:53:01 2021] GET /admin/ => generated 6914 bytes in 30 msecs (HTTP/1.1 200) 8 headers in 299 bytes (1 switches on core 0)
+Not Found: /admin/welcome
+{address space usage: 86200320 bytes/82MB} {rss usage: 35024896 bytes/33MB} [pid: 1327|app: 0|req: 4/7] 218.164.170.21 () {42 vars in 923 bytes} [Sat Mar 13 15:53:07 2021] GET /admin/welcome => generated 5012 bytes in 9 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86200320 bytes/82MB} {rss usage: 35045376 bytes/33MB} [pid: 1328|app: 0|req: 4/8] 162.142.125.39 () {28 vars in 303 bytes} [Sat Mar 13 16:34:22 2021] GET / => generated 2148 bytes in 11 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86200320 bytes/82MB} {rss usage: 35024896 bytes/33MB} [pid: 1327|app: 0|req: 5/9] 162.142.125.39 () {34 vars in 438 bytes} [Sat Mar 13 16:34:22 2021] GET / => generated 2148 bytes in 8 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86200320 bytes/82MB} {rss usage: 35024896 bytes/33MB} [pid: 1327|app: 0|req: 6/10] 101.251.200.200 () {36 vars in 554 bytes} [Sat Mar 13 18:36:34 2021] GET / => generated 2148 bytes in 14 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86200320 bytes/82MB} {rss usage: 35024896 bytes/33MB} [pid: 1327|app: 0|req: 7/11] 36.236.168.72 () {40 vars in 648 bytes} [Sat Mar 13 19:16:17 2021] GET / => generated 2148 bytes in 13 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+{address space usage: 86200320 bytes/82MB} {rss usage: 35024896 bytes/33MB} [pid: 1327|app: 0|req: 8/12] 36.236.168.72 () {40 vars in 617 bytes} [Sat Mar 13 19:16:17 2021] GET /favicon.ico => generated 2199 bytes in 10 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86200320 bytes/82MB} {rss usage: 35045376 bytes/33MB} [pid: 1328|app: 0|req: 5/13] 36.236.168.72 () {40 vars in 648 bytes} [Sat Mar 13 19:16:24 2021] GET / => generated 2148 bytes in 12 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+{address space usage: 86200320 bytes/82MB} {rss usage: 35160064 bytes/33MB} [pid: 1327|app: 0|req: 9/14] 36.236.168.72 () {40 vars in 664 bytes} [Sat Mar 13 19:16:26 2021] GET /welcome/ => generated 8780 bytes in 7 msecs (HTTP/1.1 200) 7 headers in 355 bytes (1 switches on core 0)
+{address space usage: 86462464 bytes/82MB} {rss usage: 35168256 bytes/33MB} [pid: 1327|app: 0|req: 10/15] 36.236.168.72 () {50 vars in 958 bytes} [Sat Mar 13 19:16:35 2021] POST /welcome/ => generated 8780 bytes in 4 msecs (HTTP/1.1 200) 7 headers in 355 bytes (1 switches on core 0)
+{address space usage: 86462464 bytes/82MB} {rss usage: 35168256 bytes/33MB} [pid: 1327|app: 0|req: 11/16] 36.236.168.72 () {42 vars in 753 bytes} [Sat Mar 13 19:16:48 2021] GET /welcome/ => generated 8780 bytes in 5 msecs (HTTP/1.1 200) 7 headers in 355 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86462464 bytes/82MB} {rss usage: 35168256 bytes/33MB} [pid: 1327|app: 0|req: 12/17] 36.236.168.72 () {42 vars in 737 bytes} [Sat Mar 13 19:16:49 2021] GET / => generated 2148 bytes in 13 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+{address space usage: 86200320 bytes/82MB} {rss usage: 35045376 bytes/33MB} [pid: 1328|app: 0|req: 6/18] 36.236.168.72 () {42 vars in 771 bytes} [Sat Mar 13 19:16:54 2021] GET /contents/analysis => generated 0 bytes in 2 msecs (HTTP/1.1 301) 5 headers in 187 bytes (1 switches on core 0)
+{address space usage: 86200320 bytes/82MB} {rss usage: 35045376 bytes/33MB} [pid: 1328|app: 0|req: 7/19] 36.236.168.72 () {42 vars in 773 bytes} [Sat Mar 13 19:16:54 2021] GET /contents/analysis/ => generated 8551 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 173 bytes (1 switches on core 0)
+{address space usage: 86183936 bytes/82MB} {rss usage: 35192832 bytes/33MB} [pid: 1328|app: 0|req: 8/20] 36.236.168.72 () {44 vars in 841 bytes} [Sat Mar 13 19:16:54 2021] GET /contents/analysis/ACTB => generated 3508560 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 176 bytes (2 switches on core 0)
+{address space usage: 86462464 bytes/82MB} {rss usage: 35168256 bytes/33MB} [pid: 1327|app: 0|req: 13/21] 36.236.168.72 () {42 vars in 773 bytes} [Sat Mar 13 19:19:27 2021] GET /contents/analysis/ => generated 8561 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 173 bytes (1 switches on core 0)
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 14/22] 36.236.168.72 () {44 vars in 841 bytes} [Sat Mar 13 19:19:27 2021] GET /contents/analysis/ACTB => generated 3508560 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 176 bytes (2 switches on core 0)
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 15/23] 36.236.168.72 () {42 vars in 773 bytes} [Sat Mar 13 19:22:11 2021] GET /contents/analysis/ => generated 8586 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 173 bytes (1 switches on core 0)
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 16/24] 36.236.168.72 () {44 vars in 841 bytes} [Sat Mar 13 19:22:11 2021] GET /contents/analysis/ACTB => generated 3508560 bytes in 18 msecs (HTTP/1.1 200) 5 headers in 176 bytes (4 switches on core 0)
+Not Found: /
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 17/25] 167.248.133.37 () {28 vars in 303 bytes} [Sat Mar 13 19:42:24 2021] GET / => generated 2148 bytes in 11 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86183936 bytes/82MB} {rss usage: 35192832 bytes/33MB} [pid: 1328|app: 0|req: 9/26] 167.248.133.37 () {34 vars in 438 bytes} [Sat Mar 13 19:42:25 2021] GET / => generated 2148 bytes in 7 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86183936 bytes/82MB} {rss usage: 35192832 bytes/33MB} [pid: 1328|app: 0|req: 10/27] 1.192.123.243 () {38 vars in 488 bytes} [Sat Mar 13 23:44:24 2021] GET / => generated 2148 bytes in 12 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 18/28] 36.99.136.133 () {34 vars in 488 bytes} [Sun Mar 14 01:57:05 2021] GET / => generated 2148 bytes in 14 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86183936 bytes/82MB} {rss usage: 35192832 bytes/33MB} [pid: 1328|app: 0|req: 11/29] 36.99.136.133 () {40 vars in 716 bytes} [Sun Mar 14 01:57:05 2021] GET / => generated 2148 bytes in 12 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 19/30] 75.99.143.195 () {32 vars in 456 bytes} [Sun Mar 14 03:44:17 2021] GET / => generated 2148 bytes in 12 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86183936 bytes/82MB} {rss usage: 35192832 bytes/33MB} [pid: 1328|app: 0|req: 12/31] 218.161.80.85 () {32 vars in 456 bytes} [Sun Mar 14 05:25:00 2021] GET / => generated 2148 bytes in 11 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'localhost'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+{address space usage: 86786048 bytes/82MB} {rss usage: 35618816 bytes/33MB} [pid: 1328|app: 0|req: 13/32] 50.31.21.7 () {26 vars in 268 bytes} [Sun Mar 14 08:05:06 2021] GET / => generated 59376 bytes in 30 msecs (HTTP/1.0 400) 3 headers in 116 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'localhost'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Not Found: /sdk
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 20/33] 50.31.21.7 () {34 vars in 497 bytes} [Sun Mar 14 08:07:01 2021] POST /sdk => generated 2176 bytes in 7 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Bad Request: /
+{address space usage: 86994944 bytes/82MB} {rss usage: 35889152 bytes/34MB} [pid: 1328|app: 0|req: 14/34] 50.31.21.7 () {26 vars in 268 bytes} [Sun Mar 14 08:07:01 2021] GET / => generated 59376 bytes in 25 msecs (HTTP/1.0 400) 3 headers in 116 bytes (1 switches on core 0)
+Not Found: /nmaplowercheck1615709221
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 21/35] 50.31.21.7 () {32 vars in 509 bytes} [Sun Mar 14 08:07:01 2021] GET /nmaplowercheck1615709221 => generated 2238 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86470656 bytes/82MB} {rss usage: 35274752 bytes/33MB} [pid: 1327|app: 0|req: 22/36] 50.31.21.7 () {28 vars in 296 bytes} [Sun Mar 14 08:07:02 2021] GET / => generated 2145 bytes in 8 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /evox/about
+{address space usage: 86994944 bytes/82MB} {rss usage: 35889152 bytes/34MB} [pid: 1328|app: 0|req: 15/37] 50.31.21.7 () {32 vars in 481 bytes} [Sun Mar 14 08:07:02 2021] GET /evox/about => generated 2196 bytes in 9 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Not Found: /HNAP1
+{address space usage: 86994944 bytes/82MB} {rss usage: 35889152 bytes/34MB} [pid: 1328|app: 0|req: 16/38] 50.31.21.7 () {32 vars in 471 bytes} [Sun Mar 14 08:07:02 2021] GET /HNAP1 => generated 2181 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'www'. You may need to add 'www' to ALLOWED_HOSTS.
+Bad Request: /
+{address space usage: 86822912 bytes/82MB} {rss usage: 35893248 bytes/34MB} [pid: 1327|app: 0|req: 23/39] 50.31.21.7 () {32 vars in 423 bytes} [Sun Mar 14 08:07:06 2021] GET / => generated 59891 bytes in 28 msecs (HTTP/1.1 400) 3 headers in 116 bytes (1 switches on core 0)
+Not Found: /
+{address space usage: 86994944 bytes/82MB} {rss usage: 35889152 bytes/34MB} [pid: 1328|app: 0|req: 17/40] 2.57.122.97 () {40 vars in 557 bytes} [Sun Mar 14 11:33:16 2021] GET / => generated 2148 bytes in 21 msecs (HTTP/1.1 404) 5 headers in 165 bytes (1 switches on core 0)

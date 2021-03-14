@@ -99,7 +99,15 @@ DATABASES = {
         'PASSWORD': 'qaz123456789',
         'HOST': 'db',
         'PORT': '3306',        
+    }, 
+    'userdb': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+DATABASES_APPS_MAPPING = {
+    'welcome': 'userdb',
+    'contents': ['default', 'simulationdb', 'analysisdb', 'userdb'],
 }
 CACHES = {
      "default": {

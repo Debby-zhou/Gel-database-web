@@ -21,5 +21,5 @@ from . import views
 urlpatterns = [
     path('',views.showindex),
     url(r'^register/$',views.showregister, name="register"),
-    url(r'^success/$',views.showregistersuccess, name="success"),
+    url(r'^success/$',views.showsuccess, name="success"),
 ]
