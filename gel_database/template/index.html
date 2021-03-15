@@ -88,7 +88,7 @@
                 </div>
                 <form action="" method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form }}
                     {{ error }}
                     <input type="submit" class="btn btn-primary" value="LOG IN">
                 </form>

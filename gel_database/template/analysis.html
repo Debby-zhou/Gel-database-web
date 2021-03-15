@@ -64,73 +64,51 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase"><u>data types</u></h2>
-            </div>
-            <div class="row text-center" style="padding-top: 2em;">
-                <div class="col-md-4"
-                    style="background-color: lightgoldenrodyellow; padding-bottom: 2em; border-right: #ffffff solid 3px;">
-                    <h4 class="my-3" style="color:dimgrey;">Time
-                        <hr>
-                    </h4>
-                    <div class="container text-muted" style="width: 35%;">
-                        <form class="text-left">
-                            <input type="checkbox" name="selecteddata" value="2020/03/17"><tt> 2020/03/17</tt><br>
-                            <input type="checkbox" name="selecteddata" value="2020/03/17"><tt> 2020/10/16</tt><br>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-4" style="background-color: lightyellow;  padding-bottom: 2em; ">
-                    <h4 class="my-3" style="color:dimgrey;">Types
-                        <hr>
-                    </h4>
-                    <div class="container text-muted" style="width: 55%;">
-                        <form class="text-left">
-                            <input type="checkbox" name="selecteddata" value="Material parameter"><tt> Material parameter</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Score"><tt> Score</tt><br>
-                            <input type="checkbox" name="selecteddata" value="CT value"><tt> CT value</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Fold change"><tt> Fold change</tt><br>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-4" style="background-color:beige; padding-bottom: 2em; border-left: #ffffff solid 3px; ">
-                    <h4 class="my-3" style="color:dimgrey;">Tissues
-                        <hr>
-                    </h4>
-                    <div class="container text-muted" style="width: 40%;">
-                        <form class="text-left">
-                            <input type="checkbox" name="selecteddata" value="Controls"><tt> Controls</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Ectoderm"><tt> Ectoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Endoderm"><tt> Endoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesoderm"><tt> Mesoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Mesendoderm</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Other</tt><br>
-                            <input type="checkbox" name="selecteddata" value="Mesendoderm"><tt> Selfrenewal</tt><br>
-                        </form>
-                    </div>
+                <h5 class="my-lg-0">Please choose the category: </h5>
+                <div style="padding: 2em;">
+                    <form action="#data" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-outline-secondary" name="category" value="Control">
+                        <input type="submit" class="btn btn-outline-secondary" name="category" value="Self-renewal">
+                        <input type="submit" class="btn btn-outline-secondary" name="category" value="Other">
+                        <input type="submit" class="btn btn-outline-secondary" name="category" value="Ectoderm">
+                        <input type="submit" class="btn btn-outline-secondary" name="category" value="Endoderm">
+                        <input type="submit" class="btn btn-outline-secondary" name="category" value="Mesoderm">
+                        <input type="submit" class="btn btn-outline-secondary" name="category" value="Mesendoderm">
+                    </form>
                 </div>
             </div>
-            <div class="text-center" style="padding-top: 1em;">
-                <a href=#result><button class="btn btn-secondary btn-l text-uppercase">Show</button></a>
+            <div>    
+                <div class="text-center">
+                    <h5 class="my-lg-0">Please choose the gene: </h5>
+                </div>
+                <div class="row justify-content-center" style="padding: 2em;">         
+                <form action="scorecard/#result" method="POST" id="gene">
+                    {% csrf_token %}                   
+                    {{ form }}                  
+                    <center><input type="submit" class="btn btn-primary text-uppercase my-2" value="SHOW"></center>
+                </form>
+                </div>
             </div>
         </div>
     </section>
-
-    <!--Gene Result-->
-    <section class="page-section unsee" id="gene">
-        <div class="container">
-            Hello!
-        </div>       
-    </section>
-
     <!--Scorecard Graphic Result-->
-    <section class="page-section unsee" id="result">
-        <div class="container-fluid text-center bg-light" style="height: 700px";>
+    {% if gene_r.result %}
+    <section class="page-section bg-light" id="result">
+        <div class="container-fluid text-center" style="height: 900px;">
             <div class="text-center" style="padding-top: 2em;">
                <h2 class="section-heading text-uppercase"><u>scorecard graphic</u></h2>
             </div>
-            <iframe frameBorder="1" scrolling="yes" style="background: transparent; "width=80% height=90% src="ACTB">
+            <div style="height: 700px">
+            <iframe frameBorder="1" scrolling="yes" style="background: transparent; "width=80% height=90% src="{{ fileName }}">
             </iframe>
+            </div>
+            <div class="text-center" style="padding: 2em;">
+                <button class="btn btn-primary btn-l" onclick="location.href='../../analysis'">Restart</button>
+            </div>
         </div>
     </section>
+    {% endif %}
     <!-- Footer-->
     <footer class="footer py-4" style="background-color: #343741">
         <div class="container">

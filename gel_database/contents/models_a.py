@@ -420,3 +420,4 @@ class ScorecardCtValues(models.Model):
     class Meta:
         managed = False
         db_table = 'scorecard CT values'
+        app_label = 'analysisdb'

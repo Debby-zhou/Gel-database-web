@@ -22,7 +22,7 @@ urlpatterns = [
     path('',views.showhome), 
     url('^simulation/$',views.showsimulation, name="simulation"),
     url('^analysis/$',views.showanalysis, name="analysis"),
-    url('^analysis/ACTB$',views.showiframe, name="ACTB"),
+    url('^analysis/scorecard/',views.select_result, name="scorecard"),
     url('^template/$',views.showtemplate),
     url('^experiment/$',views.showexperiment, name="experiment"),
     url('^experiment/score200317/', views.score200317, name="score200317"),

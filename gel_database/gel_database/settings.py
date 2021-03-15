@@ -105,7 +105,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-DATABASES_APPS_MAPPING = {
+
+
+DATABASE_APPS_MAPPING = {
+    'admin': 'analysisdb',
     'welcome': 'userdb',
     'contents': ['default', 'simulationdb', 'analysisdb', 'userdb'],
 }
@@ -140,6 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -153,7 +157,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+DATABASE_ROUTERS = ['gel_database.database_router.DatabaseAppsRouter']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

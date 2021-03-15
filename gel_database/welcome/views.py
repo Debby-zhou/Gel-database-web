@@ -33,7 +33,7 @@ def register(request):
                 else:
                     password = take_md5(password1)
                     email = form.cleaned_data['email']
-                    user = Register.objects.create(username=username,password=password,email=email)
+                    user = Register.objects.create(username=username,password=password,email=email )
                     user.save()
                     return render(request,'success.html',{'username':username,'operation':'Register'}, context_instance=RequestContext(request))
     else:

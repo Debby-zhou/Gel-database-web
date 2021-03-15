@@ -166,7 +166,7 @@ class E201016Score(models.Model):
     class Meta:
         managed = False
         db_table = '201016 score'
-
+      
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -275,3 +275,13 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+class ScorecardCtValues(models.Model):
+    target = models.CharField(primary_key=True, max_length=30)
+    category = models.CharField(max_length=20, blank=True, null=True)
+    filepath = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'scorecard CT values'
+        app_label = "contents"
