@@ -2,7 +2,7 @@
 ## 功能全覽圖
 ### ▪️ 網站功能架構
 ![](./picture/DB.png)
-1. **Gene Search**: BLAST, associated gene in the genome(network-like)
+1. **Gene Search**: BLAST, associated gene in the genome(network-like), <font color=#0000ff>experiments varification</font>
 2. **Expression Search**: Tissue-specific, Stage-specific
 3. **Genomic Browsing**: TF-binding sites, Epigenetic(Histone modification)
    > TAIR-like layout: 
