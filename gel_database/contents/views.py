@@ -16,20 +16,50 @@ def showtemplate(request):
 def showexperiment(request):
     if request.method == 'POST':
         form = SelectDataForm(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect('score200317/#result')
+        if form.is_valid:
+            return HttpResponseRedirect("../experiment")
     else:
         form = SelectDataForm()
     return render(request,'experiment.html', {'form': form})
-  
+def show_experiment_result(request):
+    exp_r = {}
+    form = SelectDataForm()
+    if request.method == 'POST':
+        form = SelectDataForm(request.POST)        
+        if request.POST:
+            exp_r['time'] = request.POST['time']
+            exp_r['type'] = request.POST['table']
+            if exp_r['time']=='200317':
+                if exp_r['type']=='score':
+                    score200317 = getdata(E200317Score)
+                elif exp_r['type']=='parameter':
+                    parameter200317 = getdata(E200317Parameter)
+                elif exp_r['type']=='ctvalues':
+                    ctvalues200317 = getdata(E200317CtValues)
+                elif exp_r['type']=='foldchanges':
+                    foldchanges200317 = getdata(E200317FoldChange)
+            elif exp_r['time']=='201016':
+                if exp_r['type']=='score':
+                    score201016 = getdata(E201016Score)   
+                elif exp_r['type']=='parameter':
+                    parameter201016 = getdata(E201016Parameter)  
+                elif exp_r['type']=='ctvalues':
+                    ctvalues201016 = getdata(E201016CtValues)   
+    return render(request,'experiment.html',locals())
+def getdata(modelName):
+    try:
+        t = modelName.objects.all()
+    except:
+        t = "讀取錯誤！"
+    return t
 def showanalysis(request):
     category_r = {}
     if 'category' in request.POST:
         category_r['result'] = request.POST.get('category')
     if request.method == 'POST':
         form = SelectGene(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect('../analysis')
+        # if form.is_valid():
+        #     return HttpResponseRedirect('../analysis')
         if category_r['result'] == 'Other':
             form = form['othergene']
         elif category_r['result'] == 'Control':
@@ -54,7 +84,7 @@ def select_result(request):
     if request.method == 'POST':
         form = SelectGene(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('../analysis')
+             return HttpResponseRedirect('/contents/analysis')
     form = form['controlgene']
     if 'controlgene' in request.POST:
         gene_r['result'] = request.POST['controlgene']
@@ -78,49 +108,6 @@ def select_result(request):
         gene_r['result'] = request.POST['mesendodermgene']
         fileName = "/static/scorecard/ct_value_/mesendoderm/interpolate/" + gene_r['result'] +".html"
     return render(request,"analysis.html",locals())
-#* default
-def score200317(request):
-    try:
-        form = SelectDataForm()
-        score200317 = E200317Score.objects.all()
-    except:
-        errormessage = "讀取錯誤！"
-    return render(request, 'experiment.html', locals())    
-def score201016(request):
-    try:
-        form = SelectDataForm()
-        score201016 = E201016Score.objects.all()
-    except:
-        errormessage = "讀取錯誤！"  
-    return render(request, 'experiment.html', locals())
-def parameter200317(request):
-    try:
-        form = SelectDataForm()
-        parameter200317 = E200317Parameter.objects.all()
-    except:
-        errormessage = "讀取錯誤！"  
-    return render(request, 'experiment.html', locals())
-def parameter201016(request):
-    try:
-        form = SelectDataForm()
-        parameter201016 = E201016Parameter.objects.all()
-    except:
-        errormessage = "讀取錯誤！"  
-    return render(request, 'experiment.html', locals())
-def ctvalues200317(request):
-    try:
-        form = SelectDataForm()
-        ctvalues200317 = E200317CtValues.objects.all()
-    except:
-        errormessage = "讀取錯誤！"     
-    return render(request, 'experiment.html', locals())
-def foldchanges200317(request):
-    try:
-        form = SelectDataForm()
-        foldchanges200317 = E200317FoldChange.objects.all()
-    except:
-        errormessage = "讀取錯誤！"    
-    return render(request, 'experiment.html', locals())
 
 #* analysisdb
 def showScorecardCT(request):

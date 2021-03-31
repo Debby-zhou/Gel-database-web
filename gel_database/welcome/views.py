@@ -1,11 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect,Http404,HttpResponse
 from django.template import RequestContext
 from welcome.forms import UserRegister, UserLogin
 from welcome.models import User
 import hashlib
 
 def showindex(request):
-    return render(request, 'index.html') 
+    if request.method == 'POST':
+        form = UserLogin(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('../contents')
+    else:
+        form = UserLogin()
+    return render(request, 'index.html', {'form': form}) 
 def showregister(request):
     return render(request, 'register.html') 
 def showsuccess(request):

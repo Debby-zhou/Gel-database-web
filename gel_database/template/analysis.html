@@ -42,9 +42,9 @@
                         <div class="dropdown">
                             <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" href=#>DATA</a>
                             <ul class="dropdown-menu" style="background-color: #343741;">
-                                <li class="dropdown-item"><a href="../experiment/" onclick="">experiment</a></li>
-                                <li class="dropdown-item"><a href="../simulation/">simulation</a></li>
-                                <li class="dropdown-item"><a href="../analysis/">analysis</a></li>
+                                <li class="dropdown-item"><a href="/contents/experiment/" onclick="">experiment</a></li>
+                                <li class="dropdown-item"><a href="/contents/simulation/">simulation</a></li>
+                                <li class="dropdown-item"><a href="/contents/analysis/">analysis</a></li>
                             </ul>
                         </div>
                     </li>
@@ -83,10 +83,10 @@
                     <h5 class="my-lg-0">Please choose the gene: </h5>
                 </div>
                 <div class="row justify-content-center" style="padding: 2em;">         
-                <form action="scorecard/#result" method="POST" id="gene">
+                <form action="/contents/analysis/scorecard/#result" method="POST" id="gene">
                     {% csrf_token %}                   
                     {{ form }}                  
-                    <center><input type="submit" class="btn btn-primary text-uppercase my-2" value="SHOW"></center>
+                    <center><input type="submit" class="btn btn-primary text-uppercase my-2" id= "show" value="SHOW"></center>
                 </form>
                 </div>
             </div>
@@ -104,7 +104,7 @@
             </iframe>
             </div>
             <div class="text-center" style="padding: 2em;">
-                <button class="btn btn-primary btn-l" onclick="location.href='../../analysis'">Restart</button>
+                <button class="btn btn-primary btn-l" onclick="location.href='/contents/analysis'">Restart</button>
             </div>
         </div>
     </section>

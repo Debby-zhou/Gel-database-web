@@ -25,7 +25,7 @@ SECRET_KEY = 'f$o3mhfl(fm6d#vjxkg5tiag#!#g&0o=j#b3%xw533@v_(d00%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-ALLOWED_HOSTS = ['203.145.222.147','geldb_web','smagel.nchc.org.tw','db']
+ALLOWED_HOSTS = ['203.145.222.147','geldb_web','smagel.nchc.org.tw','db','db.smagel.nchc.org.tw']
 
 
 # Application definition
@@ -157,7 +157,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-DATABASE_ROUTERS = ['gel_database.database_router.DatabaseAppsRouter']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
