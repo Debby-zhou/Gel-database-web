@@ -11,8 +11,11 @@
 - [ ] db.smagel.nchc.org replace the ip address
 
 ### ▪️ MariaDB
+- [x] 創建schema of score table, ct_Value, fold_change tables
 - [ ] 匯入分割好的score table直接取代原本的
-- [ ] ~~匯入新版互動式html直接取代原本的~~
+- [ ] 匯入tissue-specific ct_value tables
+- [ ] 匯入tissue-specific fold_change tables
+- [ ] 匯入新版互動式html直接取代原本的
 
 ## 2021.04.02 Fri.
 
