@@ -9,3 +9,4 @@
    > https with SSL varification 需處理
 6. db.smagel.nchc.org subdomain name取代ip address:81
 
+## 2021.04.09

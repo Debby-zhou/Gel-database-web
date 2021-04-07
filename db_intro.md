@@ -15,7 +15,7 @@
 ### 使用者權限
 使用者可分成三種身份進入資料庫：
 | 身份           | 權限       | 帳號            | 密碼       |
-| :--------------: | :----------: | :---------------: |:----------: |
+| :--- | :--- | :--- | :--- |
 | **Experiment** | experiment | experiment_user | experiment |
 | **Simulation** | simulation | simulation_user | simulation |
 | **Analysis** | analysis | analysis_user | analysis |
