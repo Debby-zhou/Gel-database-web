@@ -1,4 +1,4 @@
-import os, pprint
+import os
 import pymysql as pysql
 
 #連線資料庫
@@ -26,12 +26,11 @@ for ele in category_r:
   file_r = extractlist("ls ../scorecard/ct_value_/" + ele + "/interpolate/")
   for i in file_r:
     j = i.strip('.html')
-    sql = "INSERT INTO `scorecard CT values` VALUE (\'" + j + "\',\'" + ele + "\',\'scorecard/ct_value_/"+ ele +"/interpolate/" + i + "\');" 
+    sql = "INSERT INTO `Scorecard_CT_values` VALUE (\'" + j + "\',\'" + ele + "\',\'scorecard/ct_value_/"+ ele +"/interpolate/" + i + "\');" 
     a += 1
     try:
       cursor.execute(sql)
       connection.commit()
-      print("success")
     except Exception as e:
       connection.rollback()
       print(str(e))
