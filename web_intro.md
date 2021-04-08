@@ -9,3 +9,8 @@
 - **Redis:** 負責緩存服務。
 - **MariaDB:** 負責數據存儲。
 > Django container depends on MariaDB container and Redis, and nginx container depends on Django container.
+
+## 網站帳密
+Username: root/root123
+
+Password: qaz123456789
