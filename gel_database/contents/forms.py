@@ -1,21 +1,18 @@
 from django import forms
-class SelectDataForm(forms.Form):
-	time = forms.ChoiceField(label='Time', 
+
+class SelectData(forms.Form):
+	mechanical = forms.ChoiceField(label="Mechanical Properties", 
 		choices=(
-			('200317','2020/03/17'),
-			('201016','2020/10/16'),
-			), 
-			widget=forms.widgets.RadioSelect(), 
-			error_messages={"required": "不能為空"})
-	table = forms.ChoiceField(label='Type', 
-	choices=(
-		('parameter','Material parameter'),
-		('score', 'Score'),
-		('ctvalues','CT values'),
-		('foldchanges', 'Fold changes'),
+			('parameter','Material parameter')
+		),
+		widget=forms.widgets.RadioSelect())
+	cell_diff = forms.ChoiceField(label="Cell Differentiation",
+		choices=(
+			('score', 'Score'),
+			('ctvalues','CT values'),
+			('foldchanges', 'Fold changes')
 		), 
-		widget=forms.widgets.RadioSelect(), 
-		error_messages={"required": "不能為空"})
+		widget=forms.widgets.RadioSelect())
 
 class SelectGene(forms.Form):
 	controlgene = forms.ChoiceField(label="Gene",

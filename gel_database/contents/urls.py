@@ -20,6 +20,7 @@ from . import views
 
 urlpatterns = [
     path('',views.showhome), 
+    url('logout/$',views.logout, name="logout"),
     url('^simulation/$',views.showsimulation, name="simulation"),
     url('^analysis/$',views.showanalysis, name="analysis"),
     url('^analysis/scorecard/',views.select_result, name="scorecard"),

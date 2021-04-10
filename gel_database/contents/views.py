@@ -1,12 +1,11 @@
 from django.shortcuts import render,HttpResponseRedirect,Http404,HttpResponse
-from contents.models import E200317Score,E201016Score,E200317Parameter,E201016Parameter,E200317CtValues,E200317FoldChange,ScorecardCtValues
-'''
-from contents.models_a import E1227SimulationResult,E201016CtValuesControl,E201016CtValuesMesendoderm,E201016CtValuesMesoderm,E201016CtValuesSelfrenewal,E201016DctValueEctoderm,E201016DctValueEndoderm,E201016DctValueOther,E201016FoldChangeEctoderm,E201016FoldChangeEndoderm,E201016FoldChangeMesendoderm,E201016FoldChangeMesoderm,E201016FoldChangeSelfrenewal,ScorecardCtValues
-import pymysql as pysql
-'''
+from django.contrib import auth
 import os
-from contents.forms import SelectDataForm, SelectGene
+from contents.forms import SelectData, SelectGene
 # Create your views here.
+def logout(request):
+    auth.logout(request)
+    return render(request,'logout.html')
 def showhome(request):
     return render(request, 'home.html')
 def showsimulation(request):
@@ -14,37 +13,23 @@ def showsimulation(request):
 def showtemplate(request):
     return render(request, 'template.html')
 def showexperiment(request):
-    if request.method == 'POST':
-        form = SelectDataForm(request.POST)
+    if request.method == "POST":
+        form = SelectData(request.POST)
         if form.is_valid:
             return HttpResponseRedirect("../experiment")
     else:
-        form = SelectDataForm()
-    return render(request,'experiment.html', {'form': form})
+        form = SelectData()
+    return render(request,'experiment.html', locals())
 def show_experiment_result(request):
     exp_r = {}
-    form = SelectDataForm()
+    form = SelectData()
     if request.method == 'POST':
-        form = SelectDataForm(request.POST)        
+        form = SelectData(request.POST)        
         if request.POST:
-            exp_r['time'] = request.POST['time']
-            exp_r['type'] = request.POST['table']
-            if exp_r['time']=='200317':
-                if exp_r['type']=='score':
-                    score200317 = getdata(E200317Score)
-                elif exp_r['type']=='parameter':
-                    parameter200317 = getdata(E200317Parameter)
-                elif exp_r['type']=='ctvalues':
-                    ctvalues200317 = getdata(E200317CtValues)
-                elif exp_r['type']=='foldchanges':
-                    foldchanges200317 = getdata(E200317FoldChange)
-            elif exp_r['time']=='201016':
-                if exp_r['type']=='score':
-                    score201016 = getdata(E201016Score)   
-                elif exp_r['type']=='parameter':
-                    parameter201016 = getdata(E201016Parameter)  
-                elif exp_r['type']=='ctvalues':
-                    ctvalues201016 = getdata(E201016CtValues)   
+            exp_r['mechanical'] = request.POST.get('mechanical')
+            exp_r['cell_diff'] = request.POST.get('cell_diff')
+            if exp_r['mechanical'] == 'parameter':
+                result = "parameter"  
     return render(request,'experiment.html',locals())
 def getdata(modelName):
     try:

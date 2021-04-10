@@ -48,6 +48,7 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">LOG OUT</a></li>
                 </ul>
             </div>
         </div>
@@ -58,7 +59,33 @@
             <h5>Please use google chrome to view this website.</h5>
         </div>
     </header>
-
+    <!--Mechanical html-->
+    <section class="page-section" id="mechanic">
+        <div class="container-fluid text-center" style="height: 900px;">
+            <div class="text-center" style="padding-top: 2em;">
+                <h2 class="section-heading text-uppercase"><u>Predicted Model</u></h2>
+                <h5 class="my-lg-0">Please choose the cure adhesive type.</h5>
+                <div style="padding: 2em;">
+                    <form action="" method="POST">
+                        <input type="submit" class="btn btn-outline-secondary" name="cure_adhesive" value="I2959">
+                        <input type="submit" class="btn btn-outline-secondary" name="cure_adhesive" value="LAP">
+                    </form>
+                </div>
+                <h5 class="my-lg-0">Please choose the mechanical property.</h5>
+                <div style="padding: 2em;">
+                    <form action="" method="POST">
+                        <input type="submit" class="btn btn-outline-secondary" name="mechanic" value="Tensile Strength">
+                        <input type="submit" class="btn btn-outline-secondary" name="mechanic" value="Young's Modulus">
+                    </form>
+                </div>
+            </div>
+            <div style="height: 700px">
+                <iframe frameBorder="1" scrolling="yes" style="background: transparent; " width=80% height=90%
+                    src="/static/scorecard/Tensile_Strength_Predict_Model_I2959.html">
+                </iframe>
+            </div>
+        </div>
+    </section>
     <!-- Data -->
     <section class="page-section" id="data">
         <div class="container">

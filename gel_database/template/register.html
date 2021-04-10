@@ -39,8 +39,8 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To The Database!</div>
-                <div class="masthead-heading text-uppercase">Tell us who you are</div>
+                <div class="masthead-heading">Welcome to</div>
+                <div class="masthead-subheading text-uppercase">biomimicry gel database platform</div>
             </div>
         </header>
         <!-- Register-->
@@ -49,12 +49,27 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Register</h2>
                 </div>
+                <div class="text-center">
                     <form action="" method="POST">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        {{ error }}
-                        <input type="submit" class="btn btn-primary" value="REGISTER">
+                        <p>
+                            {{ form.username.label }}
+                            {{ form.username }}
+                        </p>
+                        <p>
+                            {{ form.email.label }}
+                            {{ form.email}}
+                        </p>
+                        <p>
+                            {{ form.password.label }}
+                            {{ form.password }}
+                        </p>
+                        <input type="submit" class="btn btn-primary" value="Sign up">
                     </form>
+                </div>
+                <div class="text-center" style="padding-top: 2em;">
+                    <a href="../">Back to log in</a>
+                </div>
                 <!--
                 <form id="contactForm" name="sentMessage" novalidate="novalidate">
                     <div style="margin:0px auto; width:30%">

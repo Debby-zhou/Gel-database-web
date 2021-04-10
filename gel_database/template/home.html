@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -21,6 +20,7 @@
     </head>
 
     <body id="page-top">
+        {% if request.user.is_authenticated %}
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -46,17 +46,18 @@
                                         <li class="dropdown-item"><a href="experiment">experiment</a></li>
                                         <li class="dropdown-item" ><a href="simulation">simulation</a></li>
                                         <li class="dropdown-item"><a href="analysis">analysis</a></li>
-                                    </ul>                                        
+                                    </ul>  
                             </div>                                       
                         </li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">LOG OUT</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container">
-                <h5>This is the test version of web. <br>The formal one is coming soon. <br>Thanks for your patience!</h5>
+            <div class="container">                
+                <h5>Welcome, {{ request.user }}!</h5>                
             </div>
         </header>
 
@@ -110,6 +111,7 @@
                 
             </div>
         </section>
+        {% endif %}
         <!-- Footer-->
         <footer class="footer py-4" style="background-color: #343741">
             <div class="container">

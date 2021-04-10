@@ -8,92 +8,367 @@
 from django.db import models
 
 
-class E200317CtValues(models.Model):
+class CtValueControl(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
-    target_name = models.CharField(max_length=30, blank=True, null=True)
-    category = models.CharField(max_length=20, blank=True, null=True)
-    number_10g_0_25l_30s = models.FloatField(db_column='10G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_25l_90s = models.FloatField(db_column='10G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_30s = models.FloatField(db_column='12.5G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_90s = models.FloatField(db_column='12.5G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_30s = models.FloatField(db_column='15G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_90s = models.FloatField(db_column='15G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_30s = models.FloatField(db_column='17.5G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_90s = models.FloatField(db_column='17.5G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_30s = models.FloatField(db_column='10G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_90s = models.FloatField(db_column='10G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_30s = models.FloatField(db_column='12.5G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_90s = models.FloatField(db_column='12.5G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_30s = models.FloatField(db_column='15G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_90s = models.FloatField(db_column='15G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_30s = models.FloatField(db_column='17.5G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_90s = models.FloatField(db_column='17.5G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_25l_50s = models.FloatField(db_column='10G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_25l_70s = models.FloatField(db_column='10G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_50s = models.FloatField(db_column='12.5G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_70s = models.FloatField(db_column='12.5G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_50s = models.FloatField(db_column='15G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_70s = models.FloatField(db_column='15G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_50s = models.FloatField(db_column='17.5G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_70s = models.FloatField(db_column='17.5G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_50s = models.FloatField(db_column='10G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_70s = models.FloatField(db_column='10G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_50s = models.FloatField(db_column='12.5G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_70s = models.FloatField(db_column='12.5G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_50s = models.FloatField(db_column='15G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_70s = models.FloatField(db_column='15G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_50s = models.FloatField(db_column='17.5G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_70s = models.FloatField(db_column='17.5G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    image = models.TextField(blank=True, null=True)
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    actb = models.FloatField(db_column='ACTB', blank=True, null=True)  # Field name made lowercase.
+    actb_1 = models.FloatField(db_column='ACTB.1', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    actb_2 = models.FloatField(db_column='ACTB.2', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    actb_3 = models.FloatField(db_column='ACTB.3', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    ctcf = models.FloatField(db_column='CTCF', blank=True, null=True)  # Field name made lowercase.
+    ep300 = models.FloatField(db_column='EP300', blank=True, null=True)  # Field name made lowercase.
+    smad1 = models.FloatField(db_column='SMAD1', blank=True, null=True)  # Field name made lowercase.
+    class Meta:
+        managed = False
+        db_table = 'CT_value_control'
+
+
+class CtValueEctoderm(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    cdh9 = models.FloatField(db_column='CDH9', blank=True, null=True)  # Field name made lowercase.
+    col2a1 = models.FloatField(db_column='COL2A1', blank=True, null=True)  # Field name made lowercase.
+    dmbx1 = models.FloatField(db_column='DMBX1', blank=True, null=True)  # Field name made lowercase.
+    drd4 = models.FloatField(db_column='DRD4', blank=True, null=True)  # Field name made lowercase.
+    en1 = models.FloatField(db_column='EN1', blank=True, null=True)  # Field name made lowercase.
+    lmx1a = models.FloatField(db_column='LMX1A', blank=True, null=True)  # Field name made lowercase.
+    map2 = models.FloatField(db_column='MAP2', blank=True, null=True)  # Field name made lowercase.
+    myo3b = models.FloatField(db_column='MYO3B', blank=True, null=True)  # Field name made lowercase.
+    nos2 = models.FloatField(db_column='NOS2', blank=True, null=True)  # Field name made lowercase.
+    nr2f1_nr2f2 = models.FloatField(db_column='NR2F1-NR2F2', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    nr2f2 = models.FloatField(db_column='NR2F2', blank=True, null=True)  # Field name made lowercase.
+    olfm3 = models.FloatField(db_column='OLFM3', blank=True, null=True)  # Field name made lowercase.
+    papln = models.FloatField(db_column='PAPLN', blank=True, null=True)  # Field name made lowercase.
+    pax3 = models.FloatField(db_column='PAX3', blank=True, null=True)  # Field name made lowercase.
+    pax6 = models.FloatField(db_column='PAX6', blank=True, null=True)  # Field name made lowercase.
+    pou4f1 = models.FloatField(db_column='POU4F1', blank=True, null=True)  # Field name made lowercase.
+    prkca = models.FloatField(db_column='PRKCA', blank=True, null=True)  # Field name made lowercase.
+    sdc2 = models.FloatField(db_column='SDC2', blank=True, null=True)  # Field name made lowercase.
+    sox1 = models.FloatField(db_column='SOX1', blank=True, null=True)  # Field name made lowercase.
+    trpm8 = models.FloatField(db_column='TRPM8', blank=True, null=True)  # Field name made lowercase.
+    wnt1 = models.FloatField(db_column='WNT1', blank=True, null=True)  # Field name made lowercase.
+    zbtb16 = models.FloatField(db_column='ZBTB16', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
-        db_table = '200317 CT values'
+        db_table = 'CT_value_ectoderm'
 
 
-class E200317FoldChange(models.Model):
+class CtValueEndoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
-    target_name = models.CharField(max_length=30, blank=True, null=True)
-    category = models.CharField(max_length=20, blank=True, null=True)
-    number_10g_0_25l_30s = models.FloatField(db_column='10G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_25l_90s = models.FloatField(db_column='10G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_30s = models.FloatField(db_column='12.5G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_90s = models.FloatField(db_column='12.5G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_30s = models.FloatField(db_column='15G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_90s = models.FloatField(db_column='15G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_30s = models.FloatField(db_column='17.5G_0.25L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_90s = models.FloatField(db_column='17.5G_0.25L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_30s = models.FloatField(db_column='10G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_90s = models.FloatField(db_column='10G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_30s = models.FloatField(db_column='12.5G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_90s = models.FloatField(db_column='12.5G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_30s = models.FloatField(db_column='15G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_90s = models.FloatField(db_column='15G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_30s = models.FloatField(db_column='17.5G_0.5L_30S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_90s = models.FloatField(db_column='17.5G_0.5L_90S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_25l_50s = models.FloatField(db_column='10G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_25l_70s = models.FloatField(db_column='10G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_50s = models.FloatField(db_column='12.5G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_25l_70s = models.FloatField(db_column='12.5G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_50s = models.FloatField(db_column='15G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_25l_70s = models.FloatField(db_column='15G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_50s = models.FloatField(db_column='17.5G_0.25L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_25l_70s = models.FloatField(db_column='17.5G_0.25L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_50s = models.FloatField(db_column='10G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_10g_0_5l_70s = models.FloatField(db_column='10G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_50s = models.FloatField(db_column='12.5G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_12_5g_0_5l_70s = models.FloatField(db_column='12.5G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_50s = models.FloatField(db_column='15G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_15g_0_5l_70s = models.FloatField(db_column='15G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_50s = models.FloatField(db_column='17.5G_0.5L_50S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
-    number_17_5g_0_5l_70s = models.FloatField(db_column='17.5G_0.5L_70S', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it wasn't a valid Python identifier.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    afp = models.FloatField(db_column='AFP', blank=True, null=True)  # Field name made lowercase.
+    cabp7 = models.FloatField(db_column='CABP7', blank=True, null=True)  # Field name made lowercase.
+    cdh20 = models.FloatField(db_column='CDH20', blank=True, null=True)  # Field name made lowercase.
+    cldn1 = models.FloatField(db_column='CLDN1', blank=True, null=True)  # Field name made lowercase.
+    cplx2 = models.FloatField(db_column='CPLX2', blank=True, null=True)  # Field name made lowercase.
+    elavl3 = models.FloatField(db_column='ELAVL3', blank=True, null=True)  # Field name made lowercase.
+    eomes = models.FloatField(db_column='EOMES', blank=True, null=True)  # Field name made lowercase.
+    foxa1 = models.FloatField(db_column='FOXA1', blank=True, null=True)  # Field name made lowercase.
+    foxa2 = models.FloatField(db_column='FOXA2', blank=True, null=True)  # Field name made lowercase.
+    foxp2 = models.FloatField(db_column='FOXP2', blank=True, null=True)  # Field name made lowercase.
+    gata4 = models.FloatField(db_column='GATA4', blank=True, null=True)  # Field name made lowercase.
+    gata6 = models.FloatField(db_column='GATA6', blank=True, null=True)  # Field name made lowercase.
+    hhex = models.FloatField(db_column='HHEX', blank=True, null=True)  # Field name made lowercase.
+    hmp19 = models.FloatField(db_column='HMP19', blank=True, null=True)  # Field name made lowercase.
+    hnf1b = models.FloatField(db_column='HNF1B', blank=True, null=True)  # Field name made lowercase.
+    hnf4a = models.FloatField(db_column='HNF4A', blank=True, null=True)  # Field name made lowercase.
+    klf5 = models.FloatField(db_column='KLF5', blank=True, null=True)  # Field name made lowercase.
+    lefty1 = models.FloatField(db_column='LEFTY1', blank=True, null=True)  # Field name made lowercase.
+    lefty2 = models.FloatField(db_column='LEFTY2', blank=True, null=True)  # Field name made lowercase.
+    nodal = models.FloatField(db_column='NODAL', blank=True, null=True)  # Field name made lowercase.
+    phox2b = models.FloatField(db_column='PHOX2B', blank=True, null=True)  # Field name made lowercase.
+    pou3f3 = models.FloatField(db_column='POU3F3', blank=True, null=True)  # Field name made lowercase.
+    prdm1 = models.FloatField(db_column='PRDM1', blank=True, null=True)  # Field name made lowercase.
+    rxrg = models.FloatField(db_column='RXRG', blank=True, null=True)  # Field name made lowercase.
+    sox17 = models.FloatField(db_column='SOX17', blank=True, null=True)  # Field name made lowercase.
+    sst = models.FloatField(db_column='SST', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
-        db_table = '200317 Fold change'
+        db_table = 'CT_value_endoderm'
 
 
-class E200317Parameter(models.Model):
+class CtValueMesendoderm(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    fgf4 = models.FloatField(db_column='FGF4', blank=True, null=True)  # Field name made lowercase.
+    gdf3 = models.FloatField(db_column='GDF3', blank=True, null=True)  # Field name made lowercase.
+    nppb = models.FloatField(db_column='NPPB', blank=True, null=True)  # Field name made lowercase.
+    nr5a2 = models.FloatField(db_column='NR5A2', blank=True, null=True)  # Field name made lowercase.
+    pthlh = models.FloatField(db_column='PTHLH', blank=True, null=True)  # Field name made lowercase.
+    t = models.FloatField(db_column='T', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'CT_value_mesendoderm'
+
+
+class CtValueMesoderm(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    abca4 = models.FloatField(db_column='ABCA4', blank=True, null=True)  # Field name made lowercase.
+    alox15 = models.FloatField(db_column='ALOX15', blank=True, null=True)  # Field name made lowercase.
+    bmp10 = models.FloatField(db_column='BMP10', blank=True, null=True)  # Field name made lowercase.
+    cdh5 = models.FloatField(db_column='CDH5', blank=True, null=True)  # Field name made lowercase.
+    cdx2 = models.FloatField(db_column='CDX2', blank=True, null=True)  # Field name made lowercase.
+    colec10 = models.FloatField(db_column='COLEC10', blank=True, null=True)  # Field name made lowercase.
+    esm1 = models.FloatField(db_column='ESM1', blank=True, null=True)  # Field name made lowercase.
+    fcn3 = models.FloatField(db_column='FCN3', blank=True, null=True)  # Field name made lowercase.
+    foxf1 = models.FloatField(db_column='FOXF1', blank=True, null=True)  # Field name made lowercase.
+    hand1 = models.FloatField(db_column='HAND1', blank=True, null=True)  # Field name made lowercase.
+    hand2 = models.FloatField(db_column='HAND2', blank=True, null=True)  # Field name made lowercase.
+    hey1 = models.FloatField(db_column='HEY1', blank=True, null=True)  # Field name made lowercase.
+    hopx = models.FloatField(db_column='HOPX', blank=True, null=True)  # Field name made lowercase.
+    il6st = models.FloatField(db_column='IL6ST', blank=True, null=True)  # Field name made lowercase.
+    nkx2_5 = models.FloatField(db_column='NKX2-5', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    odam = models.FloatField(db_column='ODAM', blank=True, null=True)  # Field name made lowercase.
+    pdgfra = models.FloatField(db_column='PDGFRA', blank=True, null=True)  # Field name made lowercase.
+    plvap = models.FloatField(db_column='PLVAP', blank=True, null=True)  # Field name made lowercase.
+    rgs4 = models.FloatField(db_column='RGS4', blank=True, null=True)  # Field name made lowercase.
+    snai2 = models.FloatField(db_column='SNAI2', blank=True, null=True)  # Field name made lowercase.
+    tbx3 = models.FloatField(db_column='TBX3', blank=True, null=True)  # Field name made lowercase.
+    tm4sf1 = models.FloatField(db_column='TM4SF1', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'CT_value_mesoderm'
+
+
+class CtValueOther(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    cd44 = models.FloatField(db_column='CD44', blank=True, null=True)  # Field name made lowercase.
+    jarid2 = models.FloatField(db_column='JARID2', blank=True, null=True)  # Field name made lowercase.
+    myc = models.FloatField(db_column='MYC', blank=True, null=True)  # Field name made lowercase.
+    sev = models.FloatField(db_column='SEV', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'CT_value_other'
+
+
+class CtValueSelfrenewal(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    cxcl5 = models.FloatField(db_column='CXCL5', blank=True, null=True)  # Field name made lowercase.
+    dnmt3b = models.FloatField(db_column='DNMT3B', blank=True, null=True)  # Field name made lowercase.
+    hesx1 = models.FloatField(db_column='HESX1', blank=True, null=True)  # Field name made lowercase.
+    ido1 = models.FloatField(db_column='IDO1', blank=True, null=True)  # Field name made lowercase.
+    lck = models.FloatField(db_column='LCK', blank=True, null=True)  # Field name made lowercase.
+    nanog = models.FloatField(db_column='NANOG', blank=True, null=True)  # Field name made lowercase.
+    pou5f1 = models.FloatField(db_column='POU5F1', blank=True, null=True)  # Field name made lowercase.
+    sox2 = models.FloatField(db_column='SOX2', blank=True, null=True)  # Field name made lowercase.
+    trim22 = models.FloatField(db_column='TRIM22', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'CT_value_selfrenewal'
+
+
+class FoldChangeEctoderm(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    cdh9 = models.FloatField(db_column='CDH9', blank=True, null=True)  # Field name made lowercase.
+    col2a1 = models.FloatField(db_column='COL2A1', blank=True, null=True)  # Field name made lowercase.
+    dmbx1 = models.FloatField(db_column='DMBX1', blank=True, null=True)  # Field name made lowercase.
+    drd4 = models.FloatField(db_column='DRD4', blank=True, null=True)  # Field name made lowercase.
+    en1 = models.FloatField(db_column='EN1', blank=True, null=True)  # Field name made lowercase.
+    lmx1a = models.FloatField(db_column='LMX1A', blank=True, null=True)  # Field name made lowercase.
+    map2 = models.FloatField(db_column='MAP2', blank=True, null=True)  # Field name made lowercase.
+    myo3b = models.FloatField(db_column='MYO3B', blank=True, null=True)  # Field name made lowercase.
+    nos2 = models.FloatField(db_column='NOS2', blank=True, null=True)  # Field name made lowercase.
+    nr2f1_nr2f2 = models.FloatField(db_column='NR2F1-NR2F2', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    nr2f2 = models.FloatField(db_column='NR2F2', blank=True, null=True)  # Field name made lowercase.
+    olfm3 = models.FloatField(db_column='OLFM3', blank=True, null=True)  # Field name made lowercase.
+    papln = models.FloatField(db_column='PAPLN', blank=True, null=True)  # Field name made lowercase.
+    pax3 = models.FloatField(db_column='PAX3', blank=True, null=True)  # Field name made lowercase.
+    pax6 = models.FloatField(db_column='PAX6', blank=True, null=True)  # Field name made lowercase.
+    pou4f1 = models.FloatField(db_column='POU4F1', blank=True, null=True)  # Field name made lowercase.
+    prkca = models.FloatField(db_column='PRKCA', blank=True, null=True)  # Field name made lowercase.
+    sdc2 = models.FloatField(db_column='SDC2', blank=True, null=True)  # Field name made lowercase.
+    sox1 = models.FloatField(db_column='SOX1', blank=True, null=True)  # Field name made lowercase.
+    trpm8 = models.FloatField(db_column='TRPM8', blank=True, null=True)  # Field name made lowercase.
+    wnt1 = models.FloatField(db_column='WNT1', blank=True, null=True)  # Field name made lowercase.
+    zbtb16 = models.FloatField(db_column='ZBTB16', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Fold_change_ectoderm'
+
+
+class FoldChangeEndoderm(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    afp = models.FloatField(db_column='AFP', blank=True, null=True)  # Field name made lowercase.
+    cabp7 = models.FloatField(db_column='CABP7', blank=True, null=True)  # Field name made lowercase.
+    cdh20 = models.FloatField(db_column='CDH20', blank=True, null=True)  # Field name made lowercase.
+    cldn1 = models.FloatField(db_column='CLDN1', blank=True, null=True)  # Field name made lowercase.
+    cplx2 = models.FloatField(db_column='CPLX2', blank=True, null=True)  # Field name made lowercase.
+    elavl3 = models.FloatField(db_column='ELAVL3', blank=True, null=True)  # Field name made lowercase.
+    eomes = models.FloatField(db_column='EOMES', blank=True, null=True)  # Field name made lowercase.
+    foxa1 = models.FloatField(db_column='FOXA1', blank=True, null=True)  # Field name made lowercase.
+    foxa2 = models.FloatField(db_column='FOXA2', blank=True, null=True)  # Field name made lowercase.
+    foxp2 = models.FloatField(db_column='FOXP2', blank=True, null=True)  # Field name made lowercase.
+    gata4 = models.FloatField(db_column='GATA4', blank=True, null=True)  # Field name made lowercase.
+    gata6 = models.FloatField(db_column='GATA6', blank=True, null=True)  # Field name made lowercase.
+    hhex = models.FloatField(db_column='HHEX', blank=True, null=True)  # Field name made lowercase.
+    hmp19 = models.FloatField(db_column='HMP19', blank=True, null=True)  # Field name made lowercase.
+    hnf1b = models.FloatField(db_column='HNF1B', blank=True, null=True)  # Field name made lowercase.
+    hnf4a = models.FloatField(db_column='HNF4A', blank=True, null=True)  # Field name made lowercase.
+    klf5 = models.FloatField(db_column='KLF5', blank=True, null=True)  # Field name made lowercase.
+    lefty1 = models.FloatField(db_column='LEFTY1', blank=True, null=True)  # Field name made lowercase.
+    lefty2 = models.FloatField(db_column='LEFTY2', blank=True, null=True)  # Field name made lowercase.
+    nodal = models.FloatField(db_column='NODAL', blank=True, null=True)  # Field name made lowercase.
+    phox2b = models.FloatField(db_column='PHOX2B', blank=True, null=True)  # Field name made lowercase.
+    pou3f3 = models.FloatField(db_column='POU3F3', blank=True, null=True)  # Field name made lowercase.
+    prdm1 = models.FloatField(db_column='PRDM1', blank=True, null=True)  # Field name made lowercase.
+    rxrg = models.FloatField(db_column='RXRG', blank=True, null=True)  # Field name made lowercase.
+    sox17 = models.FloatField(db_column='SOX17', blank=True, null=True)  # Field name made lowercase.
+    sst = models.FloatField(db_column='SST', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Fold_change_endoderm'
+
+
+class FoldChangeMesendoderm(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    fgf4 = models.FloatField(db_column='FGF4', blank=True, null=True)  # Field name made lowercase.
+    gdf3 = models.FloatField(db_column='GDF3', blank=True, null=True)  # Field name made lowercase.
+    nppb = models.FloatField(db_column='NPPB', blank=True, null=True)  # Field name made lowercase.
+    nr5a2 = models.FloatField(db_column='NR5A2', blank=True, null=True)  # Field name made lowercase.
+    pthlh = models.FloatField(db_column='PTHLH', blank=True, null=True)  # Field name made lowercase.
+    t = models.FloatField(db_column='T', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Fold_change_mesendoderm'
+
+
+class FoldChangeMesoderm(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    abca4 = models.FloatField(db_column='ABCA4', blank=True, null=True)  # Field name made lowercase.
+    alox15 = models.FloatField(db_column='ALOX15', blank=True, null=True)  # Field name made lowercase.
+    bmp10 = models.FloatField(db_column='BMP10', blank=True, null=True)  # Field name made lowercase.
+    cdh5 = models.FloatField(db_column='CDH5', blank=True, null=True)  # Field name made lowercase.
+    cdx2 = models.FloatField(db_column='CDX2', blank=True, null=True)  # Field name made lowercase.
+    colec10 = models.FloatField(db_column='COLEC10', blank=True, null=True)  # Field name made lowercase.
+    esm1 = models.FloatField(db_column='ESM1', blank=True, null=True)  # Field name made lowercase.
+    fcn3 = models.FloatField(db_column='FCN3', blank=True, null=True)  # Field name made lowercase.
+    foxf1 = models.FloatField(db_column='FOXF1', blank=True, null=True)  # Field name made lowercase.
+    hand1 = models.FloatField(db_column='HAND1', blank=True, null=True)  # Field name made lowercase.
+    hand2 = models.FloatField(db_column='HAND2', blank=True, null=True)  # Field name made lowercase.
+    hey1 = models.FloatField(db_column='HEY1', blank=True, null=True)  # Field name made lowercase.
+    hopx = models.FloatField(db_column='HOPX', blank=True, null=True)  # Field name made lowercase.
+    il6st = models.FloatField(db_column='IL6ST', blank=True, null=True)  # Field name made lowercase.
+    nkx2_5 = models.FloatField(db_column='NKX2-5', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    odam = models.FloatField(db_column='ODAM', blank=True, null=True)  # Field name made lowercase.
+    pdgfra = models.FloatField(db_column='PDGFRA', blank=True, null=True)  # Field name made lowercase.
+    plvap = models.FloatField(db_column='PLVAP', blank=True, null=True)  # Field name made lowercase.
+    rgs4 = models.FloatField(db_column='RGS4', blank=True, null=True)  # Field name made lowercase.
+    snai2 = models.FloatField(db_column='SNAI2', blank=True, null=True)  # Field name made lowercase.
+    tbx3 = models.FloatField(db_column='TBX3', blank=True, null=True)  # Field name made lowercase.
+    tm4sf1 = models.FloatField(db_column='TM4SF1', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Fold_change_mesoderm'
+
+
+class FoldChangeSelfrenewal(models.Model):
+    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    cxcl5 = models.FloatField(db_column='CXCL5', blank=True, null=True)  # Field name made lowercase.
+    dnmt3b = models.FloatField(db_column='DNMT3B', blank=True, null=True)  # Field name made lowercase.
+    hesx1 = models.FloatField(db_column='HESX1', blank=True, null=True)  # Field name made lowercase.
+    ido1 = models.FloatField(db_column='IDO1', blank=True, null=True)  # Field name made lowercase.
+    lck = models.FloatField(db_column='LCK', blank=True, null=True)  # Field name made lowercase.
+    nanog = models.FloatField(db_column='NANOG', blank=True, null=True)  # Field name made lowercase.
+    pou5f1 = models.FloatField(db_column='POU5F1', blank=True, null=True)  # Field name made lowercase.
+    sox2 = models.FloatField(db_column='SOX2', blank=True, null=True)  # Field name made lowercase.
+    trim22 = models.FloatField(db_column='TRIM22', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Fold_change_selfrenewal'
+
+
+class MechanicalParameter(models.Model):
     uuid = models.IntegerField(db_column='UUID', primary_key=True)  # Field name made lowercase.
     gelma_concentration = models.FloatField(db_column='gelma concentration')  # Field renamed to remove unsuitable characters.
     cure_adhesive = models.CharField(db_column='cure adhesive', max_length=10, blank=True, null=True)  # Field renamed to remove unsuitable characters.
@@ -109,39 +384,22 @@ class E200317Parameter(models.Model):
 
     class Meta:
         managed = False
-        db_table = '200317 parameter'
+        db_table = 'Mechanical_parameter'
 
 
-class E200317Score(models.Model):
+class Score(models.Model):
     uuid = models.IntegerField(db_column='UUID', primary_key=True)  # Field name made lowercase.
-    sample_name = models.CharField(max_length=30)
-    self_renewal = models.FloatField(db_column='self-renewal', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    ectoderm = models.FloatField(db_column='Ectoderm', blank=True, null=True)  # Field name made lowercase.
-    mesoderm = models.FloatField(db_column='Mesoderm', blank=True, null=True)  # Field name made lowercase.
-    endoderm = models.FloatField(db_column='Endoderm', blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = '200317 score'
-
-
-class E201016Parameter(models.Model):
-    uuid = models.IntegerField(db_column='UUID', primary_key=True)  # Field name made lowercase.
-    gelma_concentration = models.FloatField(db_column='gelma concentration')  # Field renamed to remove unsuitable characters.
-    cure_adhesive = models.CharField(db_column='cure adhesive', max_length=10, blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    adhesive_concentration = models.FloatField(db_column='adhesive concentration', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    light_cure_time = models.IntegerField(db_column='light cure time', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    print_speed_mm_min_field = models.IntegerField(db_column='print speed(mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    size_of_tip_g_field = models.IntegerField(db_column='size of tip(G)', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    thickness_mm_field = models.IntegerField(db_column='thickness(mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    average_tensile_strength = models.FloatField(db_column='Average Tensile Strength', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    std_tensile_strength = models.FloatField(db_column='STD Tensile Strength', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    average_young_s_modulus = models.FloatField(db_column="Average Young's Modulus", blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    std_young_s_modulus = models.FloatField(db_column="STD Young's Modulus", blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    self_renewal_discrete_field = models.CharField(db_column='Self-renewal(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    ectoderm_discrete_field = models.CharField(db_column='Ectoderm(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    mesoderm_discrete_field = models.CharField(db_column='Mesoderm(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    endoderm_discrete_field = models.CharField(db_column='Endoderm(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    gelma_concentration = models.FloatField(blank=True, null=True)
+    cure_adhesive = models.TextField(blank=True, null=True)
+    adhesive_concentration = models.FloatField(blank=True, null=True)
+    light_cure_time = models.BigIntegerField(blank=True, null=True)
+    print_speed_mm_min_field = models.BigIntegerField(db_column='print_speed (mm/min)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    size_of_tip = models.TextField(blank=True, null=True)
+    thickness_mm_field = models.BigIntegerField(db_column='thickness (mm)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    self_renewal_discrete_field = models.FloatField(db_column='Self-renewal(discrete)', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    ectoderm_discrete_field = models.TextField(db_column='Ectoderm(discrete)', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    mesoderm_discrete_field = models.TextField(db_column='Mesoderm(discrete)', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    endoderm_discrete_field = models.TextField(db_column='Endoderm(discrete)', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
     self_renewal = models.FloatField(db_column='Self-renewal', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     ectoderm = models.FloatField(db_column='Ectoderm', blank=True, null=True)  # Field name made lowercase.
     mesoderm = models.FloatField(db_column='Mesoderm', blank=True, null=True)  # Field name made lowercase.
@@ -149,24 +407,9 @@ class E201016Parameter(models.Model):
 
     class Meta:
         managed = False
-        db_table = '201016 parameter'
+        db_table = 'Score'
 
 
-class E201016Score(models.Model):
-    uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
-    self_renewal_discrete_field = models.CharField(db_column='Self-renewal(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    ectoderm_discrete_field = models.CharField(db_column='Ectoderm(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    mesoderm_discrete_field = models.CharField(db_column='Mesoderm(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    endoderm_discrete_field = models.CharField(db_column='Endoderm(discrete)', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    self_renewal = models.FloatField(db_column='self-renewal', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    ectoderm = models.FloatField(db_column='Ectoderm', blank=True, null=True)  # Field name made lowercase.
-    mesoderm = models.FloatField(db_column='Mesoderm', blank=True, null=True)  # Field name made lowercase.
-    endoderm = models.FloatField(db_column='Endoderm', blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = '201016 score'
-      
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -275,13 +518,3 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
-
-class ScorecardCtValues(models.Model):
-    target = models.CharField(primary_key=True, max_length=30)
-    category = models.CharField(max_length=20, blank=True, null=True)
-    filepath = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'scorecard CT values'
-        app_label = "contents"
