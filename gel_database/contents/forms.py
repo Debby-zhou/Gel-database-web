@@ -1,18 +1,32 @@
 from django import forms
 
 class SelectData(forms.Form):
-	mechanical = forms.ChoiceField(label="Mechanical Properties", 
+	mechanical = forms.ChoiceField(label="Mechanical properties",
 		choices=(
-			('parameter','Material parameter')
+			('parameter','Material parameter'), #,一定要加
 		),
-		widget=forms.widgets.RadioSelect())
-	cell_diff = forms.ChoiceField(label="Cell Differentiation",
+		required = False,
+		widget = forms.widgets.RadioSelect())
+	cell_diff_expression = forms.ChoiceField(label="Expression data",
 		choices=(
-			('score', 'Score'),
+			('score','Score'),
 			('ctvalues','CT values'),
-			('foldchanges', 'Fold changes')
-		), 
-		widget=forms.widgets.RadioSelect())
+			('foldchange','Fold changes')
+		),
+		required = False,
+		widget = forms.widgets.RadioSelect())
+	cell_diff_tissue = forms.MultipleChoiceField(label="Tissue categories",
+		choices=(
+			('Control','control'),
+			('Ectoderm','ectoderm'),
+			('Endoderm','endoderm'),
+			('Mesendoderm','mesendoderm'),
+			('Mesoderm','mesoderm'),
+			('Other','other'),
+			('Selfrenewal','selfrenewal')
+		),
+		required = False,
+		widget = forms.widgets.CheckboxSelectMultiple)
 
 class SelectGene(forms.Form):
 	controlgene = forms.ChoiceField(label="Gene",

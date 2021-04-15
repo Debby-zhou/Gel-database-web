@@ -2,6 +2,8 @@ from django.shortcuts import render,HttpResponseRedirect,Http404,HttpResponse
 from django.contrib import auth
 import os
 from contents.forms import SelectData, SelectGene
+from .models import *
+
 # Create your views here.
 def logout(request):
     auth.logout(request)
@@ -22,20 +24,24 @@ def showexperiment(request):
     return render(request,'experiment.html', locals())
 def show_experiment_result(request):
     exp_r = {}
-    form = SelectData()
-    if request.method == 'POST':
-        form = SelectData(request.POST)        
-        if request.POST:
-            exp_r['mechanical'] = request.POST.get('mechanical')
-            exp_r['cell_diff'] = request.POST.get('cell_diff')
-            if exp_r['mechanical'] == 'parameter':
-                result = "parameter"  
-    return render(request,'experiment.html',locals())
+    keys = ['mechanical','expression','tissue']
+    ori_keys = ['mechanical','cell_diff_expression','cell_diff_tissue']    
+    tissues = ['Control','Ectoderm','Endoderm','Mesendoderm','Mesoderm','Other','Selfrenewal'] 
+    if request.POST:
+        for ele,key in zip(keys,ori_keys):
+            if ele == 'tissue':
+                exp_r[ele] = request.POST.getlist(key)
+            else:
+                exp_r[ele] = request.POST.get(key)
+    for i,j in exp_r.items():
+        if i == 'mechanical':
+            resultTable = getdata('MechanicalParameter')
+    return render(request,'result.html',locals())
 def getdata(modelName):
     try:
         t = modelName.objects.all()
     except:
-        t = "讀取錯誤！"
+        t = "Import error！"
     return t
 def showanalysis(request):
     category_r = {}

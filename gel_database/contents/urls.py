@@ -26,7 +26,7 @@ urlpatterns = [
     url('^analysis/scorecard/',views.select_result, name="scorecard"),
     url('^template/$',views.showtemplate),
     url('^experiment/$',views.showexperiment, name="experiment"),
-    url('^experiment/results/',views.show_experiment_result, name="expresults"),
+    url('^experiment/result/',views.show_experiment_result, name="result"),
     #url('^experiment/score200317/', views.score200317, name="score200317"),
     #url('^experiment/score201016/', views.score201016, name="score201016"),
     #url('^experiment/ctvalues200317/', views.ctvalues200317, name="ctvalues200317"),
