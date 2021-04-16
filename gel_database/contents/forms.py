@@ -10,23 +10,23 @@ class SelectData(forms.Form):
 	cell_diff_expression = forms.ChoiceField(label="Expression data",
 		choices=(
 			('score','Score'),
-			('ctvalues','CT values'),
-			('foldchange','Fold changes')
+			('ct values','CT values'),
+			('fold change','Fold changes')
 		),
 		required = False,
 		widget = forms.widgets.RadioSelect())
-	cell_diff_tissue = forms.MultipleChoiceField(label="Tissue categories",
+	cell_diff_tissue = forms.ChoiceField(label="Tissue categories",
 		choices=(
-			('Control','control'),
-			('Ectoderm','ectoderm'),
-			('Endoderm','endoderm'),
-			('Mesendoderm','mesendoderm'),
-			('Mesoderm','mesoderm'),
-			('Other','other'),
-			('Selfrenewal','selfrenewal')
+			('control','control'),
+			('ectoderm','ectoderm'),
+			('endoderm','endoderm'),
+			('mesendoderm','mesendoderm'),
+			('mesoderm','mesoderm'),
+			('other','other'),
+			('selfrenewal','selfrenewal')
 		),
 		required = False,
-		widget = forms.widgets.CheckboxSelectMultiple)
+		widget = forms.widgets.RadioSelect())
 
 class SelectGene(forms.Form):
 	controlgene = forms.ChoiceField(label="Gene",

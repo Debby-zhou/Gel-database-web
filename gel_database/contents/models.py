@@ -27,8 +27,9 @@ class CtValueControl(models.Model):
     class Meta:
         managed = False
         db_table = 'CT_value_control'
-
-
+    def __str__(self):
+        return self.uuid
+        
 class CtValueEctoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
     gelma_concentration = models.FloatField(blank=True, null=True)
@@ -64,7 +65,8 @@ class CtValueEctoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'CT_value_ectoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class CtValueEndoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -105,7 +107,8 @@ class CtValueEndoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'CT_value_endoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class CtValueMesendoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -126,7 +129,8 @@ class CtValueMesendoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'CT_value_mesendoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class CtValueMesoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -163,7 +167,8 @@ class CtValueMesoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'CT_value_mesoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class CtValueOther(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -182,7 +187,8 @@ class CtValueOther(models.Model):
     class Meta:
         managed = False
         db_table = 'CT_value_other'
-
+    def __str__(self):
+        return self.uuid
 
 class CtValueSelfrenewal(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -206,7 +212,8 @@ class CtValueSelfrenewal(models.Model):
     class Meta:
         managed = False
         db_table = 'CT_value_selfrenewal'
-
+    def __str__(self):
+        return self.uuid
 
 class FoldChangeEctoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -243,7 +250,8 @@ class FoldChangeEctoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'Fold_change_ectoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class FoldChangeEndoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -284,7 +292,8 @@ class FoldChangeEndoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'Fold_change_endoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class FoldChangeMesendoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -305,7 +314,8 @@ class FoldChangeMesendoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'Fold_change_mesendoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class FoldChangeMesoderm(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -342,7 +352,8 @@ class FoldChangeMesoderm(models.Model):
     class Meta:
         managed = False
         db_table = 'Fold_change_mesoderm'
-
+    def __str__(self):
+        return self.uuid
 
 class FoldChangeSelfrenewal(models.Model):
     uuid = models.AutoField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -366,7 +377,8 @@ class FoldChangeSelfrenewal(models.Model):
     class Meta:
         managed = False
         db_table = 'Fold_change_selfrenewal'
-
+    def __str__(self):
+        return self.uuid
 
 class MechanicalParameter(models.Model):
     uuid = models.IntegerField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -385,7 +397,8 @@ class MechanicalParameter(models.Model):
     class Meta:
         managed = False
         db_table = 'Mechanical_parameter'
-
+    def __str__(self):
+        return self.uuid
 
 class Score(models.Model):
     uuid = models.IntegerField(db_column='UUID', primary_key=True)  # Field name made lowercase.
@@ -408,7 +421,8 @@ class Score(models.Model):
     class Meta:
         managed = False
         db_table = 'Score'
-
+    def __str__(self):
+        return self.uuid
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)

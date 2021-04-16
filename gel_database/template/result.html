@@ -67,33 +67,172 @@
     <div class="container-fluid">
         <div class="text-center">
             <h2 class="section-heading text-uppercase"><u>result table</u></h2>
-            <h5 class="section-subheading">
+            <h4 class="section-subheading">
+                {% if exp_r.mechanical %}
+                    {{ exp_r.mechanical | title}}
+                {% endif %}
                 {% if exp_r.expression %}
-                    {{ exp_r.expression }}
+                    {{ exp_r.expression | title}} 
                 {% endif %}
-                {% if exp_r.tissue %}
-                    {% for category in exp_r.tissue %}
-                        {{ category }}
-                    {% endfor %}
+                {% if exp_r.tissue %} 
+                    > {{ exp_r.tissue }}
                 {% endif %}
-            </h5>
+            </h4>
         </div>
-        <table class="">
+        {% if Score %}
 
-        </table>
-        {% if exp_r.mechanical %}
-            <thead>{{ exp_r.mechanical }}</thead>
-            
+        {% elif CControlTable %}
+        <table class="table">
             <tbody>
-                {% for r in resultTable %}
                 <tr>
-                    <td>{{ r.uuid}}</td>
+                    <th>UUID</th>
+                    <th>Gelma concentrstion</th>
+                    <th>Cure adhesive</th>
+                    <th>Adhesive concentration</th>
+                    <th>Light cure time</th>
+                    <th>Print speed(mm/min)</th>
+                    <th>Size of tip</th>
+                    <th>Thickness(mm)</th>
+                    <th>ACTB</th>
+                    <th>ACTB.1</th>
+                    <th>ACTB.2</th>
+                    <th>ACTB.3</th>
+                    <th>CTCF</th>
+                    <th>EP300</th>
+                    <th>SMAD1</th>
+                </tr>
+                {% for r in CControlTable %}
+                <tr>
+                    <td>{{ r.uuid }}</td>
+                    <td>{{ r.gelma_concentration }}</td>
+                    <td>{{ r.cure_adhesive }}</td>
+                    <td>{{ r.adhesive_concentration }}</td>
+                    <td>{{ r.light_cure_time }}</td>
+                    <td>{{ r.print_speed_mm_min_field }}</td>
+                    <td>{{ r.size_of_tip }}</td>
+                    <td>{{ r.thickness_mm_field }}</td>
+                    <td>{{ r.actb }}</td>
+                    <td>{{ r.actb_1 }}</td>
+                    <td>{{ r.actb_2 }}</td>
+                    <td>{{ r.actb_3 }}</td>
+                    <td>{{ r.ctcf }}</td>
+                    <td>{{ r.ep300 }}</td>
+                    <td>{{ r.smad1 }}</td>
+
                 </tr>
                 {% endfor %}
             </tbody>
             <tfoot></tfoot>
+        </table>
+        {% elif CEctodermTable %}
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>UUID</th>
+                    <th>Gelma concentrstion</th>
+                    <th>Cure adhesive</th>
+                    <th>Adhesive concentration</th>
+                    <th>Light cure time</th>
+                    <th>Print speed(mm/min)</th>
+                    <th>Size of tip</th>
+                    <th>Thickness(mm)</th>
+                    <th>CDH9</th>
+                    <th>COL2A1</th>
+                    <th>DMBX1</th>
+                    <th>ACTB.3</th>
+                    <th>DRD4</th>
+                    <th>EN1</th>
+                    <th>LMX1a</th>
+                    <th>MAP2</th>
+                    <th>NOS2</th>`
+                    <th>NR2F1_NR2F2</th>
+                    <th>NR2F2</th>
+                    <th>OLFM3</th>
+                    <th>PAPLN</th>
+                    <th>PAX3</th>
+                    <th>PAX6</th>
+                    <th>POU4F1</th>
+                    <th>PRKCA</th>
+                    <th>SDC2</th>
+                    <th>SOX1</th>
+                    <th>TRPM8</th>
+                    <th>WNT1</th>
+                    <th>ZBTB16</th>
+                </tr>
+                {% for r in CEctodermTable %}
+                <tr>
+                    <td>{{ r.uuid }}</td>
+                    <td>{{ r.gelma_concentration }}</td>
+                    <td>{{ r.cure_adhesive }}</td>
+                    <td>{{ r.adhesive_concentration }}</td>
+                    <td>{{ r.light_cure_time }}</td>
+                    <td>{{ r.print_speed_mm_min_field }}</td>
+                    <td>{{ r.size_of_tip }}</td>
+                    <td>{{ r.thickness_mm_field }}</td>
+                    <td>{{ r.cdh9 }}</td>
+                    <td>{{ r.col2a1 }}</td>
+                    <td>{{ r.dmbx1 }}</td>
+                    <td>{{ r.actb_3 }}</td>
+                    <td>{{ r.drd4 }}</td>
+                    <td>{{ r.en1 }}</td>
+                    <td>{{ r.lmx1a }}</td>
+                    <td>{{ r.map2 }}</td>
+                    <td>{{ r.nos2 }}</td>
+                    <td>{{ r.nr2f1_nr2f2 }}</td>
+                    <td>{{ r.nr2f2 }}</td>
+                    <td>{{ r.olfm3 }}</td>
+                    <td>{{ r.papln }}</td>
+                    <td>{{ r.pax3 }}</td>
+                    <td>{{ r.pax6 }}</td>
+                    <td>{{ r.pou4f1 }}</td>
+                    <td>{{ r.prkca }}</td>
+                    <td>{{ r.sdc2 }}</td>
+                    <td>{{ r.sox1 }}</td>
+                    <td>{{ r.trpm8 }}</td>
+                    <td>{{ r.wnt1 }}</td>
+                    <td>{{ r.zbtb16 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+        {% elif CEndodermTable %}
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>UUID</th>
+                    <th>Gelma concentrstion</th>
+                    <th>Cure adhesive</th>
+                    <th>Adhesive concentration</th>
+                    <th>Light cure time</th>
+                    <th>Print speed(mm/min)</th>
+                    <th>Size of tip</th>
+                    <th>Thickness(mm)</th>
+                    {% for c in CEndoderm %}
+                    <th>{{c | upper}}</th>
+                    {% endfor %}
+                </tr>
+                {% for r in CEndodermTable %}
+                <tr>
+                    <td>{{ r.uuid }}</td>
+                    <td>{{ r.gelma_concentration }}</td>
+                    <td>{{ r.cure_adhesive }}</td>
+                    <td>{{ r.adhesive_concentration }}</td>
+                    <td>{{ r.light_cure_time }}</td>
+                    <td>{{ r.print_speed_mm_min_field }}</td>
+                    <td>{{ r.size_of_tip }}</td>
+                    <td>{{ r.thickness_mm_field }}</td>
+                    {% for c in CEndoderm %}
+                        <td>{{ r.c }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+        {% else %}
+            {{ error_msg }}
         {% endif %}
-
     </div>
 
     </section>

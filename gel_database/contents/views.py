@@ -26,23 +26,49 @@ def show_experiment_result(request):
     exp_r = {}
     keys = ['mechanical','expression','tissue']
     ori_keys = ['mechanical','cell_diff_expression','cell_diff_tissue']    
-    tissues = ['Control','Ectoderm','Endoderm','Mesendoderm','Mesoderm','Other','Selfrenewal'] 
+    tissues = ['Control','Ectoderm','Endoderm','Mesendoderm','Mesoderm','Other','Selfrenewal']
+    
     if request.POST:
         for ele,key in zip(keys,ori_keys):
-            if ele == 'tissue':
-                exp_r[ele] = request.POST.getlist(key)
-            else:
                 exp_r[ele] = request.POST.get(key)
-    for i,j in exp_r.items():
-        if i == 'mechanical':
-            resultTable = getdata('MechanicalParameter')
+        if 'mechancial' in exp_r.keys():
+                resultTable = MechanicalParameter.objects.all()
+        elif 'score' in exp_r.values():
+                resultTable = Score.objects.all()
+        else: 
+            if 'ct values' in exp_r.values():
+                if 'control' in exp_r.values():
+                    CControlTable = CtValueControl.objects.all()
+                elif 'ectoderm' in exp_r.values():
+                    CEctodermTable = CtValueEctoderm.objects.all()
+                elif 'endoderm' in exp_r.values():
+                    CEndodermTable = CtValueEndoderm.objects.all()
+                    CEndoderm = ['afp','cabp7','cdh20','cldn1','cplx2','elavl3','eomes','foxa1','foxa2','foxp2','gata4','hhex','hmp19','hnf1b','hnf4a','klf5','lefty1','lefty2','nodal','phox2b','pou3f3','prdm1','rxrg','sox17','sst']
+                elif 'mesendoderm' in exp_r.values():
+                    CMesendodermTable = CtValueMesendoderm.objects.all()
+                elif 'mesoderm' in exp_r.values():
+                    CMesodermable = CtValueMesoderm.objects.all()
+                elif 'other' in exp_r.values():
+                    COtherTable = CtValueOther.objects.all()
+                elif 'selfrenewal' in exp_r.values():
+                    CSelfrenewalTable = CtValueSelfrenewal.objects.all()
+                else:
+                    error_msg = "Sorry, can't find this table!"
+            elif 'fold change' in exp_r.values():
+                if 'ectoderm' in exp_r.values():
+                    FEctodermTable = FoldChangeEctoderm.objects.all()
+                elif 'endoderm' in exp_r.values():
+                    FEndodermTable = FoldChangeEndoderm.objects.all()
+                elif 'mesendoderm' in exp_r.values():
+                    FMesendodermTable = FoldChangeMesendoderm.objects.all()
+                elif 'mesoderm' in exp_r.values():
+                    FMesoderTable = FoldChangeMesoderm.objects.all()
+                elif 'selfrenewal' in exp_r.values():
+                    FSelfrenewalTable = FoldChangeSelfrenewal.objects.all()
+                else:
+                    error_msg = "Sorry, can't find this table!"
     return render(request,'result.html',locals())
-def getdata(modelName):
-    try:
-        t = modelName.objects.all()
-    except:
-        t = "Import error！"
-    return t
+
 def showanalysis(request):
     category_r = {}
     if 'category' in request.POST:
