@@ -3,6 +3,7 @@ from django.contrib import auth
 import os
 from contents.forms import SelectData, SelectGene
 from .models import *
+from django.forms.models import model_to_dict
 
 # Create your views here.
 def logout(request):
@@ -26,48 +27,40 @@ def show_experiment_result(request):
     exp_r = {}
     keys = ['mechanical','expression','tissue']
     ori_keys = ['mechanical','cell_diff_expression','cell_diff_tissue']    
-    tissues = ['Control','Ectoderm','Endoderm','Mesendoderm','Mesoderm','Other','Selfrenewal']
-    
+    models = [CtValueControl,CtValueEctoderm,CtValueEndoderm,CtValueMesendoderm,CtValueMesoderm,CtValueOther,CtValueSelfrenewal,FoldChangeEctoderm,FoldChangeEndoderm,FoldChangeMesendoderm,FoldChangeMesoderm,FoldChangeSelfrenewal]
     if request.POST:
+        final = {}
         for ele,key in zip(keys,ori_keys):
                 exp_r[ele] = request.POST.get(key)
-        if 'mechancial' in exp_r.keys():
-                resultTable = MechanicalParameter.objects.all()
+        if 'parameter' in exp_r.values():
+                fields = get_model_field(MechanicalParameter)
+                result = get_model_data(MechanicalParameter)
         elif 'score' in exp_r.values():
-                resultTable = Score.objects.all()
+                fields = get_model_field(Score)
+                result = get_model_data(Score)
         else: 
-            if 'ct values' in exp_r.values():
-                if 'control' in exp_r.values():
-                    CControlTable = CtValueControl.objects.all()
-                elif 'ectoderm' in exp_r.values():
-                    CEctodermTable = CtValueEctoderm.objects.all()
-                elif 'endoderm' in exp_r.values():
-                    CEndodermTable = CtValueEndoderm.objects.all()
-                    CEndoderm = ['afp','cabp7','cdh20','cldn1','cplx2','elavl3','eomes','foxa1','foxa2','foxp2','gata4','hhex','hmp19','hnf1b','hnf4a','klf5','lefty1','lefty2','nodal','phox2b','pou3f3','prdm1','rxrg','sox17','sst']
-                elif 'mesendoderm' in exp_r.values():
-                    CMesendodermTable = CtValueMesendoderm.objects.all()
-                elif 'mesoderm' in exp_r.values():
-                    CMesodermable = CtValueMesoderm.objects.all()
-                elif 'other' in exp_r.values():
-                    COtherTable = CtValueOther.objects.all()
-                elif 'selfrenewal' in exp_r.values():
-                    CSelfrenewalTable = CtValueSelfrenewal.objects.all()
-                else:
-                    error_msg = "Sorry, can't find this table!"
-            elif 'fold change' in exp_r.values():
-                if 'ectoderm' in exp_r.values():
-                    FEctodermTable = FoldChangeEctoderm.objects.all()
-                elif 'endoderm' in exp_r.values():
-                    FEndodermTable = FoldChangeEndoderm.objects.all()
-                elif 'mesendoderm' in exp_r.values():
-                    FMesendodermTable = FoldChangeMesendoderm.objects.all()
-                elif 'mesoderm' in exp_r.values():
-                    FMesoderTable = FoldChangeMesoderm.objects.all()
-                elif 'selfrenewal' in exp_r.values():
-                    FSelfrenewalTable = FoldChangeSelfrenewal.objects.all()
-                else:
-                    error_msg = "Sorry, can't find this table!"
+            r = "<class 'contents.models." + exp_r['expression'] + exp_r['tissue'] + "'>"
+            for ele in models:
+                if r == str(ele):
+                    tableExist = True
+                    fields = get_model_field(ele)
+                    fields = fields[8:]
+                    result = get_model_data(ele)
+                    break
+        a = 0
+        for r in result:
+            final[a] = model_to_dict(r)
+            a += 1
     return render(request,'result.html',locals())
+def get_model_field(modelName):
+    fields = [f.name for f in modelName._meta.get_fields()]
+    return fields
+def get_model_data(modelName):
+    try:
+        result = modelName.objects.all()
+    except:
+        result = "Import error!"
+    return result
 
 def showanalysis(request):
     category_r = {}

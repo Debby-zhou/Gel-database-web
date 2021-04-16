@@ -10,20 +10,20 @@ class SelectData(forms.Form):
 	cell_diff_expression = forms.ChoiceField(label="Expression data",
 		choices=(
 			('score','Score'),
-			('ct values','CT values'),
-			('fold change','Fold changes')
+			('CtValue','CT values'),
+			('FoldChange','Fold changes')
 		),
 		required = False,
 		widget = forms.widgets.RadioSelect())
 	cell_diff_tissue = forms.ChoiceField(label="Tissue categories",
 		choices=(
-			('control','control'),
-			('ectoderm','ectoderm'),
-			('endoderm','endoderm'),
-			('mesendoderm','mesendoderm'),
-			('mesoderm','mesoderm'),
-			('other','other'),
-			('selfrenewal','selfrenewal')
+			('Control','control'),
+			('Ectoderm','ectoderm'),
+			('Endoderm','endoderm'),
+			('Mesendoderm','mesendoderm'),
+			('Mesoderm','mesoderm'),
+			('Other','other'),
+			('Selfrenewal','selfrenewal')
 		),
 		required = False,
 		widget = forms.widgets.RadioSelect())
