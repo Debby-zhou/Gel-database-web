@@ -27,12 +27,7 @@ urlpatterns = [
     url('^template/$',views.showtemplate),
     url('^experiment/$',views.showexperiment, name="experiment"),
     url('^experiment/result/',views.show_experiment_result, name="result"),
-    #url('^experiment/score200317/', views.score200317, name="score200317"),
-    #url('^experiment/score201016/', views.score201016, name="score201016"),
-    #url('^experiment/ctvalues200317/', views.ctvalues200317, name="ctvalues200317"),
-    #url('^experiment/foldchanges200317/', views.foldchanges200317, name="foldchanges200317"),
-    #url('^experiment/parameter200317/', views.parameter200317, name="parameter200317"),
-    #url('^experiment/parameter201016/', views.parameter201016, name="parameter201016"),
+    
     
 ]
 

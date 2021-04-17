@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/static/css/styles.css" rel="stylesheet" />
+    <link href="/static/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -49,7 +50,7 @@
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#result">RESULT</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">LOG OUT</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../logout">LOG OUT</a></li>
                 </ul>
             </div>
         </div>
@@ -64,86 +65,109 @@
 
     <!-- Result-->
     <section class="page-section bg-light" id="result">
-    <div class="container-fluid">
+    <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase"><u>result table</u></h2>
-            <h4 class="section-subheading">
-                {% if exp_r.mechanical %}
-                    {{ exp_r.mechanical | title}}
-                {% endif %}
-                {% if exp_r.expression %}
-                    {{ exp_r.expression | title}} 
-                {% endif %}
-                {% if exp_r.tissue %} 
-                    > {{ exp_r.tissue }}
-                {% endif %}
-    
-            </h4>
+            <h2 class="section-heading text-uppercase"><u>result table</u></h2> 
         </div>
-        {% if exp_r.mechanical %}
-        <table class="table">
-            <tbody>
-                <tr>
-                    {% for field in fields %}
-                    <th>{{ field }}</th>
-                    {% endfor %}
-                </tr>
-                {% for i in final.values %}
-                <tr>
-                    {% for j in i.values %}
-                    <td>{{ j }}</td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% elif exp_r.expression == "score" %}
-        <table class="table">
-            <tbody>
-                <tr>
-                    {% for field in fields %}
-                    <th>{{ field }}</th>
-                    {% endfor %}
-                </tr>
-                {% for i in final.values %}
-                <tr>
-                    {% for j in i.values %}
-                    <td>{{ j }}</td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% elif exp_r.tissue %}
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th>UUID</th>
-                    <th>Gelma concentrstion</th>
-                    <th>Cure adhesive</th>
-                    <th>Adhesive concentration</th>
-                    <th>Light cure time</th>
-                    <th>Print speed(mm/min)</th>
-                    <th>Size of tip</th>
-                    <th>Thickness(mm)</th>
-                    {% for field in fields %}
-                        <th>{{ field | upper}}</th>
-                    {% endfor %}
-                </tr>
-                {% for i in final.values %}
-                <tr>
-                    {% for j in i.values %}
-                    <td>{{ j }}</td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-            <tfoot></tfoot>
-        </table>
-        {% else %}
-            {{ result }}
-        {% endif %}
     </div>
+    {% if result == "Import error!" %}
+    <div class="container">
+        <div class="text-center">
+            <h5 class="section-subheading">
+                {{ result | upper}}
+            </h5>
+        </div>
+    </div>
+    {% else %}
+    
+    <div class="container-fluid">
+        <div>
+            <table class="table table-hover table-bordered table-responsive table-responsive-md">
+                <div>
+                    <h5 class="section-subheading">
+                        {% if exp_r.mechanical %}
+                            Mechanical parameter
+                        {% elif exp_r.expression == "Score" %}
+                            {{ exp_r.expression | title}}
+                        {% elif exp_r.tissue %}
+                            {{ exp_r.expression }} > {{ exp_r.tissue | lower}}
+                        {% endif %}
+                    </h5>
+                </div>
+                <thead class="thead-light">
+                    <tr>
+                        <th>
+                            <h6 class="text-body">UUID</h6>
+                        </th>
+                        <th>
+                            <h6 class="text-body">Gelma concentrstion</h6>
+                        </th>
+                        <th>
+                            <h6 class="text-body">Cure adhesive</h6>
+                        </th>
+                        <th>
+                            <h6 class="text-body">Adhesive concentration</h6>
+                        </th>
+                        <th>
+                            <h6 class="text-body">Light cure time</h6>
+                        </th>
+                        <th>
+                            <h6 class="text-body">Print speed<br>(mm/min)</h6>
+                        </th>
+                        <th>
+                            <h6 class="text-body">Size of tip</h6>
+                        </th>
+                        <th>
+                            <h6 class="text-body">Thickness<br>(mm)</h6>
+                        </th>
+                        {% if exp_r.mechanical %}
+                            <th>
+                                <h6 class="text-body">Average tensile strength</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">STD tensile strength</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Average Young's modulus</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">STD Young's modulus</h6>
+                            </th>
+                        {% elif exp_r.expression == "score" %}
+                            <th><h6 class="text-body">Selfrenewal(discrete)</h6></th>
+                            <th><h6 class="text-body">Ectoderm(discrete)</h6></th>
+                            <th><h6 class="text-body">Mesoderm(discrete)</h6></th>
+                            <th><h6 class="text-body">Endoderm(discrete)</h6></th>
+                            <th><h6 class="text-body">Selfrenewal</h6></th>
+                            <th><h6 class="text-body">Ectoderm</h6></th>
+                            <th><h6 class="text-body">Mesoderm</h6></th>
+                            <th><h6 class="text-body">Endoderm</h6></th>
+                        {% elif exp_r.tissue %}
+                            {% for field in fields %}
+                                <th><h6 class="text-body">{{ field | upper}}</h6></th>
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in final.values %}
+                    <tr>
+                        {% for j in i.values %}
+                        <td class="text-dark">{{ j }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <caption>
+                        {{ result | length }} in total
+                    </caption>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    {% endif %}    
+    
 
     </section>
     <!-- Footer-->
@@ -168,6 +192,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/bootstrap-table/dist/bootstrap-table.min.js"></script>
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Contact form JS-->
