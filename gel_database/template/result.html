@@ -77,11 +77,13 @@
             <h5 class="section-subheading">
                 {{ result | upper}}
             </h5>
-        </div>
     </div>
     {% else %}
     
     <div class="container-fluid">
+        <div class="text-right" style="padding-right: 2em; padding-bottom: 1em;">
+            <input type="button" class="btn btn-outline-primary" onclick="javascript:location.href='../'" value="Back"></input>
+        </div>
         <div class="card">
             <div class="card-header">
                 <h5 class="section-subheading">
@@ -94,6 +96,7 @@
                     {{ exp_r.expression }} > {{ exp_r.tissue | lower}}
                     {% endif %}
                 </h5>
+                
             </div>
             <div class="card-body text-center">
             <table class="table table-responsive table-hover table-bordered" id="table_id">
@@ -147,7 +150,7 @@
                             <th><h6 class="text-body">Endoderm</h6></th>
                         {% elif exp_r.tissue %}
                             {% for field in fields %}
-                                <th><h6 class="text-body">{{ field | upper}}</h6></th>
+                                <th><h6 class="text-body">{{ field | upper }}</h6></th>
                             {% endfor %}
                         {% endif %}
                     </tr>
@@ -156,7 +159,7 @@
                     {% for i in final.values %}
                     <tr>
                         {% for j in i.values %}
-                        <td class="text-dark">{{ j }}</td>
+                        <td class="text-dark text-center">{{ j }}</td>
                         {% endfor %}
                     </tr>
                     {% endfor %}

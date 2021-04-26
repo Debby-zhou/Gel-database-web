@@ -62,61 +62,32 @@ def get_model_data(modelName):
         result = "Import error!"
     return result
 
+tissues = ['other','control','selfrenewal','mesoderm','mesendoderm','ectoderm','endoderm']
 def showanalysis(request):
+    tissue = [i.capitalize() for i in tissues]
     category_r = {}
     if 'category' in request.POST:
         category_r['result'] = request.POST.get('category')
     if request.method == 'POST':
         form = SelectGene(request.POST)
-        # if form.is_valid():
-        #     return HttpResponseRedirect('../analysis')
-        if category_r['result'] == 'Other':
-            form = form['othergene']
-        elif category_r['result'] == 'Control':
-            form = form['controlgene']
-        elif category_r['result'] == 'Self-renewal':
-            form = form['selfrenewalgene']
-        elif category_r['result'] == 'Mesoderm':
-            form = form['mesodermgene']
-        elif category_r['result'] == 'Mesendoderm':
-            form = form['mesendodermgene']
-        elif category_r['result'] == 'Ectoderm':
-            form = form['ectodermgene'] 
-        elif category_r['result'] == 'Endoderm':
-            form = form['endodermgene'] 
+        for ele in tissue:
+            if category_r['result'] == ele:
+                formName = ele + 'gene'
+                form = SelectGene(request.POST)[formName]
     else:
-        form = SelectGene(request.POST)
-        form = form['controlgene']
+        form = SelectGene()['Controlgene']
     return render(request, 'analysis.html', {'form': form, 'c':category_r})
-def select_result(request):   
+
+def select_result(request):  
+    tissues_gene = [i.capitalize()+'gene' for i in tissues]
     gene_r = {}
-    form = SelectGene()
     if request.method == 'POST':
-        form = SelectGene(request.POST)
-        if form.is_valid():
-             return HttpResponseRedirect('/contents/analysis')
-    form = form['controlgene']
-    if 'controlgene' in request.POST:
-        gene_r['result'] = request.POST['controlgene']
-        fileName = "/static/scorecard/ct_value_/control/interpolate/" + gene_r['result'] +".html"
-    elif 'othergene' in request.POST:
-        gene_r['result'] = request.POST['othergene']
-        fileName = "/static/scorecard/ct_value_/other/interpolate/" + gene_r['result'] +".html"
-    elif 'selfrenewalgene' in request.POST:
-        gene_r['result'] = request.POST['selfrenewalgene']
-        fileName = "/static/scorecard/ct_value_/selfrenewal/interpolate/" + gene_r['result'] +".html"
-    elif 'ectodermgene' in request.POST:
-        gene_r['result'] = request.POST['ectodermgene']
-        fileName = "/static/scorecard/ct_value_/ectoderm/interpolate/" + gene_r['result'] +".html"
-    elif 'endodermgene' in request.POST:
-        gene_r['result'] = request.POST['endodermgene']
-        fileName = "/static/scorecard/ct_value_/endoderm/interpolate/" + gene_r['result'] +".html"
-    elif 'mesodermgene' in request.POST:
-        gene_r['result'] = request.POST['mesodermgene']
-        fileName = "/static/scorecard/ct_value_/mesoderm/interpolate/" + gene_r['result'] +".html"
-    elif 'mesendodermgene' in request.POST:
-        gene_r['result'] = request.POST['mesendodermgene']
-        fileName = "/static/scorecard/ct_value_/mesendoderm/interpolate/" + gene_r['result'] +".html"
+        for ele,v in zip(tissues_gene,tissues):
+            if ele in request.POST:
+                form = SelectGene(request.POST)[ele]
+                gene_r['result'] = request.POST[ele]
+                fileName = "/static/assets/model/scorecard/ct_value_/" + v + "/interpolate/" + gene_r['result'] +".html"
+        
     return render(request,"analysis.html",locals())
 
 #* analysisdb

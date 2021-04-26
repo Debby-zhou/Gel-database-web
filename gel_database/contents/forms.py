@@ -29,7 +29,7 @@ class SelectData(forms.Form):
 		widget = forms.widgets.RadioSelect())
 
 class SelectGene(forms.Form):
-	controlgene = forms.ChoiceField(label="Gene",
+	Controlgene = forms.ChoiceField(label="Gene",
 		choices=(
 			('ACTB.1','ACTB.1'),
 			('ACTB.2','ACTB.2'),
@@ -40,7 +40,7 @@ class SelectGene(forms.Form):
 			('SMAD1','SMAD1')
 		),
 		widget = forms.widgets.RadioSelect())
-	selfrenewalgene = forms.ChoiceField(label="Gene",
+	Selfrenewalgene = forms.ChoiceField(label="Gene",
 		choices=(
 			('CXCL5','CXCL5'),
 			('DNMT3B','DNMT3B'),
@@ -53,7 +53,7 @@ class SelectGene(forms.Form):
 			('TRIM22','TRIM22')
 		),
 		widget = forms.widgets.RadioSelect())
-	ectodermgene = forms.ChoiceField(label="Gene",
+	Ectodermgene = forms.ChoiceField(label="Gene",
 		choices=(
 			('CDH9','CDH9'),
 			('COL2A1','COL2A1'),
@@ -79,7 +79,7 @@ class SelectGene(forms.Form):
 			('ZBTB16','ZBTB16')
 		),
 		widget = forms.widgets.RadioSelect())
-	endodermgene = forms.ChoiceField(label="Gene",
+	Endodermgene = forms.ChoiceField(label="Gene",
 		choices=(
 			('AFP','AFP'),
 			('CABP7','CABP7'),
@@ -109,7 +109,7 @@ class SelectGene(forms.Form):
 			('SST','SST')
 		),
 		widget = forms.widgets.RadioSelect())
-	mesodermgene = forms.ChoiceField(label="Gene",
+	Mesodermgene = forms.ChoiceField(label="Gene",
 		choices=(
 			('ABCA4','ABCA4'),
 			('ALOX15','ALOX15'),
@@ -135,7 +135,7 @@ class SelectGene(forms.Form):
 			('TM4SF1','TM4SF1')
 		),
 		widget = forms.widgets.RadioSelect())
-	mesendodermgene = forms.ChoiceField(label="Gene",
+	Mesendodermgene = forms.ChoiceField(label="Gene",
 		choices=(
 			('FGF4','FGF4'),
 			('GDF3','GDF3'),
@@ -145,7 +145,7 @@ class SelectGene(forms.Form):
 			('T','T')
 		),
 		widget = forms.widgets.RadioSelect())
-	othergene = forms.ChoiceField(label="Gene",
+	Othergene = forms.ChoiceField(label="Gene",
 		choices=(
 			('CD44','CD44'),
 			('JARID2','JARID2'),
