@@ -55,6 +55,82 @@
     $(window).scroll(navbarCollapse);
 })(jQuery); // End of use strict
 
+
 function reference(){
     location.href = "#gene";
 }
+
+var btn_val = []
+function get_value(obj) {
+    btn_val.push(obj)
+    if (btn_val.length === 2) {
+        alert("You choose " + btn_val[0] + " and " + btn_val[1]);
+        document.getElementById("resultName").innerHTML = "Model result"
+        if (btn_val[0] === "I2959"){
+            document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_" + btn_val[0] + ".html"
+        }
+        else if (btn_val[0] === "LAP"){
+            document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_w_EXP_" + btn_val[0] + ".html"
+        }
+            
+        document.getElementById("result").style.display = 'block';
+        window.location.href = "#result"
+        btn_val = [];
+        $("#tensile").attr('disabled', true);
+        $("#youngs").attr('disabled', true);
+    }
+    else if (btn_val.length === 1) {
+        $("#tensile").removeAttr('disabled');
+        $("#youngs").removeAttr('disabled');
+    }       
+}
+
+window.onload = function(){
+    var checkstate = 0
+    var checkstate2 = 0
+
+    $('input:radio[name="mechanical"]').click(function (){ 
+        if (checkstate === true){
+            this.checked = false
+        }
+        else{
+            this.checked = true
+        }
+        if (this.checked) {
+            $('input:radio[name="cell_diff_expression"]').attr('disabled', true);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
+        }
+        else {
+            $('input:radio[name="cell_diff_expression"]').attr('disabled', false);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', false);
+        }
+        checkstate = this.checked;
+    })
+    
+    $('input:radio[name="cell_diff_expression"]').click(function() {
+        var exp = this.value;
+        if (exp === checkstate2){
+            this.checked = false;
+            exp = this.checked;
+        }
+        if (exp === "score") {
+            $('input:radio[name="mechanical"]').attr('disabled', true);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
+            
+        }
+        else if (exp === "CtValue") {
+            $('input:radio[name="mechanical"]').attr('disabled', true);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', false);
+        }
+        else if (exp === "FoldChange") {
+            $('input:radio[name="mechanical"]').attr('disabled', true);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', false);
+        }
+        else {
+            $('input:radio[name="mechanical"]').attr('disabled', false);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', false);
+        }
+        checkstate2 = exp
+    })
+}
+

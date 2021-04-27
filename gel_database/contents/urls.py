@@ -23,7 +23,6 @@ urlpatterns = [
     url('logout/$',views.logout, name="logout"),
     url('^simulation/$',views.showsimulation, name="simulation"),
     url('^analysis/$',views.showanalysis, name="analysis"),
-    url('^analysis/scorecard/',views.select_result, name="scorecard"),
     url('^template/$',views.showtemplate),
     url('^experiment/$',views.showexperiment, name="experiment"),
     url('^experiment/result/',views.show_experiment_result, name="result"),

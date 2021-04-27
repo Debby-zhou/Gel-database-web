@@ -49,6 +49,7 @@
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#types">TYPES</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#result">RESULT</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">LOG OUT</a></li>
                 </ul>
             </div>
@@ -71,22 +72,25 @@
                     <div class="card-header text-center">
                         <h4>Predicted Engine</h4>
                     </div>
-                    <div class="card-body row text-center">
+                    <form action="#tissue" method="POST">
+                        {% csrf_token %}
+                    <div class="card-body row">
                         <div class="col">
-                            <h5 class="mark lead">Cure adhesive type</h5>
-                            <div style="padding: 1em;">
-                                <input type="submit" class="btn btn-outline-secondary" name="cure_adhesive" value="I2959">
-                                <input type="submit" class="btn btn-outline-secondary" name="cure_adhesive" value="LAP">
+                            <h5 class="mark lead text-center">Cure adhesive type</h5>
+                            <div class="btn-group" style="padding: 1em;">
+                                <input type="button" class="btn btn-outline-secondary" value="I2959" id="I2959" onclick="get_value(this.value)">
+                                <input type="button" class="btn btn-outline-secondary" value="LAP" id="LAP" onclick="get_value(this.value)">
                             </div>
                         </div>
                         <div class="col">
-                            <h5 class="mark lead">Mechanical properties</h5>
-                            <div style="padding: 1em;">
-                                <input type="submit" class="btn btn-outline-secondary" name="mechanic" value="Tensile Strength">
-                                <input type="submit" class="btn btn-outline-secondary" name="mechanic" value="Young's Modulus">
+                            <h5 class="mark lead text-center">Mechanical properties</h5>
+                            <div class="btn-group" style="padding: 1em;">
+                                <input type="button" class="btn btn-outline-secondary" value="Tensile_Strength" onclick="get_value(this.value)" disabled="disabled" id="tensile">
+                                <input type="button" class="btn btn-outline-secondary" value="Young's_Modulus" onclick="get_value(this.value)" disabled="disabled" id="youngs">
                             </div>
-                        </div>
-                    </div>   
+                        </div> 
+                    </div>
+                    </form>
                 </div>
             </div>
             <div class="row card-group" style="padding-top: 2em;" id="tissue">
@@ -97,44 +101,34 @@
                     <div class="card-body row">
                         <div class="col text-center">
                             <h5 class="mark lead">Tissue categories</h5>
-                            <center>
-                                <table style="padding: 1em;">
+                                <div style="padding: 1em;">
                                     <form action="#tissue" method="POST">
                                         {% csrf_token %}
-                                        <tr>
-                                        <td><input type="submit" class="btn btn-outline-secondary" name="category" value="Control"></td>
-                                        </tr>
-                                        <tr>
-                                        <td><input type="submit" class="btn btn-outline-secondary" name="category" value="Selfrenewal"></td>
-                                        </tr>
-                                        <tr>
-                                        <td><input type="submit" class="btn btn-outline-secondary" name="category" value="Other"></td>
-                                        </tr>
-                                        <tr>
-                                        <td><input type="submit" class="btn btn-outline-secondary" name="category" value="Ectoderm"></td>
-                                        </tr>
-                                        <tr>
-                                        <td><input type="submit" class="btn btn-outline-secondary" name="category" value="Endoderm"></td>
-                                        </tr>
-                                        <tr>
-                                        <td><input type="submit" class="btn btn-outline-secondary" name="category" value="Mesoderm"></td>
-                                        </tr>
-                                        <tr>
-                                        <td><input type="submit" class="btn btn-outline-secondary" name="category" value="Mesendoderm"></td>
-                                        </tr>
+                                        <div class="row">   
+                                        <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Control">
+                                        <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Selfrenewal">
+                                        <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Other">
+                                        </div>
+                                        <div class="row">
+                                        <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Ectoderm">
+                                        <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Endoderm">
+                                        <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Mesoderm">
+                                        </div>
+                                        <div class="row">
+                                        <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Mesendoderm">
+                                        </div>
                                     </form>
-                                </table>
-                            </center>
+                                </div>
                         </div>
                         <div class="col">
                             <h5 class="mark lead text-center">Interested gene</h5>
                             <div style="padding: 1em;">
-                                <form action="/contents/analysis/scorecard/#result" method="POST" id="gene">
+                                <form action="/contents/analysis/#result" method="POST" id="gene">
                                     {% csrf_token %}
                                     <div>
                                     {{ form }}
                                     </div>
-                                    <center><input type="submit" class="btn btn-primary text-uppercase my-2" id="show" value="SHOW"><a class="portfolio-link" data-toggle="modal" href="#modaltest"></a></center>
+                                    <center><input type="submit" class="btn btn-primary text-uppercase my-2" id="show" value="SHOW"></center>
                                 </form>
                             </div>
                         </div>
@@ -150,20 +144,32 @@
             </div>
         -->
     </section>
-
-    <!--Scorecard Graphic Result-->
+    
+    <!-- {{ Result }} -->
     {% if gene_r.result %}
-    <section class="page-section bg-light" id="result">
+    <section class="page-section bg-light" id="result" style="display: block;">
         <div class="container-fluid text-center" style="height: 900px;">
             <div class="text-center" style="padding-top: 2em;">
-               <h2 class="section-heading text-uppercase"><u>scorecard graphic</u></h2>
+                <h2 class="section-heading text-uppercase" id="resultName"><u>scorecard graphic
+                </u></h2>
             </div>
             <div style="height: 700px">
-            <iframe frameBorder="1" scrolling="yes" style="background: transparent; "width=80% height=90% src="{{ fileName }}">
-            </iframe>
+                <iframe frameBorder="1" scrolling="yes" style="background: transparent; " width=90% height=90%
+                    src="{{ fileName }}" id="htmlfile">
+                </iframe>
             </div>
-            <div class="text-center" style="padding: 2em;">
-                <button class="btn btn-primary btn-l" onclick="location.href='/contents/analysis'">Restart</button>
+        </div>
+    </section>
+    {% else %}
+    <section class="page-section bg-light" id="result" style="display: none;">
+        <div class="container-fluid text-center" style="height: 900px;">
+            <div class="text-center" style="padding-top: 2em;">
+                <h2 class="section-heading text-uppercase" id="resultName"><u></u></h2>
+            </div>
+            <div style="height: 700px">
+                <iframe frameBorder="1" scrolling="yes" style="background: transparent; " width=90% height=90%
+                    src="" id="htmlfile">
+                </iframe>
             </div>
         </div>
     </section>
