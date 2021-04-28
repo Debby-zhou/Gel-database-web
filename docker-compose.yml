@@ -50,7 +50,7 @@ services:
     build: ./config/nginx
     container_name: "geldb_nginx"
     ports:
-       - "81:80"
+       - "80:80"
        - "443:443"
     expose:
        - "80"
@@ -60,6 +60,7 @@ services:
        - ./config/nginx/log:/var/log/nginx 
        - ./gel_database/media:/usr/share/nginx/html/media
        - ./gel_database:/usr/share/nginx/html/
+       - ./config/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
     links:
        - web
     depends_on:

@@ -72,7 +72,7 @@ function get_value(obj) {
         else if (btn_val[0] === "LAP"){
             document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_w_EXP_" + btn_val[0] + ".html"
         }
-            
+        document.getElementById("result_navigator").style.display = 'block';
         document.getElementById("result").style.display = 'block';
         window.location.href = "#result"
         btn_val = [];
@@ -90,7 +90,9 @@ function block_redirect(){
         window.location.href = "/welcome/";
     }
 }
+
 window.onload = function(){
+    //experiment.html
     var checkstate = 0
     var checkstate2 = 0
     $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
@@ -137,5 +139,6 @@ window.onload = function(){
         }
         checkstate2 = exp
     })
+    
 }
 

@@ -528,3 +528,60 @@
 2021/04/28 16:22:55 [warn] 19#19: *2661 an upstream response is buffered to a temporary file /var/cache/nginx/uwsgi_temp/3/01/0000000013 while reading upstream, client: 114.39.131.180, server: localhost, request: "POST /contents/experiment/result// HTTP/1.1", upstream: "uwsgi://192.168.16.4:8000", host: "db.smagel.nchc.org.tw:81", referrer: "http://db.smagel.nchc.org.tw:81/contents/experiment/"
 2021/04/28 16:28:22 [warn] 19#19: *2668 an upstream response is buffered to a temporary file /var/cache/nginx/uwsgi_temp/4/01/0000000014 while reading upstream, client: 114.39.131.180, server: localhost, request: "POST /contents/experiment/result// HTTP/1.1", upstream: "uwsgi://192.168.16.4:8000", host: "db.smagel.nchc.org.tw:81", referrer: "http://db.smagel.nchc.org.tw:81/contents/experiment/"
 2021/04/28 16:44:54 [warn] 19#19: *2713 an upstream response is buffered to a temporary file /var/cache/nginx/uwsgi_temp/5/01/0000000015 while reading upstream, client: 114.39.131.180, server: localhost, request: "POST /contents/experiment/result/ HTTP/1.1", upstream: "uwsgi://192.168.16.4:8000", host: "db.smagel.nchc.org.tw:81", referrer: "http://db.smagel.nchc.org.tw:81/contents/experiment/"
+2021/04/28 18:51:29 [warn] 19#19: 1024 worker_connections are not enough, reusing connections
+2021/04/28 18:53:42 [warn] 19#19: 1024 worker_connections are not enough, reusing connections
+2021/04/28 18:53:46 [warn] 19#19: 1024 worker_connections are not enough, reusing connections
+2021/04/28 18:59:53 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 18:59:54 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 18:59:54 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 18:59:55 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 18:59:56 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 18:59:58 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:00:02 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:00:09 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:00:22 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:42 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:43 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:43 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:44 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:45 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:47 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:51 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:01:58 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:02:11 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:02:37 [emerg] 1#1: duplicate upstream "django" in /etc/nginx/conf.d/self_nginx.conf:1
+2021/04/28 19:10:23 [notice] 415#415: signal process started
+2021/04/28 19:18:25 [error] 19#19: *2 upstream prematurely closed connection while reading response header from upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /welcome/ HTTP/1.1", upstream: "http://192.168.96.4:8000/welcome/", host: "db.smagel.nchc.org.tw:81"
+2021/04/28 19:23:24 [warn] 19#19: 1024 worker_connections are not enough, reusing connections
+2021/04/28 19:24:09 [warn] 19#19: 1024 worker_connections are not enough, reusing connections
+2021/04/28 19:24:17 [warn] 19#19: 1024 worker_connections are not enough, reusing connections
+2021/04/28 19:24:34 [warn] 19#19: 1024 worker_connections are not enough, reusing connections
+2021/04/28 19:25:27 [error] 19#19: *2 upstream prematurely closed connection while reading response header from upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /welcome/ HTTP/1.1", upstream: "http://192.168.96.4:8000/welcome/", host: "db.smagel.nchc.org.tw:81"
+2021/04/28 19:26:21 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:21 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:22 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:23 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:24 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:26 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:30 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:36 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:26:50 [emerg] 1#1: upstream "django" may not have port 81 in /etc/nginx/conf.d/nginx.conf:24
+2021/04/28 19:40:45 [error] 19#19: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET / HTTP/1.1", upstream: "http://192.168.112.4:8000/", host: "smagel.nchc.org.tw"
+2021/04/28 19:40:45 [error] 19#19: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /favicon.ico HTTP/1.1", upstream: "http://192.168.112.4:8000/favicon.ico", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:40:46 [error] 19#19: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET / HTTP/1.1", upstream: "http://192.168.112.4:8000/", host: "smagel.nchc.org.tw"
+2021/04/28 19:40:46 [error] 19#19: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /favicon.ico HTTP/1.1", upstream: "http://192.168.112.4:8000/favicon.ico", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:40:51 [error] 19#19: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /welcome HTTP/1.1", upstream: "http://192.168.112.4:8000/welcome", host: "smagel.nchc.org.tw"
+2021/04/28 19:40:52 [error] 19#19: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /favicon.ico HTTP/1.1", upstream: "http://192.168.112.4:8000/favicon.ico", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/welcome"
+2021/04/28 19:41:22 [error] 19#19: *2 upstream prematurely closed connection while reading response header from upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /welcome HTTP/1.1", upstream: "http://192.168.112.4:8000/welcome", host: "smagel.nchc.org.tw"
+2021/04/28 19:41:26 [error] 19#19: *2 upstream prematurely closed connection while reading response header from upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /favicon.ico HTTP/1.1", upstream: "http://192.168.112.4:8000/favicon.ico", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/welcome"
+2021/04/28 19:41:35 [error] 19#19: *13 upstream prematurely closed connection while reading response header from upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /welcome HTTP/1.1", upstream: "http://192.168.112.4:8000/welcome", host: "db.smagel.nchc.org.tw"
+2021/04/28 19:43:21 [error] 19#19: *16 upstream prematurely closed connection while reading response header from upstream, client: 114.39.131.180, server: db.smagel.nchc.org.tw, request: "GET /welcome HTTP/1.1", upstream: "http://192.168.112.4:8000/welcome", host: "db.smagel.nchc.org.tw"
+2021/04/28 19:56:03 [warn] 19#19: *8 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/intro-carousel/1.jpg HTTP/1.1", upstream: "http://203.145.222.147:81/img/intro-carousel/1.jpg", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:56:03 [warn] 19#19: *10 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/2/00/0000000002 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/about-pic.png HTTP/1.1", upstream: "http://203.145.222.147:81/img/about-pic.png", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:56:03 [warn] 19#19: *1 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/3/00/0000000003 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/twcc.png HTTP/1.1", upstream: "http://203.145.222.147:81/img/twcc.png", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:56:03 [warn] 19#19: *10 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/4/00/0000000004 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/about-bg.jpg HTTP/1.1", upstream: "http://203.145.222.147:81/img/about-bg.jpg", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/css/style.css"
+2021/04/28 19:57:04 [warn] 19#19: *10 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/5/00/0000000005 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /lib/ionicons/fonts/ionicons.ttf?v=2.0.0 HTTP/1.1", upstream: "http://203.145.222.147:81/lib/ionicons/fonts/ionicons.ttf?v=2.0.0", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/lib/ionicons/css/ionicons.min.css"
+2021/04/28 19:57:04 [warn] 19#19: *9 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/6/00/0000000006 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/about-pic.png HTTP/1.1", upstream: "http://203.145.222.147:81/img/about-pic.png", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:57:04 [warn] 19#19: *1 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/7/00/0000000007 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/intro-carousel/1.jpg HTTP/1.1", upstream: "http://203.145.222.147:81/img/intro-carousel/1.jpg", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:57:04 [warn] 19#19: *2 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/8/00/0000000008 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/twcc.png HTTP/1.1", upstream: "http://203.145.222.147:81/img/twcc.png", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/"
+2021/04/28 19:57:04 [warn] 19#19: *8 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/9/00/0000000009 while reading upstream, client: 114.39.131.180, server: smagel.nchc.org.tw, request: "GET /img/about-bg.jpg HTTP/1.1", upstream: "http://203.145.222.147:81/img/about-bg.jpg", host: "smagel.nchc.org.tw", referrer: "http://smagel.nchc.org.tw/css/style.css"

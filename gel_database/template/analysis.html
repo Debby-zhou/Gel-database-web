@@ -38,6 +38,7 @@
             </button>
             <div class="collapse navbar-collapse dropdown" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/contents/#dashboard">DASHBOARD</a></li>
                     <li class="nav-item">
                         <div class="dropdown">
                             <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" href=#>DATA</a>
@@ -49,7 +50,7 @@
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#types">TYPES</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#result">RESULT</a></li>
+                    <li class="nav-item" id="result_navigator" style="display: none;"><a class="nav-link js-scroll-trigger" href="#result">RESULT</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="javascript:block_redirect();">LOG OUT</a></li>
                 </ul>
             </div>
@@ -129,7 +130,7 @@
                                     {{ form }}
                                     </div>
                                     <div class="text-center">
-                                    <input type="submit" class="btn btn-primary text-uppercase my-2" id="show" value="SHOW">
+                                        <input type="submit" class="btn btn-primary text-uppercase my-2" id="show" value="SHOW">
                                     </div>
                                 </form>
                             </div>
@@ -205,6 +206,11 @@
     <script src="/static/assets/mail/contact_me.js"></script>
     <!-- Core theme JS-->
     <script src="/static/js/scripts.js"></script>
+    <script>
+        if (document.getElementById("result").style.display === 'block') {
+            document.getElementById("result_navigator").style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>
