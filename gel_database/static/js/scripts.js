@@ -84,7 +84,12 @@ function get_value(obj) {
         $("#youngs").removeAttr('disabled');
     }       
 }
-
+function block_redirect(){
+    var r = confirm("Are you sure to logout?");
+    if (r === true) {
+        window.location.href = "/welcome/";
+    }
+}
 window.onload = function(){
     var checkstate = 0
     var checkstate2 = 0

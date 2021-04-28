@@ -42,7 +42,7 @@
                         <div class="dropdown">
                             <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" href=#>DATA</a>
                             <ul class="dropdown-menu" style="background-color: #343741;">
-                                <li class="dropdown-item"><a href="/contents/experiment/" onclick="">experiment</a></li>
+                                <li class="dropdown-item"><a href="/contents/experiment/">experiment</a></li>
                                 <li class="dropdown-item"><a href="/contents/simulation/">simulation</a></li>
                                 <li class="dropdown-item"><a href="/contents/analysis/">analysis</a></li>
                             </ul>
@@ -50,7 +50,7 @@
                     </li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#types">TYPES</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#result">RESULT</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">LOG OUT</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="javascript:block_redirect();">LOG OUT</a></li>
                 </ul>
             </div>
         </div>
@@ -128,7 +128,9 @@
                                     <div>
                                     {{ form }}
                                     </div>
-                                    <center><input type="submit" class="btn btn-primary text-uppercase my-2" id="show" value="SHOW"></center>
+                                    <div class="text-center">
+                                    <input type="submit" class="btn btn-primary text-uppercase my-2" id="show" value="SHOW">
+                                    </div>
                                 </form>
                             </div>
                         </div>

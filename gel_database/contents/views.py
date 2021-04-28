@@ -8,7 +8,7 @@ from django.forms.models import model_to_dict
 # Create your views here.
 def logout(request):
     auth.logout(request)
-    return render(request,'logout.html')
+    return render(request,'index.html')
 def showhome(request):
     return render(request, 'home.html')
 def showsimulation(request):
