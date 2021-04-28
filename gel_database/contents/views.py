@@ -47,10 +47,13 @@ def show_experiment_result(request):
                     fields = fields[8:]
                     result = get_model_data(ele)
                     break
+                else:
+                    result = "Import error!"
         a = 0
-        for r in result:
-            final[a] = model_to_dict(r)
-            a += 1
+        if(result != "Import error!"):
+            for x in result:
+                final[a] = model_to_dict(x)
+                a += 1
     return render(request,'result.html',locals())
 def get_model_field(modelName):
     fields = [f.name for f in modelName._meta.get_fields()]

@@ -64,7 +64,7 @@ var btn_val = []
 function get_value(obj) {
     btn_val.push(obj)
     if (btn_val.length === 2) {
-        alert("You choose " + btn_val[0] + " and " + btn_val[1]);
+        alert("You choose " + btn_val[0] + " and " + btn_val[1] + ". \nThe HTML file is too large, please wait patiently.");
         document.getElementById("resultName").innerHTML = "Model result"
         if (btn_val[0] === "I2959"){
             document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_" + btn_val[0] + ".html"
@@ -88,7 +88,8 @@ function get_value(obj) {
 window.onload = function(){
     var checkstate = 0
     var checkstate2 = 0
-
+    $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
+    
     $('input:radio[name="mechanical"]').click(function (){ 
         if (checkstate === true){
             this.checked = false
@@ -102,7 +103,7 @@ window.onload = function(){
         }
         else {
             $('input:radio[name="cell_diff_expression"]').attr('disabled', false);
-            $('input:radio[name="cell_diff_tissue"]').attr('disabled', false);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
         }
         checkstate = this.checked;
     })
@@ -116,7 +117,6 @@ window.onload = function(){
         if (exp === "score") {
             $('input:radio[name="mechanical"]').attr('disabled', true);
             $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
-            
         }
         else if (exp === "CtValue") {
             $('input:radio[name="mechanical"]').attr('disabled', true);
@@ -128,7 +128,7 @@ window.onload = function(){
         }
         else {
             $('input:radio[name="mechanical"]').attr('disabled', false);
-            $('input:radio[name="cell_diff_tissue"]').attr('disabled', false);
+            $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
         }
         checkstate2 = exp
     })

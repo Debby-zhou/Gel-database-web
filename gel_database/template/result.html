@@ -66,113 +66,120 @@
 
     <!-- Result-->
     <section class="page-section bg-light" id="result">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase"><u>result table</u></h2> 
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase"><u>result table</u></h2> 
+            </div>
         </div>
-    </div>
-    {% if result == "Import error!" %}
-    <div class="container">
-        <div class="text-center">
-            <h5 class="section-subheading">
-                {{ result | upper}}
-            </h5>
-    </div>
-    {% else %}
-    
-    <div class="container-fluid">
-        <div class="text-right" style="padding-right: 2em; padding-bottom: 1em;">
-            <input type="button" class="btn btn-outline-primary" onclick="javascript:location.href='../#type'" value="Back"></input>
-        </div>
-        <div class="card">
-            <div class="card-header">
+        {% if result == "Import error!" %}
+        <div class="container">
+            <div class="text-center">
                 <h5 class="section-subheading">
-                    <i class="fas fa-table"></i>
-                    {% if exp_r.mechanical %}
-                    Mechanical parameter
-                    {% elif exp_r.expression == "score" %}
-                    {{ exp_r.expression | title }}
-                    {% elif exp_r.tissue %}
-                    {{ exp_r.expression }} > {{ exp_r.tissue | lower}}
-                    {% endif %}
+                    {{ result | upper}}
                 </h5>
-                
-            </div>
-            <div class="card-body text-center">
-            <table class="table table-responsive table-hover table-bordered" id="table_id">
-                <thead class="thead-light">
-                    <tr style="position:relative;">
-                        <th>
-                            <h6 class="text-body">UUID</h6>
-                        </th>
-                        <th>
-                            <h6 class="text-body">Gelma concentrstion</h6>
-                        </th>
-                        <th>
-                            <h6 class="text-body">Cure adhesive</h6>
-                        </th>
-                        <th>
-                            <h6 class="text-body">Adhesive concentration</h6>
-                        </th>
-                        <th>
-                            <h6 class="text-body">Light cure time</h6>
-                        </th>
-                        <th>
-                            <h6 class="text-body">Print speed<br>(mm/min)</h6>
-                        </th>
-                        <th>
-                            <h6 class="text-body">Size of tip</h6>
-                        </th>
-                        <th>
-                            <h6 class="text-body">Thickness<br>(mm)</h6>
-                        </th>
+                <h6 class="text-muted">
+                    Sorry, 
+                    {% if exp_r %}
+                    {{ exp_r.expression | lower }} data in {{ exp_r.tissue | lower }} 
+                    {% else %}
+                    this data 
+                    {% endif %}
+                    does not exist. Please choose other one.   
+                </h6>
+        </div>
+        {% else %}
+        
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="section-subheading">
+                        <i class="fas fa-table"></i>
                         {% if exp_r.mechanical %}
-                            <th>
-                                <h6 class="text-body">Average tensile strength</h6>
-                            </th>
-                            <th>
-                                <h6 class="text-body">STD tensile strength</h6>
-                            </th>
-                            <th>
-                                <h6 class="text-body">Average Young's modulus</h6>
-                            </th>
-                            <th>
-                                <h6 class="text-body">STD Young's modulus</h6>
-                            </th>
+                        Mechanical parameter
                         {% elif exp_r.expression == "score" %}
-                            <th><h6 class="text-body">Selfrenewal(discrete)</h6></th>
-                            <th><h6 class="text-body">Ectoderm(discrete)</h6></th>
-                            <th><h6 class="text-body">Mesoderm(discrete)</h6></th>
-                            <th><h6 class="text-body">Endoderm(discrete)</h6></th>
-                            <th><h6 class="text-body">Selfrenewal</h6></th>
-                            <th><h6 class="text-body">Ectoderm</h6></th>
-                            <th><h6 class="text-body">Mesoderm</h6></th>
-                            <th><h6 class="text-body">Endoderm</h6></th>
+                        {{ exp_r.expression | title }}
                         {% elif exp_r.tissue %}
-                            {% for field in fields %}
-                                <th><h6 class="text-body">{{ field | upper }}</h6></th>
-                            {% endfor %}
+                        {{ exp_r.expression }} > {{ exp_r.tissue | lower}}
                         {% endif %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for i in final.values %}
-                    <tr>
-                        {% for j in i.values %}
-                        <td class="text-dark text-center">{{ j }}</td>
+                    </h5>
+                    
+                </div>
+                <div class="card-body text-center">
+                <table class="table table-responsive table-hover table-bordered" id="table_id">
+                    <thead class="thead-light">
+                        <tr style="position:relative;">
+                            <th>
+                                <h6 class="text-body">UUID</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Gelma concentrstion</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Cure adhesive</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Adhesive concentration</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Light cure time</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Print speed<br>(mm/min)</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Size of tip</h6>
+                            </th>
+                            <th>
+                                <h6 class="text-body">Thickness<br>(mm)</h6>
+                            </th>
+                            {% if exp_r.mechanical %}
+                                <th>
+                                    <h6 class="text-body">Average tensile strength</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-body">STD tensile strength</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-body">Average Young's modulus</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-body">STD Young's modulus</h6>
+                                </th>
+                            {% elif exp_r.expression == "score" %}
+                                <th><h6 class="text-body">Selfrenewal(discrete)</h6></th>
+                                <th><h6 class="text-body">Ectoderm(discrete)</h6></th>
+                                <th><h6 class="text-body">Mesoderm(discrete)</h6></th>
+                                <th><h6 class="text-body">Endoderm(discrete)</h6></th>
+                                <th><h6 class="text-body">Selfrenewal</h6></th>
+                                <th><h6 class="text-body">Ectoderm</h6></th>
+                                <th><h6 class="text-body">Mesoderm</h6></th>
+                                <th><h6 class="text-body">Endoderm</h6></th>
+                            {% elif exp_r.tissue %}
+                                {% for field in fields %}
+                                    <th><h6 class="text-body">{{ field | upper }}</h6></th>
+                                {% endfor %}
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in final.values %}
+                        <tr>
+                            {% for j in i.values %}
+                            <td class="text-dark text-center">{{ j }}</td>
+                            {% endfor %}
+                        </tr>
                         {% endfor %}
-                    </tr>
-                    {% endfor %}
-                </tbody>        
-            </table>
+                    </tbody>        
+                </table>
+                </div>
+            </div>
+        
+            <div class="text-center" style="padding-top: 1em;">
+                <input type="button" class="btn btn-outline-primary" onclick="javascript:location.href='../#type'"
+                    value="Back"></input>
             </div>
         </div>
-    </div>
-    
-    {% endif %} 
-    
-
-
+        {% endif %} 
     </section>
     <!-- Footer-->
     <footer class="footer py-4" style="background-color: #343741">
