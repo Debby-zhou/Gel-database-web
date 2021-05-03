@@ -75,10 +75,10 @@
         {% if result == "Import error!" %}
         <div class="container">
             <div class="text-center">
-                <h5 class="section-subheading">
+                <h5 class="section-subheading text-warning">
                     {{ result | upper}}
                 </h5>
-                <h6 class="text-muted">
+                <h6>
                     Sorry, 
                     {% if exp_r %}
                     {{ exp_r.expression | lower }} data in {{ exp_r.tissue | lower }} 
@@ -87,6 +87,10 @@
                     {% endif %}
                     does not exist. Please choose other one.   
                 </h6>
+                <div class="text-center" style="padding-top: 1em;">
+                    <input type="button" class="btn btn-outline-primary" onclick="javascript:location.href='../#type'"
+                        value="Back"></input>
+                </div>
         </div>
         {% else %}
         

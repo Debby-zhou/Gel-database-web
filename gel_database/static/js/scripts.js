@@ -64,20 +64,31 @@ var btn_val = []
 function get_value(obj) {
     btn_val.push(obj)
     if (btn_val.length === 2) {
-        alert("You choose " + btn_val[0] + " and " + btn_val[1] + ". \nThe HTML file is too large, please wait patiently.");
-        document.getElementById("resultName").innerHTML = "Model result"
-        if (btn_val[0] === "I2959"){
-            document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_" + btn_val[0] + ".html"
+        if (btn_val[0] === btn_val[1]){
+            alert("You can't choose " + btn_val[0] + " and " + btn_val[1] + ".");
+            btn_val = [];
         }
-        else if (btn_val[0] === "LAP"){
-            document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_w_EXP_" + btn_val[0] + ".html"
+        else {
+            if (btn_val[0] !== "I2959" & btn_val[0] !== "LAP"){
+                tmp = btn_val[0];
+                btn_val[0] = btn_val[1];
+                btn_val[1] = tmp;
+            }
+            alert("You choose " + btn_val[0] + " and " + btn_val[1] + ". \nThe HTML file is too large, please wait patiently.");
+            document.getElementById("resultName").innerHTML = "Model result"
+            if (btn_val[0] === "I2959"){
+                document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_" + btn_val[0] + ".html"
+            }
+            else if (btn_val[0] === "LAP"){
+                document.getElementById("htmlfile").src = "/static/assets/model/mechanical/" + btn_val[1] + "_Predict_Model_w_EXP_" + btn_val[0] + ".html"
+            }
+            document.getElementById("result_navigator").style.display = 'block';
+            document.getElementById("result").style.display = 'block';
+            window.location.href = "#result"
+            btn_val = [];
+            $("#tensile").attr('disabled', true);
+            $("#youngs").attr('disabled', true);
         }
-        document.getElementById("result_navigator").style.display = 'block';
-        document.getElementById("result").style.display = 'block';
-        window.location.href = "#result"
-        btn_val = [];
-        $("#tensile").attr('disabled', true);
-        $("#youngs").attr('disabled', true);
     }
     else if (btn_val.length === 1) {
         $("#tensile").removeAttr('disabled');

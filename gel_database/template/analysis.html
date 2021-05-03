@@ -78,14 +78,14 @@
                     <div class="card-body row">
                         <div class="col">
                             <h5 class="mark lead text-center">Cure adhesive type</h5>
-                            <div class="btn-group" style="padding: 1em;">
+                            <div class="btn-group btn-block" style="padding: 1em;">
                                 <input type="button" class="btn btn-outline-secondary" value="I2959" id="I2959" onclick="get_value(this.value)">
                                 <input type="button" class="btn btn-outline-secondary" value="LAP" id="LAP" onclick="get_value(this.value)">
                             </div>
                         </div>
                         <div class="col">
                             <h5 class="mark lead text-center">Mechanical properties</h5>
-                            <div class="btn-group" style="padding: 1em;">
+                            <div class="btn-group btn-block" style="padding: 1em;">
                                 <input type="button" class="btn btn-outline-secondary" value="Tensile_Strength" onclick="get_value(this.value)" disabled="disabled" id="tensile">
                                 <input type="button" class="btn btn-outline-secondary" value="Young's_Modulus" onclick="get_value(this.value)" disabled="disabled" id="youngs">
                             </div>
@@ -105,17 +105,17 @@
                                 <div style="padding: 1em;">
                                     <form action="#tissue" method="POST">
                                         {% csrf_token %}
-                                        <div class="row">   
+                                        <div class="row btn-block">   
                                         <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Control">
                                         <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Selfrenewal">
                                         <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Other">
                                         </div>
-                                        <div class="row">
+                                        <div class="row btn-block">
                                         <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Ectoderm">
                                         <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Endoderm">
                                         <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Mesoderm">
                                         </div>
-                                        <div class="row">
+                                        <div class="row btn-block">
                                         <input type="submit" class="btn btn-outline-secondary col-md-3" name="category" value="Mesendoderm">
                                         </div>
                                     </form>
@@ -206,11 +206,11 @@
     <script src="/static/assets/mail/contact_me.js"></script>
     <!-- Core theme JS-->
     <script src="/static/js/scripts.js"></script>
-    <script>
+    <!-- <script>
         if (document.getElementById("result").style.display === 'block') {
             document.getElementById("result_navigator").style.display = 'block';
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
