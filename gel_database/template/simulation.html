@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Table CSS-->
+    <link href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/static/css/styles.css" rel="stylesheet" />
 </head>
@@ -50,7 +52,10 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item" id="result_navigator" style="display: none;"><a class="nav-link js-scroll-trigger" href=#result >RESULT</a></li>
+                    <li class="nav-item" id="result_navigator"><a class="nav-link js-scroll-trigger" href=#data>TYPES</a></li>
+                    {% if sim_r %}
+                    <li class="nav-item" id="result_navigator"><a class="nav-link js-scroll-trigger" href=#result >RESULT</a></li>
+                    {% endif %}
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="javascript:block_redirect();">LOG OUT</a></li>
                 </ul>
             </div>
@@ -71,60 +76,173 @@
             </div>
             <form action="#result" method="POST">
                 {% csrf_token %}
-            <div class="row card-group">
-                <div class="col-md-5 card" style="padding: 0;">
-                    <div class="card-header text-center">
-                        <h5>Cyclic tensile test of hydrogels</h5>
+                <div class="row card-group">
+                    <div class="col-md-5 card" style="padding: 0;">
+                        <div class="card-header text-center">
+                            <h5>Cyclic tensile test of hydrogels</h5>
+                        </div>
+                        <div class="card-body">
+                                {{ form.simparameter }}
+                        </div>
                     </div>
-                    <div class="card-body">
-                            {{ form.simparameter }}
+                    <div class="col-md-7 card" style="padding: 0;">
+                        <div class="card-header text-center">
+                            <h5>Dynamic mechanics of cell in stimulus-responsive hydrogel</h5>
+                        </div>
+                        <div class="card-body">
+                            {{ form.simpicture }}
+                            <div id="simchoose" style="display: none; padding-left: 3em;">
+                                <div >
+                                    <h6 class="text-info">
+                                        <i class="fas fa-concierge-bell"></i> "-" means all data.</h6>
+                                </div>
+                            <table id="simtable">
+                                <tr>
+                                    <td>{{ form.gelma.label }}</td>
+                                    <td>{{ form.gelma }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.cure.label }}</td>
+                                    <td>{{ form.cure }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.adhesive.label }}</td>
+                                    <td>{{ form.adhesive }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.light.label }}</td>
+                                    <td>{{ form.light }}</td>
+                                </tr>
+                                <tr>
+                                    <td id="test">{{ form.groove.label }}</td>
+                                    <td>{{ form.groove }}</td>
+                                </tr>
+                            </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-7 card" style="padding: 0;">
-                    <div class="card-header text-center">
-                        <h5>Dynamic mechanics of cell in stimulus-responsive hydrogel</h5>
-                    </div>
-                    <div class="card-body">
-                        {{ form.simpicture }}
-                        <table id="simtable" style="display: none;">
-                            <tr>
-                                <td>{{ form.gelma.label }}</td>
-                                <td>{{ form.gelma }}</td>
-                            </tr>
-                            <tr>
-                                <td>{{ form.cure.label }}</td>
-                                <td>{{ form.cure }}</td>
-                            </tr>
-                            <tr>
-                                <td>{{ form.adhesive.label }}</td>
-                                <td>{{ form.adhesive }}</td>
-                            </tr>
-                            <tr>
-                                <td>{{ form.light.label }}</td>
-                                <td>{{ form.light }}</td>
-                            </tr>
-                            <tr>
-                                <td id="test">{{ form.groove.label }}</td>
-                                <td>{{ form.groove }}</td>
-                            </tr>
-                        </table>
-                    </div>
+                <div class="text-center" style="padding: 1em;">
+                    <input type="submit" class="btn btn-primary"   value="SHOW">
                 </div>
-            </div>
-            <div class="text-center" style="padding: 1em;">
-                <input type="submit" class="btn btn-primary"  onclick="get_sim_value()" value="SHOW">
-            </div>
             </form>
         </div>
     </section>
     <!--Result-->
-    <section class="page-section bg-light" id="result" style="display: none;">
+    {% if sim_r %}
+    <section class="page-section bg-light" id="result">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">result</h2>
             </div>
         </div>
+        {% if sim_r.simparameter %}
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="section-subheading">
+                        <i class="fas fa-table"></i>
+                        Mechancial property
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-responsive table-hover table-bordered" id="table_id">
+                        <thead class="thead-light">
+                            <tr>
+                                <th><h6 class="text-body">SID</h6></th>
+                                <th><h6 class="text-body">Gelma concentrstion</h6></th>
+                                <th><h6 class="text-body">Cure adhesive</h6>
+                                <th><h6 class="text-body">Adhesive concentration</h6></th>
+                                <th><h6 class="text-body">Light cure time</h6></th>
+                                <th><h6 class="text-body">Groove angle</h6></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in mechrows %}
+                                <tr>
+                                    {% for r in row %}
+                                        <td>
+                                            {{ r }}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% elif sim_r.simpicture %}
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="section-subheading">
+                        <i class="fas fa-table"></i>
+                        Dynamic mechanics of cell
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-responsive table-hover table-bordered" id="table_id">
+                        <thead class="thead-light">
+                            <tr>
+                                <th><h6 class="text-body">SID</h6></th>
+                                <th><h6 class="text-body">Max mises</h6></th>
+                                <th>
+                                    <h6 class="text-body">Max principal</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-body">Min principal</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-body">Convergence</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-body">Picture</h6>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in resrows %}
+                            <tr>
+                                {% for r in row %}
+                                <td>
+                                    {{ r }}
+                                </td>
+                                {% endfor %}
+                                <td>
+                                    <a class="portfolio-link" data-toggle="modal" href="#modalresult">picture</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </section>
+    {% endif %}
+<div class="portfolio-modal modal fade" id="modalresult" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <i class="fas fa-window-close"></i>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    {{ srcresult }}
+                    <div class="col-md-10">
+                        <div class="modal-body">
+                            <img class="img-fluid d-block" src="/static/assets/simulation/results/LAP-0_25p-10_0p-30s-d00.png" id="simpicresult">
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Footer-->
     <footer class="footer py-4" style="background-color: #343741">
         <div class="container">
@@ -152,8 +270,22 @@
     <!-- Contact form JS-->
     <script src="/static/assets/mail/jqBootstrapValidation.js"></script>
     <script src="/static/assets/mail/contact_me.js"></script>
+    <!-- Table JS-->
+    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <!-- Core theme JS-->
     <script src="/static/js/scripts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id')
+                .addClass('nowrap')
+                .dataTable({
+                    responsive: true,
+                    columnDefs: [
+                        { targets: [-1, -3], className: 'dt-body-right' }
+                    ]
+                });
+        });
+    </script>
 </body>
 
 </html>

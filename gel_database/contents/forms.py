@@ -169,6 +169,7 @@ class SelectSimPic(forms.Form):
 		widget = forms.widgets.RadioSelect())
 	gelma = forms.ChoiceField(label="Gelma concentration: ",
 		choices=(
+			('-','-'),
 			(0.1,0.1),
 			(0.125,0.125),
 			(0.15,0.15),
@@ -176,15 +177,18 @@ class SelectSimPic(forms.Form):
 		))
 	cure = forms.ChoiceField(label="Cure adhesive types: ",
 		choices=(
-			('LAP','LAP'),
+			('-','-'),
+			('LAP','LAP')
 		))
 	adhesive = forms.ChoiceField(label="Adhesive concentration: ",
 		choices=(
+			('-','-'),
 			(0.0025,0.0025),
 			(0.005,0.005)
 		))
 	light = forms.ChoiceField(label="Light cure time: ",
 		choices=(
+			('-','-'),
 			(30,30),
 			(50,50),
 			(70,70),
@@ -192,6 +196,7 @@ class SelectSimPic(forms.Form):
 		))
 	groove = forms.ChoiceField(label="Groove angle: ",
 		choices=(
+			('-','-'),
 			(0,0),
 			(5,5),
 			(10,10),

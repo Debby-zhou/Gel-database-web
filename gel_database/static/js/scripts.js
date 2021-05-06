@@ -102,10 +102,6 @@ function block_redirect(){
     }
 }
 
-function get_sim_value() {
-    document.getElementById("result_navigator").style.display = 'block';
-    document.getElementById("result").style.display = 'block';
-}
 
 window.onload = function(){
     //experiment.html
@@ -174,12 +170,12 @@ window.onload = function(){
         if (checksimstate2 === true) {
             this.checked = false;
             $('input:radio[name="simparameter"]').attr('disabled', false);
-            document.getElementById("simtable").style.display = 'none';
+            document.getElementById("simchoose").style.display = 'none';
         }
         else {
             this.checked = true;
             $('input:radio[name="simparameter"]').attr('disabled', true);
-            document.getElementById("simtable").style.display = 'block';
+            document.getElementById("simchoose").style.display = 'block';
         }
         checksimstate2 = this.checked;
     })

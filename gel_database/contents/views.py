@@ -4,6 +4,7 @@ import os
 from contents.forms import SelectData, SelectGene, UploadExpData, SelectSimPic
 from .models import *
 from django.forms.models import model_to_dict
+import csv
 
 # Create your views here.
 def logout(request):
@@ -12,10 +13,33 @@ def logout(request):
 def showhome(request):
     return render(request, 'home.html')
 def showsimulation(request):
-    if request.method =="POST":
+    with open('static/assets/simulation/simulation_result_1227.csv', newline='') as csvfile:
+        rows = csv.reader(csvfile)
+        next(rows)
+        rows = list(rows)
+    if request.method == "POST":
         form = SelectSimPic(request.POST)
     else:
         form = SelectSimPic()
+    if request.POST:
+        sim_r = {}
+        formname = ['simparameter','simpicture','cure','adhesive','gelma','light','groove']
+        for ele in formname:
+            if ele in request.POST:
+                sim_r[ele] = request.POST.get(ele)
+        if 'simparameter' in sim_r.keys():
+            mechrows = [i[0:5] for i in rows]
+            for i in range(len(rows)):
+                mechrows[i].insert(0,i+1)
+        elif 'simpicture' in sim_r.keys():
+            srcresult = ""
+            resmrows = [i[0:5] for i in rows]
+            resrows = [i[5:9] for i in rows]
+            for i in range(len(rows)):
+                resrows[i].insert(0,i+1)
+            
+            
+
     return render(request, 'simulation.html', locals())
 def showtemplate(request):
     return render(request, 'template.html')
