@@ -102,18 +102,25 @@ function block_redirect(){
     }
 }
 
+function get_sim_value() {
+    document.getElementById("result_navigator").style.display = 'block';
+    document.getElementById("result").style.display = 'block';
+}
+
 window.onload = function(){
     //experiment.html
-    var checkstate = 0
-    var checkstate2 = 0
+    var checkstate = 0;
+    var checkstate2 = 0;
+    var checksimstate = 0;
+    var checksimstate2 = 0;
     $('input:radio[name="cell_diff_tissue"]').attr('disabled', true);
     
     $('input:radio[name="mechanical"]').click(function (){ 
         if (checkstate === true){
-            this.checked = false
+            this.checked = false;
         }
         else{
-            this.checked = true
+            this.checked = true;
         }
         if (this.checked) {
             $('input:radio[name="cell_diff_expression"]').attr('disabled', true);
@@ -150,6 +157,31 @@ window.onload = function(){
         }
         checkstate2 = exp
     })
-    
+
+    $('input:radio[name="simparameter"]').click(function() {
+        if (checksimstate === true) {
+            this.checked = false;
+            $('input:radio[name="simpicture"]').attr('disabled', false);
+        }
+        else{
+            this.checked = true;
+            $('input:radio[name="simpicture"]').attr('disabled', true);
+        }
+        checksimstate = this.checked;
+    })
+
+    $('input:radio[name="simpicture"]').click(function () {
+        if (checksimstate2 === true) {
+            this.checked = false;
+            $('input:radio[name="simparameter"]').attr('disabled', false);
+            document.getElementById("simtable").style.display = 'none';
+        }
+        else {
+            this.checked = true;
+            $('input:radio[name="simparameter"]').attr('disabled', true);
+            document.getElementById("simtable").style.display = 'block';
+        }
+        checksimstate2 = this.checked;
+    })
 }
 

@@ -50,6 +50,7 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item" id="result_navigator" style="display: none;"><a class="nav-link js-scroll-trigger" href=#result >RESULT</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="javascript:block_redirect();">LOG OUT</a></li>
                 </ul>
             </div>
@@ -64,10 +65,64 @@
 
     <!-- Data -->
     <section class="page-section" id="data">
+        <div class="container-fluid" style="width: 90%;">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Data types</h2>
+            </div>
+            <form action="#result" method="POST">
+                {% csrf_token %}
+            <div class="row card-group">
+                <div class="col-md-5 card" style="padding: 0;">
+                    <div class="card-header text-center">
+                        <h5>Cyclic tensile test of hydrogels</h5>
+                    </div>
+                    <div class="card-body">
+                            {{ form.simparameter }}
+                    </div>
+                </div>
+                <div class="col-md-7 card" style="padding: 0;">
+                    <div class="card-header text-center">
+                        <h5>Dynamic mechanics of cell in stimulus-responsive hydrogel</h5>
+                    </div>
+                    <div class="card-body">
+                        {{ form.simpicture }}
+                        <table id="simtable" style="display: none;">
+                            <tr>
+                                <td>{{ form.gelma.label }}</td>
+                                <td>{{ form.gelma }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.cure.label }}</td>
+                                <td>{{ form.cure }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.adhesive.label }}</td>
+                                <td>{{ form.adhesive }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.light.label }}</td>
+                                <td>{{ form.light }}</td>
+                            </tr>
+                            <tr>
+                                <td id="test">{{ form.groove.label }}</td>
+                                <td>{{ form.groove }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="padding: 1em;">
+                <input type="submit" class="btn btn-primary"  onclick="get_sim_value()" value="SHOW">
+            </div>
+            </form>
+        </div>
+    </section>
+    <!--Result-->
+    <section class="page-section bg-light" id="result" style="display: none;">
         <div class="container">
             <div class="text-center">
-                <h5 class="text-secondary">Comming soon...</h5>
-            </div> 
+                <h2 class="section-heading text-uppercase">result</h2>
+            </div>
         </div>
     </section>
     <!-- Footer-->

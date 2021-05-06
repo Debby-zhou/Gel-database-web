@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponseRedirect,Http404,HttpResponse
 from django.contrib import auth
 import os
-from contents.forms import SelectData, SelectGene
+from contents.forms import SelectData, SelectGene, UploadExpData, SelectSimPic
 from .models import *
 from django.forms.models import model_to_dict
 
@@ -12,7 +12,11 @@ def logout(request):
 def showhome(request):
     return render(request, 'home.html')
 def showsimulation(request):
-    return render(request, 'simulation.html')
+    if request.method =="POST":
+        form = SelectSimPic(request.POST)
+    else:
+        form = SelectSimPic()
+    return render(request, 'simulation.html', locals())
 def showtemplate(request):
     return render(request, 'template.html')
 def showexperiment(request):
