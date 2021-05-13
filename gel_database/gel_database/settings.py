@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contents',
     'welcome',
+    'experiment',
+    'simulation',
+    'analysis',
 ]
 
 MIDDLEWARE = [
@@ -79,24 +82,24 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'experiment',
-        'USER': 'root',
-        'PASSWORD': 'qaz123456789',
+        'USER': 'experiment_user',
+        'PASSWORD': 'experiment920344',
         'HOST': 'db',
         'PORT': '3306',        
     },
     'simulationdb': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'simulation',
-        'USER': 'root',
-        'PASSWORD': 'qaz123456789',
+        'USER': 'simulation_user',
+        'PASSWORD': 'simulation920344',
         'HOST': 'db',
         'PORT': '3306',        
     },
     'analysisdb': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'analysis',
-        'USER': 'root',
-        'PASSWORD': 'qaz123456789',
+        'USER': 'analysis_user',
+        'PASSWORD': 'analysis920344',
         'HOST': 'db',
         'PORT': '3306',        
     }, 
@@ -108,10 +111,14 @@ DATABASES = {
 
 
 DATABASE_APPS_MAPPING = {
-    'admin': 'analysisdb',
+    'admin': 'default',
     'welcome': 'userdb',
-    'contents': ['default', 'simulationdb', 'analysisdb', 'userdb'],
+    'contents': 'userdb',
+    'simulation': 'simulationdb',
+    'analysis': 'analysisdb',
+    'experiment': 'default',
 }
+#DATABASE_ROUTERS = ['gel_database.db_router.simulationRouter','gel_database.db_router.analysisRouter']
 CACHES = {
      "default": {
          "BACKEND": "django_redis.cache.RedisCache",

@@ -45,9 +45,9 @@
                         <div class="dropdown">
                             <a class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown" href=#>DATA</a>
                             <ul class="dropdown-menu" style="background-color: #343741;">
-                                <li class="dropdown-item"><a href="/contents/experiment/">experiment</a></li>
-                                <li class="dropdown-item"><a href="/contents/simulation/">simulation</a></li>
-                                <li class="dropdown-item"><a href="/contents/analysis/">analysis</a></li>
+                                <li class="dropdown-item"><a href="/experiment">experiment</a></li>
+                                <li class="dropdown-item"><a href="/simulation">simulation</a></li>
+                                <li class="dropdown-item"><a href="/analysis">analysis</a></li>
                                 
                             </ul>
                         </div>
@@ -90,35 +90,7 @@
                             <h5>Dynamic mechanics of cell in stimulus-responsive hydrogel</h5>
                         </div>
                         <div class="card-body">
-                            {{ form.simpicture }}
-                            <div id="simchoose" style="display: none; padding-left: 3em;">
-                                <div >
-                                    <h6 class="text-info">
-                                        <i class="fas fa-concierge-bell"></i> "-" means all data.</h6>
-                                </div>
-                            <table id="simtable">
-                                <tr>
-                                    <td>{{ form.gelma.label }}</td>
-                                    <td>{{ form.gelma }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ form.cure.label }}</td>
-                                    <td>{{ form.cure }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ form.adhesive.label }}</td>
-                                    <td>{{ form.adhesive }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ form.light.label }}</td>
-                                    <td>{{ form.light }}</td>
-                                </tr>
-                                <tr>
-                                    <td id="test">{{ form.groove.label }}</td>
-                                    <td>{{ form.groove }}</td>
-                                </tr>
-                            </table>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -145,7 +117,7 @@
                         Mechancial property
                     </h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center">
                     <table class="table table-responsive table-hover table-bordered" id="table_id">
                         <thead class="thead-light">
                             <tr>
@@ -155,64 +127,24 @@
                                 <th><h6 class="text-body">Adhesive concentration</h6></th>
                                 <th><h6 class="text-body">Light cure time</h6></th>
                                 <th><h6 class="text-body">Groove angle</h6></th>
+                                <th><h6 class="text-body">Result</h6></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for row in mechrows %}
+                            {% for k in final_parameter.values %}
                                 <tr>
-                                    {% for r in row %}
+                                    {% for v in k %}
+                                        <td>{{ v }}</td>
+                                        {% if forloop.last %}
                                         <td>
-                                            {{ r }}
+                                            <a class="portfolio-link" data-toggle="modal" href="#modalresult">
+                                                picture
+                                            </a>
                                         </td>
+                                        {% endif %}
                                     {% endfor %}
+                                    
                                 </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        {% elif sim_r.simpicture %}
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="section-subheading">
-                        <i class="fas fa-table"></i>
-                        Dynamic mechanics of cell
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <table class="table table-responsive table-hover table-bordered" id="table_id">
-                        <thead class="thead-light">
-                            <tr>
-                                <th><h6 class="text-body">SID</h6></th>
-                                <th><h6 class="text-body">Max mises</h6></th>
-                                <th>
-                                    <h6 class="text-body">Max principal</h6>
-                                </th>
-                                <th>
-                                    <h6 class="text-body">Min principal</h6>
-                                </th>
-                                <th>
-                                    <h6 class="text-body">Convergence</h6>
-                                </th>
-                                <th>
-                                    <h6 class="text-body">Picture</h6>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for row in resrows %}
-                            <tr>
-                                {% for r in row %}
-                                <td>
-                                    {{ r }}
-                                </td>
-                                {% endfor %}
-                                <td>
-                                    <a class="portfolio-link" data-toggle="modal" href="#modalresult">picture</a>
-                                </td>
-                            </tr>
                             {% endfor %}
                         </tbody>
                     </table>
@@ -222,20 +154,47 @@
         {% endif %}
     </section>
     {% endif %}
+
 <div class="portfolio-modal modal fade" id="modalresult" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <i class="fas fa-window-close"></i>
             </div>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row justify-content-center">
-                    {{ srcresult }}
                     <div class="col-md-10">
                         <div class="modal-body">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>
+                                                <h6 class="text-body">Max mises</h6>
+                                            </th>
+                                            <th>
+                                                <h6 class="text-body">Max Principal</h6>
+                                            </th>
+                                            <th>
+                                                <h6 class="text-body">Min principal</h6>
+                                            </th>
+                                            <th>
+                                                <h6 class="text-body">Convergence</h6>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>34890.9400</td>
+                                            <td>39004.3300</td>
+                                            <td>-5287.3600</td>
+                                            <td>TRUE</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <img class="img-fluid d-block" src="/static/assets/simulation/results/LAP-0_25p-10_0p-30s-d00.png" id="simpicresult">
                         </div>
-                        
                     </div>
 
                 </div>
@@ -243,13 +202,14 @@
         </div>
     </div>
 </div>
+
     <!-- Footer-->
     <footer class="footer py-4" style="background-color: #343741">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-left" style="color: white;">Copyright © Debby 2021</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2" href="http://smagel.nchc.org.tw/"><i
+                    <a class="btn btn-dark btn-social mx-2" href="https://smagel.nchc.org.tw/"><i
                             class="fas fa-network-wired"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/nchc.tw"><i
                             class="fab fa-facebook-f"></i></a>
