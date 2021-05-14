@@ -131,19 +131,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for k in final_parameter.values %}
+                            {% for i,k in final_parameter.items %}
                                 <tr>
                                     {% for v in k %}
                                         <td>{{ v }}</td>
                                         {% if forloop.last %}
                                         <td>
-                                            <a class="portfolio-link" data-toggle="modal" href="#modalresult">
+                                            <a class="portfolio-link" data-toggle="modal" href="#modalresult" id="modallink{{ i }}" onclick="showpicture(this)">
                                                 picture
                                             </a>
                                         </td>
                                         {% endif %}
                                     {% endfor %}
-                                    
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -154,6 +153,7 @@
         {% endif %}
     </section>
     {% endif %}
+
 
 <div class="portfolio-modal modal fade" id="modalresult" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -170,6 +170,9 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th>
+                                                <h6 class="text-body">SID</h6>
+                                            </th>
+                                            <th>
                                                 <h6 class="text-body">Max mises</h6>
                                             </th>
                                             <th>
@@ -183,20 +186,23 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tbody_id">ㄑ
+                                        {% for i,v in final_result.items %}
                                         <tr>
-                                            <td>34890.9400</td>
-                                            <td>39004.3300</td>
-                                            <td>-5287.3600</td>
-                                            <td>TRUE</td>
+                                            {% ifequal i 1 %}
+                                            <td id="td1"></td>
+                                            {% for r in v %}
+                                            <td>{{ r }}</td>
+                                            {% endfor %}
+                                            {% endifequal %}
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
                             <img class="img-fluid d-block" src="/static/assets/simulation/results/LAP-0_25p-10_0p-30s-d00.png" id="simpicresult">
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -234,7 +240,7 @@
     <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <!-- Core theme JS-->
     <script src="/static/js/scripts.js"></script>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#table_id')
                 .addClass('nowrap')

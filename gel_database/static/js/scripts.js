@@ -101,15 +101,13 @@ function block_redirect(){
         window.location.href = "/welcome/";
     }
 }
-function showpicture(){
-    var d = document.getElementById("table_id");
-    for(var i=0;i<d.rows.length;i++){
-        for(var j=0;j<d.rows[i].cells.length;j++){
-            if (j==6){
-                var al = d.rows[i].cells[j].children[0].innerHTML;
-            }  
+function showpicture(obj){
+    for(var i=0;i<608;i++){
+        if (obj.id === "modallink"+i) {
+            document.getElementById("td1").innerHTML = i+1;
         }
     }
+    
 }
 
 window.onload = function(){

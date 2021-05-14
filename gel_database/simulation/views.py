@@ -4,7 +4,7 @@ import os
 from simulation.forms import SelectSimPic
 from .models import *
 from django.forms.models import model_to_dict
-import csv
+import csv, json
 
 def showsimulation(request):
     models = SimulationResult1227
