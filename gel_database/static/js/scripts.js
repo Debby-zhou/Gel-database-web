@@ -107,7 +107,6 @@ function showpicture(obj){
             document.getElementById("td1").innerHTML = i+1;
         }
     }
-    
 }
 
 window.onload = function(){

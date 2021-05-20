@@ -90,7 +90,7 @@
                             <h5>Dynamic mechanics of cell in stimulus-responsive hydrogel</h5>
                         </div>
                         <div class="card-body">
-                            
+                                {{ form.dynamicmech }}
                         </div>
                     </div>
                 </div>
@@ -150,64 +150,158 @@
                 </div>
             </div>
         </div>
+        {% elif sim_r.dynamicmech %}
+        <div class="container">
+            {% ifequal sim_r.dynamicmech 'micro' %}
+                <div class="card-body text-center">
+                    <table class="table table-hover table-bordered align-items-center">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>SID</th>
+                                <th>Pitch(pixel)</th>
+                                <th>Porosity</th>
+                                <th>File</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>5</td><td>84.4%</td><td><a id="porosity84" data-toggle="modal" href="#modal_p84" >video</a></td></tr>
+                            <tr><td>2</td><td>6</td><td>90.0%</td><td><a id="porosity90" data-toggle="modal" href="#modal_p90" >video</a></td></tr>
+                            <tr><td>3</td><td>7</td><td>93.9%</td><td><a id="porosity94" data-toggle="modal" href="#modal_p94" >video</a></td></tr>
+                            <tr><td>4</td><td>10</td><td>97.2%</td><td><a id="porosity97" data-toggle="modal" href="#modal_p97">video</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+            {% endifequal %}
+        </div>
         {% endif %}
     </section>
     {% endif %}
 
-
-<div class="portfolio-modal modal fade" id="modalresult" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <i class="fas fa-window-close"></i>
-            </div>
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <div class="modal-body">
-                            <div>
-                                <table class="table table-hover table-bordered">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>
-                                                <h6 class="text-body">SID</h6>
-                                            </th>
-                                            <th>
-                                                <h6 class="text-body">Max mises</h6>
-                                            </th>
-                                            <th>
-                                                <h6 class="text-body">Max Principal</h6>
-                                            </th>
-                                            <th>
-                                                <h6 class="text-body">Min principal</h6>
-                                            </th>
-                                            <th>
-                                                <h6 class="text-body">Convergence</h6>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tbody_id">ㄑ
-                                        {% for i,v in final_result.items %}
-                                        <tr>
-                                            {% ifequal i 1 %}
-                                            <td id="td1"></td>
-                                            {% for r in v %}
-                                            <td>{{ r }}</td>
+    <!--Modal: img-->
+    <div class="portfolio-modal modal fade" id="modalresult" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <div class="modal-body">
+                                <div>
+                                    <table class="table table-hover table-bordered">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>
+                                                    <h6 class="text-body">SID</h6>
+                                                </th>
+                                                <th>
+                                                    <h6 class="text-body">Max mises</h6>
+                                                </th>
+                                                <th>
+                                                    <h6 class="text-body">Max Principal</h6>
+                                                </th>
+                                                <th>
+                                                    <h6 class="text-body">Min principal</h6>
+                                                </th>
+                                                <th>
+                                                    <h6 class="text-body">Convergence</h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody_id">
+                                            {% for i,v in final_result.items %}
+                                            <tr>
+                                                {% ifequal i 1 %}
+                                                <td id="td1"></td>
+                                                {% for r in v %}
+                                                <td>{{ r }}</td>
+                                                {% endfor %}
+                                                {% endifequal %}
+                                            </tr>
                                             {% endfor %}
-                                            {% endifequal %}
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <img class="img-fluid d-block" src="/static/assets/simulation/results/LAP-0_25p-10_0p-30s-d00.png" id="simpicresult">
                             </div>
-                            <img class="img-fluid d-block" src="/static/assets/simulation/results/LAP-0_25p-10_0p-30s-d00.png" id="simpicresult">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!--Modal: mp4-->
+    <div class="modal fade" id="modal_p84" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding: 0.5em;">
+                        <i class="fas fa-window-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video width="480px" height="400px" controls>
+                        <source src="{% static 'assets/simulation/porosity84%.mp4' %}" type="video/mp4">
+                        Your video does not support video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_p90" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding: 0.5em;">
+                        <i class="fas fa-window-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video width="480px" height="400px" controls>
+                        <source src="{% static 'assets/simulation/porosity90%.mp4' %}" type="video/mp4">
+                        Your video does not support video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_p94" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding: 0.5em;">
+                        <i class="fas fa-window-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video width="480px" height="400px" controls>
+                        <source src="{% static 'assets/simulation/porosity94%.mp4' %}" type="video/mp4">
+                        Your video does not support video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_p97" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding: 0.5em;">
+                        <i class="fas fa-window-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video width="480px" height="400px" controls>
+                        <source src="{% static 'assets/simulation/porosity97%.mp4' %}" type="video/mp4">
+                        Your video does not support video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer-->
     <footer class="footer py-4" style="background-color: #343741">

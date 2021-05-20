@@ -8,6 +8,13 @@ class SelectSimPic(forms.Form):
 		),
 		required = False,
 		widget = forms.widgets.RadioSelect())
+	dynamicmech = forms.ChoiceField(label="Scope: ",
+		choices=(
+			('macro','macroscope'),
+			('micro','microscope')
+		),
+		required = False,
+		widget = forms.widgets.RadioSelect())
 	simpicture = forms.ChoiceField(label="simpicture: ",
 		choices=(
 			('result picture','picture'),
@@ -63,3 +70,4 @@ class SelectSimPic(forms.Form):
 			(85,85),
 			(90,90)
 		))
+

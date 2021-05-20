@@ -21,15 +21,18 @@ def showsimulation(request):
         sim_r = {}
         final_parameter = {}
         final_result = {}
-        sim_r['simparameter'] = request.POST.get('simparameter')
-        result = get_model_data(models)
-        a = 0
-        if(result != "Import error!"):
-            for x in result:
-                final[a] = model_to_dict(x)
-                final_parameter[a] = list(final[a].values())[0:6]
-                final_result[a] = list(final[a].values())[6:]
-                a += 1
+        if 'simparameter' in request.POST:
+            sim_r['simparameter'] = request.POST.get('simparameter')
+            result = get_model_data(models)
+            a = 0
+            if(result != "Import error!"):
+                for x in result:
+                    final[a] = model_to_dict(x)
+                    final_parameter[a] = list(final[a].values())[0:6]
+                    final_result[a] = list(final[a].values())[6:]
+                    a += 1
+        elif 'dynamicmech' in request.POST:
+            sim_r['dynamicmech'] = request.POST.get('dynamicmech')
     return render(request, 'simulation.html', locals())
 def get_model_data(modelName):
     try:
